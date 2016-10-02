@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountPayable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountReceivable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UdpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="30" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="RegDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="220" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Specialist" Type="varchar" MaxLength="50" />
+    <Property Name="PermanetHospital" Type="varchar" MaxLength="300" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Email" Type="varchar" MaxLength="68" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="JoiningDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ExpenseDate" Type="datetime" />
+    <Property Name="ExpenseType" Type="varchar" MaxLength="200" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="ExpenseTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="ExpenseType" Type="varchar" MaxLength="200" />
+    <Property Name="ExpenseDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Volume" Type="varchar" MaxLength="120" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Honorarium">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="Honorarium" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'A2zHospitalDb.dbo.img' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="img">
+          <Property Name="imge" Type="image" />
+        </EntityType>-->
+  <EntityType Name="Income">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="Particulars" Type="varchar" MaxLength="200" />
+    <Property Name="ServiceType" Type="varchar" MaxLength="100" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="IncomeTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="IndoorIncomeTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="InvoiceType" Type="varchar" MaxLength="150" />
+    <Property Name="Status" Type="varchar" MaxLength="200" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="isProductDelivered" Type="bit" />
+  </EntityType>
+  <EntityType Name="InvoiceSub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="varchar(max)" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="InvoiceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="MedicinePurchaseTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MedicineName" Type="varchar" MaxLength="120" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="30" />
+    <Property Name="Dob" Type="datetime" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="fatherOhusbandName" Type="varchar" MaxLength="120" />
+    <Property Name="MotherName" Type="varchar" MaxLength="120" />
+    <Property Name="Email" Type="varchar" MaxLength="64" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+    <Property Name="PermenantAddress" Type="varchar" MaxLength="500" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="RefencedBy" Type="int" />
+    <Property Name="AddmissionDate" Type="datetime" />
+    <Property Name="AgentsId" Type="int" />
+    <Property Name="ReleasedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PatientSub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="AgentId" Type="int" />
+    <Property Name="Doctor" Type="varchar" MaxLength="300" />
+    <Property Name="AddmissionDate" Type="datetime" />
+    <Property Name="ReleasedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="GuadianName" Type="varchar" MaxLength="120" />
+    <Property Name="GuardianMobile" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="productinfo">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productname" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Purchases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="MedicineId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="PurchasingDate" Type="datetime" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="MedicineId" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="PatientType" Type="varchar" MaxLength="120" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="SalingDate" Type="datetime" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="SalesTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MedicineName" Type="varchar" MaxLength="150" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="130" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="130" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Sex" Type="varchar" MaxLength="10" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Roles" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorizedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar(max)" />
+    <Property Name="IsAuthorised" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="Particulars" Type="varchar" MaxLength="100" />
+    <Property Name="Diposit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Debit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="credit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'A2zHospitalDb.dbo.vwInDoorService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwInDoorService">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="InvoiceNo" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="PatientName" Type="varchar" MaxLength="120" />
+    <Property Name="RegNo" Type="varchar" MaxLength="30" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="Sex" Type="varchar" MaxLength="50" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="varchar(max)" />
+    <Property Name="userName" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+    <Property Name="AddmissionDate" Type="datetime" />
+    <Property Name="ReleasedDate" Type="datetime" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+    <Property Name="ServiceType" Type="varchar" MaxLength="100" />
+    <Property Name="Particulars" Type="varchar" MaxLength="200" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'A2zHospitalDb.dbo.vwOutDoorService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwOutDoorService">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="InvoiceNo" Type="int" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="120" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="Sex" Type="varchar" MaxLength="50" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="varchar(max)" />
+    <Property Name="userName" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Particulars" Type="varchar" MaxLength="200" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'A2zHospitalDb.dbo.vwPurchaseMedicine' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPurchaseMedicine">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="Medicine" Type="varchar" MaxLength="120" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PurchasingDate" Type="datetime" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="varchar(max)" />
+    <Property Name="UserName" Type="varchar" MaxLength="120" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'A2zHospitalDb.dbo.vwReportChecker' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwReportChecker">
+    <Key>
+      <PropertyRef Name="invoiceId" />
+      <PropertyRef Name="PatientName" />
+      <PropertyRef Name="DoctorName" />
+    </Key>
+    <Property Name="invoiceId" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="PatientName" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="220" Nullable="false" />
+    <Property Name="isProductDelivered" Type="bit" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'A2zHospitalDb.dbo.vwSalesMedicine' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSalesMedicine">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="patienName" Type="varchar" MaxLength="120" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="Consultant name" Type="varchar" MaxLength="220" />
+    <Property Name="Medicine" Type="varchar" MaxLength="120" />
+    <Property Name="PatientType" Type="varchar" MaxLength="120" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="SalingDate" Type="datetime" />
+    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RegistrationNo" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__Medicine__Compan__1FCDBCEB">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicine">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicine__GroupI__1ED998B2">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicine">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__EmployeeI__30F848ED">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__MedicineI__300424B4">
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="MedicineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CrudOperations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productid" Type="int" Mode="In" />
+    <Parameter Name="productname" Type="varchar" Mode="In" />
+    <Parameter Name="price" Type="int" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SPExpenseTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="ExpenseType" Type="varchar" Mode="In" />
+    <Parameter Name="ExpenseDate" Type="datetime" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGetServices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="keyword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spIncomeTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Particular" Type="varchar" Mode="In" />
+    <Parameter Name="Code" Type="varchar" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="Rate" Type="decimal" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spIndoorIncomeTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Particular" Type="varchar" Mode="In" />
+    <Parameter Name="Code" Type="varchar" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="Rate" Type="decimal" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spIndoorService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spOutdoorService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spPurchaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spSalseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spTodayExpense" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="HospitalDbModelStoreContainer">
+    <EntitySet Name="AccountPayable" EntityType="Self.AccountPayable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountReceivable" EntityType="Self.AccountReceivable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpenseTamp" EntityType="Self.ExpenseTamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Honorarium" EntityType="Self.Honorarium" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Income" EntityType="Self.Income" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeTamp" EntityType="Self.IncomeTamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndoorIncomeTamp" EntityType="Self.IndoorIncomeTamp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceSub" EntityType="Self.InvoiceSub" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceType" EntityType="Self.InvoiceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicinePurchaseTemp" EntityType="Self.MedicinePurchaseTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientSub" EntityType="Self.PatientSub" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productinfo" EntityType="Self.productinfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTemp" EntityType="Self.SalesTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwInDoorService" EntityType="Self.vwInDoorService" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwInDoorService].[InvoiceNo] AS [InvoiceNo], 
+    [vwInDoorService].[InvoiceDate] AS [InvoiceDate], 
+    [vwInDoorService].[PatientName] AS [PatientName], 
+    [vwInDoorService].[RegNo] AS [RegNo], 
+    [vwInDoorService].[Dob] AS [Dob], 
+    [vwInDoorService].[Sex] AS [Sex], 
+    [vwInDoorService].[Discount] AS [Discount], 
+    [vwInDoorService].[Due] AS [Due], 
+    [vwInDoorService].[GrandTotal] AS [GrandTotal], 
+    [vwInDoorService].[Total] AS [Total], 
+    [vwInDoorService].[TotalinWord] AS [TotalinWord], 
+    [vwInDoorService].[userName] AS [userName], 
+    [vwInDoorService].[Paid] AS [Paid], 
+    [vwInDoorService].[DoctorName] AS [DoctorName], 
+    [vwInDoorService].[AddmissionDate] AS [AddmissionDate], 
+    [vwInDoorService].[ReleasedDate] AS [ReleasedDate], 
+    [vwInDoorService].[Phone] AS [Phone], 
+    [vwInDoorService].[presentAddress] AS [presentAddress], 
+    [vwInDoorService].[ServiceType] AS [ServiceType], 
+    [vwInDoorService].[Particulars] AS [Particulars], 
+    [vwInDoorService].[Quantity] AS [Quantity], 
+    [vwInDoorService].[Rate] AS [Rate], 
+    [vwInDoorService].[amount] AS [amount]
+    FROM [dbo].[vwInDoorService] AS [vwInDoorService]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwOutDoorService" EntityType="Self.vwOutDoorService" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwOutDoorService].[InvoiceNo] AS [InvoiceNo], 
+    [vwOutDoorService].[PatientName] AS [PatientName], 
+    [vwOutDoorService].[Dob] AS [Dob], 
+    [vwOutDoorService].[Sex] AS [Sex], 
+    [vwOutDoorService].[Discount] AS [Discount], 
+    [vwOutDoorService].[Due] AS [Due], 
+    [vwOutDoorService].[GrandTotal] AS [GrandTotal], 
+    [vwOutDoorService].[Total] AS [Total], 
+    [vwOutDoorService].[TotalinWord] AS [TotalinWord], 
+    [vwOutDoorService].[userName] AS [userName], 
+    [vwOutDoorService].[Paid] AS [Paid], 
+    [vwOutDoorService].[DoctorName] AS [DoctorName], 
+    [vwOutDoorService].[Phone] AS [Phone], 
+    [vwOutDoorService].[presentAddress] AS [presentAddress], 
+    [vwOutDoorService].[UpdatedDate] AS [UpdatedDate], 
+    [vwOutDoorService].[Particulars] AS [Particulars], 
+    [vwOutDoorService].[Quantity] AS [Quantity], 
+    [vwOutDoorService].[Rate] AS [Rate], 
+    [vwOutDoorService].[amount] AS [amount]
+    FROM [dbo].[vwOutDoorService] AS [vwOutDoorService]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPurchaseMedicine" EntityType="Self.vwPurchaseMedicine" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwPurchaseMedicine].[InvoiceID] AS [InvoiceID], 
+    [vwPurchaseMedicine].[Medicine] AS [Medicine], 
+    [vwPurchaseMedicine].[Quantity] AS [Quantity], 
+    [vwPurchaseMedicine].[PurchasingDate] AS [PurchasingDate], 
+    [vwPurchaseMedicine].[Price] AS [Price], 
+    [vwPurchaseMedicine].[GrandTotal] AS [GrandTotal], 
+    [vwPurchaseMedicine].[Discount] AS [Discount], 
+    [vwPurchaseMedicine].[Total] AS [Total], 
+    [vwPurchaseMedicine].[TotalinWord] AS [TotalinWord], 
+    [vwPurchaseMedicine].[UserName] AS [UserName]
+    FROM [dbo].[vwPurchaseMedicine] AS [vwPurchaseMedicine]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwReportChecker" EntityType="Self.vwReportChecker" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwReportChecker].[invoiceId] AS [invoiceId], 
+    [vwReportChecker].[InvoiceDate] AS [InvoiceDate], 
+    [vwReportChecker].[PatientName] AS [PatientName], 
+    [vwReportChecker].[Phone] AS [Phone], 
+    [vwReportChecker].[DoctorName] AS [DoctorName], 
+    [vwReportChecker].[isProductDelivered] AS [isProductDelivered], 
+    [vwReportChecker].[GrandTotal] AS [GrandTotal], 
+    [vwReportChecker].[Due] AS [Due], 
+    [vwReportChecker].[Paid] AS [Paid]
+    FROM [dbo].[vwReportChecker] AS [vwReportChecker]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSalesMedicine" EntityType="Self.vwSalesMedicine" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwSalesMedicine].[InvoiceID] AS [InvoiceID], 
+    [vwSalesMedicine].[patienName] AS [patienName], 
+    [vwSalesMedicine].[Address] AS [Address], 
+    [vwSalesMedicine].[Dob] AS [Dob], 
+    [vwSalesMedicine].[Consultant name] AS [Consultant name], 
+    [vwSalesMedicine].[Medicine] AS [Medicine], 
+    [vwSalesMedicine].[PatientType] AS [PatientType], 
+    [vwSalesMedicine].[Quantity] AS [Quantity], 
+    [vwSalesMedicine].[SalingDate] AS [SalingDate], 
+    [vwSalesMedicine].[UnitPrice] AS [UnitPrice], 
+    [vwSalesMedicine].[GrandTotal] AS [GrandTotal], 
+    [vwSalesMedicine].[Discount] AS [Discount], 
+    [vwSalesMedicine].[Paid] AS [Paid], 
+    [vwSalesMedicine].[Total] AS [Total], 
+    [vwSalesMedicine].[TotalinWord] AS [TotalinWord], 
+    [vwSalesMedicine].[Name] AS [Name], 
+    [vwSalesMedicine].[Due] AS [Due], 
+    [vwSalesMedicine].[vat] AS [vat], 
+    [vwSalesMedicine].[RegistrationNo] AS [RegistrationNo]
+    FROM [dbo].[vwSalesMedicine] AS [vwSalesMedicine]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Medicine" EntitySet="Medicine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicine__GroupI__1ED998B2" Association="Self.FK__Medicine__GroupI__1ED998B2">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Medicine" EntitySet="Medicine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__EmployeeI__30F848ED" Association="Self.FK__Sales__EmployeeI__30F848ED">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__MedicineI__300424B4" Association="Self.FK__Sales__MedicineI__300424B4">
+      <End Role="Medicine" EntitySet="Medicine" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

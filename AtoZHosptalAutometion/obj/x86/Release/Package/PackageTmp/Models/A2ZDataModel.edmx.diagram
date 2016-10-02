@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f448972fdc52429b8ad30dc017a61a6d" Name="Diagram1">
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.AccountPayable" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.AccountReceivable" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Agent" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Company" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Discount" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Doctor" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Expens" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.ExpenseTamp" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Group" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Honorarium" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Income" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.IncomeTamp" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.IndoorIncomeTamp" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Invoice" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.InvoiceSub" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.InvoiceType" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Medicine" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.MedicinePurchaseTemp" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Patient" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.PatientSub" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.productinfo" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Purchase" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Sale" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.SalesTemp" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Service" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Test" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.User" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Voucher" Width="1.5" PointX="4.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwInDoorService" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.VWMedicineStorage" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwOutDoorService" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwPurchaseMedicine" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwReportChecker" Width="1.5" PointX="16.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSalesMedicine" Width="1.5" PointX="16.75" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Medicine__Compan__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Medicine__GroupI__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Sales__MedicineI__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Sales__EmployeeI__30F848ED" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue" Width="1.5" PointX="13.375" PointY="17.75" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine" Width="1.5" PointX="18.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

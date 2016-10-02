@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalDbModelStoreContainer" CdmEntityContainer="HospitalDbContext">
+    <EntitySetMapping Name="AccountPayables">
+      <EntityTypeMapping TypeName="HospitalDbModel.AccountPayable">
+        <MappingFragment StoreEntitySet="AccountPayable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountReceivables">
+      <EntityTypeMapping TypeName="HospitalDbModel.AccountReceivable">
+        <MappingFragment StoreEntitySet="AccountReceivable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="UdpdatedDate" ColumnName="UdpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="HospitalDbModel.Agent">
+        <MappingFragment StoreEntitySet="Agent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="HospitalDbModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="HospitalDbModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Specialist" ColumnName="Specialist" />
+          <ScalarProperty Name="PermanetHospital" ColumnName="PermanetHospital" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="HospitalDbModel.Expens">
+        <MappingFragment StoreEntitySet="Expenses">
+          <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="HospitalDbModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="HospitalDbModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceSubs">
+      <EntityTypeMapping TypeName="HospitalDbModel.InvoiceSub">
+        <MappingFragment StoreEntitySet="InvoiceSub">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceTypes">
+      <EntityTypeMapping TypeName="HospitalDbModel.InvoiceType">
+        <MappingFragment StoreEntitySet="InvoiceType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicines">
+      <EntityTypeMapping TypeName="HospitalDbModel.Medicine">
+        <MappingFragment StoreEntitySet="Medicine">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicinePurchaseTemps">
+      <EntityTypeMapping TypeName="HospitalDbModel.MedicinePurchaseTemp">
+        <MappingFragment StoreEntitySet="MedicinePurchaseTemp">
+          <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="HospitalDbModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+          <ScalarProperty Name="AgentsId" ColumnName="AgentsId" />
+          <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+          <ScalarProperty Name="RefencedBy" ColumnName="RefencedBy" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="PermenantAddress" ColumnName="PermenantAddress" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="fatherOhusbandName" ColumnName="fatherOhusbandName" />
+          <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchases">
+      <EntityTypeMapping TypeName="HospitalDbModel.Purchase">
+        <MappingFragment StoreEntitySet="Purchases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="HospitalDbModel.Sale">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="HospitalDbModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HospitalDbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tests">
+      <EntityTypeMapping TypeName="HospitalDbModel.Test">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="HospitalDbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsAuthorised" ColumnName="IsAuthorised" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="AuthorizedBy" ColumnName="AuthorizedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="HospitalDbModel.Voucher">
+        <MappingFragment StoreEntitySet="Voucher">
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="Debit" ColumnName="Debit" />
+          <ScalarProperty Name="Diposit" ColumnName="Diposit" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HospitalDbModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HospitalDbModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HospitalDbModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HospitalDbModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HospitalDbModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HospitalDbModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HospitalDbModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="spGetGroups" FunctionName="HospitalDbModel.Store.spGetGroups" />
+    <EntitySetMapping Name="SalesTemps">
+      <EntityTypeMapping TypeName="HospitalDbModel.SalesTemp">
+        <MappingFragment StoreEntitySet="SalesTemp">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpenseTamps">
+      <EntityTypeMapping TypeName="HospitalDbModel.ExpenseTamp">
+        <MappingFragment StoreEntitySet="ExpenseTamp">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+          <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productinfoes">
+      <EntityTypeMapping TypeName="HospitalDbModel.productinfo">
+        <MappingFragment StoreEntitySet="productinfo">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="productid" ColumnName="productid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CrudOperations" FunctionName="HospitalDbModel.Store.CrudOperations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.CrudOperations_Result">
+          <ScalarProperty Name="productid" ColumnName="productid" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPExpenseTamp" FunctionName="HospitalDbModel.Store.SPExpenseTamp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.SPExpenseTamp_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Incomes">
+      <EntityTypeMapping TypeName="HospitalDbModel.Income">
+        <MappingFragment StoreEntitySet="Income">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="HospitalDbModel.Discount">
+        <MappingFragment StoreEntitySet="Discount">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Discount1" ColumnName="Discount" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Honoraria">
+      <EntityTypeMapping TypeName="HospitalDbModel.Honorarium">
+        <MappingFragment StoreEntitySet="Honorarium">
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Honorarium1" ColumnName="Honorarium" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomeTamps">
+      <EntityTypeMapping TypeName="HospitalDbModel.IncomeTamp">
+        <MappingFragment StoreEntitySet="IncomeTamp">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spIncomeTamp" FunctionName="HospitalDbModel.Store.spIncomeTamp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spIncomeTamp_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="IndoorIncomeTamps">
+      <EntityTypeMapping TypeName="HospitalDbModel.IndoorIncomeTamp">
+        <MappingFragment StoreEntitySet="IndoorIncomeTamp">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spIndoorIncomeTamp" FunctionName="HospitalDbModel.Store.spIndoorIncomeTamp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spIndoorIncomeTamp_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGetServices" FunctionName="HospitalDbModel.Store.spGetServices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spGetServices_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="PatientSubs">
+      <EntityTypeMapping TypeName="HospitalDbModel.PatientSub">
+        <MappingFragment StoreEntitySet="PatientSub">
+          <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="GuardianMobile" ColumnName="GuardianMobile" />
+          <ScalarProperty Name="GuadianName" ColumnName="GuadianName" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+          <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwSalesMedicines">
+      <EntityTypeMapping TypeName="HospitalDbModel.vwSalesMedicine">
+        <MappingFragment StoreEntitySet="vwSalesMedicine">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+          <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Consultant_name" ColumnName="Consultant name" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="patienName" ColumnName="patienName" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwPurchaseMedicines">
+      <EntityTypeMapping TypeName="HospitalDbModel.vwPurchaseMedicine">
+        <MappingFragment StoreEntitySet="vwPurchaseMedicine">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spPurchaseMedicine" FunctionName="HospitalDbModel.Store.spPurchaseMedicine">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spPurchaseMedicine_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSalseMedicine" FunctionName="HospitalDbModel.Store.spSalseMedicine">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spSalseMedicine_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="patienName" ColumnName="patienName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Consultant_name" ColumnName="Consultant name" />
+          <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+          <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="vat" ColumnName="vat" />
+          <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vwInDoorServices">
+      <EntityTypeMapping TypeName="HospitalDbModel.vwInDoorService">
+        <MappingFragment StoreEntitySet="vwInDoorService">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+          <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwOutDoorServices">
+      <EntityTypeMapping TypeName="HospitalDbModel.vwOutDoorService">
+        <MappingFragment StoreEntitySet="vwOutDoorService">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spIndoorService" FunctionName="HospitalDbModel.Store.spIndoorService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spIndoorService_Result">
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+          <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spOutdoorService" FunctionName="HospitalDbModel.Store.spOutdoorService">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spOutdoorService_Result">
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spTodayExpense" FunctionName="HospitalDbModel.Store.spTodayExpense">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HospitalDbModel.spTodayExpense_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+          <ScalarProperty Name="Id1" ColumnName="Id1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+          <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+          <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+          <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vwReportCheckers">
+      <EntityTypeMapping TypeName="HospitalDbModel.vwReportChecker">
+        <MappingFragment StoreEntitySet="vwReportChecker">
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+          <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

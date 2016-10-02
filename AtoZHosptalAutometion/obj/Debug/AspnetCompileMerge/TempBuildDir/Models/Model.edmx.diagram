@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8a976c73cf74573b41e272190b86393" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="HospitalDbModel.AccountPayable" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.AccountReceivable" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Agent" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Company" Width="1.5" PointX="3.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Doctor" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Expens" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Group" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Invoice" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.InvoiceSub" Width="1.5" PointX="5.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.InvoiceType" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Medicine" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.MedicinePurchaseTemp" Width="2" PointX="8.125" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Patient" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Purchase" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Sale" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Service" Width="1.5" PointX="10.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.sysdiagram" Width="1.5" PointX="10.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Test" Width="1.5" PointX="10.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.User" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HospitalDbModel.Voucher" Width="1.5" PointX="2.75" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="HospitalDbModel.FK__Medicine__Compan__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Purchases__Custo__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Medicine__GroupI__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Purchases__Medic__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Sales__MedicineI__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Purchases__Emplo__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="HospitalDbModel.FK__Sales__EmployeeI__30F848ED" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HospitalDbModel.SalesTemp" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.ExpenseTamp" Width="1.5" PointX="13.25" PointY="1.125" />
+        <EntityTypeShape EntityType="HospitalDbModel.productinfo" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.Income" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.Discount" Width="1.5" PointX="13.375" PointY="10.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.Honorarium" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.IncomeTamp" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.IndoorIncomeTamp" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.PatientSub" Width="1.5" PointX="15.375" PointY="8.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.vwSalesMedicine" Width="1.5" PointX="15.375" PointY="12.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.vwPurchaseMedicine" Width="1.5" PointX="10.375" PointY="16.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.vwInDoorService" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.vwOutDoorService" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="HospitalDbModel.vwReportChecker" Width="1.5" PointX="12.375" PointY="17.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

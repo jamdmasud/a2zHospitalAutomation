@@ -1,0 +1,2607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="a2zmanagementsystem.com_A2zHospitalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountPayable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountReceivable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UdpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="30" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="RegDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="220" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Specialist" Type="varchar" MaxLength="50" />
+          <Property Name="PermanetHospital" Type="varchar" MaxLength="300" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Email" Type="varchar" MaxLength="68" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="JoiningDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Expenses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ExpenseDate" Type="datetime" />
+          <Property Name="ExpenseType" Type="varchar" MaxLength="200" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ExpenseTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="ExpenseType" Type="varchar" MaxLength="200" />
+          <Property Name="ExpenseDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Volume" Type="varchar" MaxLength="120" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Honorarium">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="Honorarium" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="int" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="Particulars" Type="varchar" MaxLength="200" />
+          <Property Name="ServiceType" Type="varchar" MaxLength="100" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="IncomeTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="IndoorIncomeTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="150" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="isProductDelivered" Type="bit" />
+        </EntityType>
+        <EntityType Name="InvoiceSub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="varchar(max)" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="InvoiceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="MedicinePurchaseTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineName" Type="varchar" MaxLength="120" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="30" />
+          <Property Name="Dob" Type="datetime" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="fatherOhusbandName" Type="varchar" MaxLength="120" />
+          <Property Name="MotherName" Type="varchar" MaxLength="120" />
+          <Property Name="Email" Type="varchar" MaxLength="64" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+          <Property Name="PermenantAddress" Type="varchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="RefencedBy" Type="int" />
+          <Property Name="AddmissionDate" Type="datetime" />
+          <Property Name="AgentsId" Type="int" />
+          <Property Name="ReleasedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientSub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="AddmissionDate" Type="datetime" />
+          <Property Name="ReleasedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="GuadianName" Type="varchar" MaxLength="120" />
+          <Property Name="GuardianMobile" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="productinfo">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productname" Type="varchar" MaxLength="50" />
+          <Property Name="price" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="MedicineId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="PurchasingDate" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="MedicineId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="PatientType" Type="varchar" MaxLength="120" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="SalingDate" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="SalesTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MedicineName" Type="varchar" MaxLength="150" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="130" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="130" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Sex" Type="varchar" MaxLength="10" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Roles" Type="varchar" MaxLength="50" />
+          <Property Name="AuthorizedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsAuthorised" Type="bit" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Particulars" Type="varchar" MaxLength="100" />
+          <Property Name="DateOfDeal" Type="datetime" />
+          <Property Name="Diposit" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwAgentDues' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwAgentDues">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="30" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Payable" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Paid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwDue' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDue">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="TransactedBy" Type="varchar" MaxLength="120" />
+          <Property Name="Name" Type="varchar" MaxLength="120" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwInDoorService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwInDoorService">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="InvoiceNo" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="PatientName" Type="varchar" MaxLength="120" />
+          <Property Name="RegNo" Type="varchar" MaxLength="30" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="varchar(max)" />
+          <Property Name="userName" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+          <Property Name="AddmissionDate" Type="datetime" />
+          <Property Name="ReleasedDate" Type="datetime" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+          <Property Name="ServiceType" Type="varchar" MaxLength="100" />
+          <Property Name="Particulars" Type="varchar" MaxLength="200" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.VWMedicineStorage' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VWMedicineStorage">
+          <Key>
+            <PropertyRef Name="MedicineId" />
+            <PropertyRef Name="MedicineCode" />
+            <PropertyRef Name="MedicineName" />
+            <PropertyRef Name="Group" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Name="MedicineId" Type="int" Nullable="false" />
+          <Property Name="MedicineCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MedicineName" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Group" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Company" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="OpeningQuantity" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwOutDoorService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwOutDoorService">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="InvoiceNo" Type="int" Nullable="false" />
+          <Property Name="PatientName" Type="varchar" MaxLength="120" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="Sex" Type="varchar" MaxLength="50" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="varchar(max)" />
+          <Property Name="userName" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="320" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="presentAddress" Type="varchar" MaxLength="500" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Particulars" Type="varchar" MaxLength="200" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="amount" Type="decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwPurchaseMedicine' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwPurchaseMedicine">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="Medicine" Type="varchar" MaxLength="120" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="PurchasingDate" Type="datetime" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="varchar(max)" />
+          <Property Name="UserName" Type="varchar" MaxLength="120" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwReportChecker' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwReportChecker">
+          <Key>
+            <PropertyRef Name="invoiceId" />
+            <PropertyRef Name="PatientName" />
+            <PropertyRef Name="DoctorName" />
+          </Key>
+          <Property Name="invoiceId" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="PatientName" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="220" Nullable="false" />
+          <Property Name="isProductDelivered" Type="bit" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSaleMedicines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwSaleMedicines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SoldBy" Type="varchar" MaxLength="120" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="150" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="Name" Type="varchar" MaxLength="120" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesMedicine' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwSalesMedicine">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="patienName" Type="varchar" MaxLength="120" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Dob" Type="datetime" />
+          <Property Name="Consultant name" Type="varchar" MaxLength="220" />
+          <Property Name="Medicine" Type="varchar" MaxLength="120" />
+          <Property Name="PatientType" Type="varchar" MaxLength="120" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="SalingDate" Type="datetime" />
+          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="varchar(max)" />
+          <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RegistrationNo" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__Medicine__Compan__1FCDBCEB">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__GroupI__1ED998B2">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__EmployeeI__30F848ED">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__MedicineI__300424B4">
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CrudOperations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="productid" Type="int" Mode="In" />
+          <Parameter Name="productname" Type="varchar" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spDueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="toDate" Type="datetime" Mode="In" />
+          <Parameter Name="fromDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SPExpenseTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="ExpenseType" Type="varchar" Mode="In" />
+          <Parameter Name="ExpenseDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="groupName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetServices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keyword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spIncomeTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Particular" Type="varchar" Mode="In" />
+          <Parameter Name="Code" Type="varchar" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spIndoorIncomeTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Particular" Type="varchar" Mode="In" />
+          <Parameter Name="Code" Type="varchar" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+          <Parameter Name="Amount" Type="decimal" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spIndoorService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvoiceId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spMedicineStorage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spOutdoorService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvoiceId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spPurchaseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvoiceId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SPPurchaseMedicineTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="MedicineName" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="decimal" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Total" Type="decimal" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SPSaleMedicineTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="MedicineName" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="decimal" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="Total" Type="decimal" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="status" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spSalseMedicine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvoiceId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spTodayExpense" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="type" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTodaySale" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="today" Type="datetime" Mode="In" />
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spTodaySaleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="today" Type="datetime" Mode="In" />
+          <Parameter Name="user" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TestProc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstNum" Type="int" Mode="In" />
+          <Parameter Name="secondNum" Type="int" Mode="In" />
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="a2zmanagementsystemcom_A2zHospitalDbModelStoreContainer">
+          <EntitySet Name="AccountPayable" EntityType="Self.AccountPayable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountReceivable" EntityType="Self.AccountReceivable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenseTamp" EntityType="Self.ExpenseTamp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Honorarium" EntityType="Self.Honorarium" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Income" EntityType="Self.Income" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncomeTamp" EntityType="Self.IncomeTamp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndoorIncomeTamp" EntityType="Self.IndoorIncomeTamp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceSub" EntityType="Self.InvoiceSub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceType" EntityType="Self.InvoiceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicinePurchaseTemp" EntityType="Self.MedicinePurchaseTemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientSub" EntityType="Self.PatientSub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productinfo" EntityType="Self.productinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesTemp" EntityType="Self.SalesTemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwAgentDues" EntityType="Self.vwAgentDues" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwAgentDues].[Code] AS [Code], 
+    [vwAgentDues].[Name] AS [Name], 
+    [vwAgentDues].[Phone] AS [Phone], 
+    [vwAgentDues].[Address] AS [Address], 
+    [vwAgentDues].[Payable] AS [Payable], 
+    [vwAgentDues].[Paid] AS [Paid]
+    FROM [dbo].[vwAgentDues] AS [vwAgentDues]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwDue" EntityType="Self.vwDue" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwDue].[InvoiceId] AS [InvoiceId], 
+    [vwDue].[TransactionDate] AS [TransactionDate], 
+    [vwDue].[TransactedBy] AS [TransactedBy], 
+    [vwDue].[Name] AS [Name], 
+    [vwDue].[Phone] AS [Phone], 
+    [vwDue].[Due] AS [Due]
+    FROM [dbo].[vwDue] AS [vwDue]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwInDoorService" EntityType="Self.vwInDoorService" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwInDoorService].[InvoiceNo] AS [InvoiceNo], 
+    [vwInDoorService].[InvoiceDate] AS [InvoiceDate], 
+    [vwInDoorService].[PatientName] AS [PatientName], 
+    [vwInDoorService].[RegNo] AS [RegNo], 
+    [vwInDoorService].[Dob] AS [Dob], 
+    [vwInDoorService].[Sex] AS [Sex], 
+    [vwInDoorService].[Discount] AS [Discount], 
+    [vwInDoorService].[Due] AS [Due], 
+    [vwInDoorService].[GrandTotal] AS [GrandTotal], 
+    [vwInDoorService].[Total] AS [Total], 
+    [vwInDoorService].[TotalinWord] AS [TotalinWord], 
+    [vwInDoorService].[userName] AS [userName], 
+    [vwInDoorService].[Paid] AS [Paid], 
+    [vwInDoorService].[DoctorName] AS [DoctorName], 
+    [vwInDoorService].[AddmissionDate] AS [AddmissionDate], 
+    [vwInDoorService].[ReleasedDate] AS [ReleasedDate], 
+    [vwInDoorService].[Phone] AS [Phone], 
+    [vwInDoorService].[presentAddress] AS [presentAddress], 
+    [vwInDoorService].[ServiceType] AS [ServiceType], 
+    [vwInDoorService].[Particulars] AS [Particulars], 
+    [vwInDoorService].[Quantity] AS [Quantity], 
+    [vwInDoorService].[Rate] AS [Rate], 
+    [vwInDoorService].[amount] AS [amount]
+    FROM [dbo].[vwInDoorService] AS [vwInDoorService]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VWMedicineStorage" EntityType="Self.VWMedicineStorage" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VWMedicineStorage].[MedicineId] AS [MedicineId], 
+    [VWMedicineStorage].[MedicineCode] AS [MedicineCode], 
+    [VWMedicineStorage].[MedicineName] AS [MedicineName], 
+    [VWMedicineStorage].[Group] AS [Group], 
+    [VWMedicineStorage].[Company] AS [Company], 
+    [VWMedicineStorage].[OpeningQuantity] AS [OpeningQuantity]
+    FROM [dbo].[VWMedicineStorage] AS [VWMedicineStorage]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwOutDoorService" EntityType="Self.vwOutDoorService" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwOutDoorService].[InvoiceNo] AS [InvoiceNo], 
+    [vwOutDoorService].[PatientName] AS [PatientName], 
+    [vwOutDoorService].[Dob] AS [Dob], 
+    [vwOutDoorService].[Sex] AS [Sex], 
+    [vwOutDoorService].[Discount] AS [Discount], 
+    [vwOutDoorService].[Due] AS [Due], 
+    [vwOutDoorService].[GrandTotal] AS [GrandTotal], 
+    [vwOutDoorService].[Total] AS [Total], 
+    [vwOutDoorService].[TotalinWord] AS [TotalinWord], 
+    [vwOutDoorService].[userName] AS [userName], 
+    [vwOutDoorService].[Paid] AS [Paid], 
+    [vwOutDoorService].[DoctorName] AS [DoctorName], 
+    [vwOutDoorService].[Phone] AS [Phone], 
+    [vwOutDoorService].[presentAddress] AS [presentAddress], 
+    [vwOutDoorService].[UpdatedDate] AS [UpdatedDate], 
+    [vwOutDoorService].[Particulars] AS [Particulars], 
+    [vwOutDoorService].[Quantity] AS [Quantity], 
+    [vwOutDoorService].[Rate] AS [Rate], 
+    [vwOutDoorService].[amount] AS [amount]
+    FROM [dbo].[vwOutDoorService] AS [vwOutDoorService]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwPurchaseMedicine" EntityType="Self.vwPurchaseMedicine" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwPurchaseMedicine].[InvoiceID] AS [InvoiceID], 
+    [vwPurchaseMedicine].[Medicine] AS [Medicine], 
+    [vwPurchaseMedicine].[Quantity] AS [Quantity], 
+    [vwPurchaseMedicine].[PurchasingDate] AS [PurchasingDate], 
+    [vwPurchaseMedicine].[Price] AS [Price], 
+    [vwPurchaseMedicine].[GrandTotal] AS [GrandTotal], 
+    [vwPurchaseMedicine].[Discount] AS [Discount], 
+    [vwPurchaseMedicine].[Total] AS [Total], 
+    [vwPurchaseMedicine].[TotalinWord] AS [TotalinWord], 
+    [vwPurchaseMedicine].[UserName] AS [UserName]
+    FROM [dbo].[vwPurchaseMedicine] AS [vwPurchaseMedicine]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwReportChecker" EntityType="Self.vwReportChecker" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwReportChecker].[invoiceId] AS [invoiceId], 
+    [vwReportChecker].[InvoiceDate] AS [InvoiceDate], 
+    [vwReportChecker].[PatientName] AS [PatientName], 
+    [vwReportChecker].[Phone] AS [Phone], 
+    [vwReportChecker].[DoctorName] AS [DoctorName], 
+    [vwReportChecker].[isProductDelivered] AS [isProductDelivered], 
+    [vwReportChecker].[GrandTotal] AS [GrandTotal], 
+    [vwReportChecker].[Due] AS [Due], 
+    [vwReportChecker].[Paid] AS [Paid]
+    FROM [dbo].[vwReportChecker] AS [vwReportChecker]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwSaleMedicines" EntityType="Self.vwSaleMedicines" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwSaleMedicines].[Id] AS [Id], 
+    [vwSaleMedicines].[Total] AS [Total], 
+    [vwSaleMedicines].[Paid] AS [Paid], 
+    [vwSaleMedicines].[Due] AS [Due], 
+    [vwSaleMedicines].[Discount] AS [Discount], 
+    [vwSaleMedicines].[vat] AS [vat], 
+    [vwSaleMedicines].[SoldBy] AS [SoldBy], 
+    [vwSaleMedicines].[InvoiceType] AS [InvoiceType], 
+    [vwSaleMedicines].[InvoiceDate] AS [InvoiceDate], 
+    [vwSaleMedicines].[Name] AS [Name], 
+    [vwSaleMedicines].[Quantity] AS [Quantity], 
+    [vwSaleMedicines].[UnitPrice] AS [UnitPrice]
+    FROM [dbo].[vwSaleMedicines] AS [vwSaleMedicines]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwSalesMedicine" EntityType="Self.vwSalesMedicine" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwSalesMedicine].[InvoiceID] AS [InvoiceID], 
+    [vwSalesMedicine].[patienName] AS [patienName], 
+    [vwSalesMedicine].[Address] AS [Address], 
+    [vwSalesMedicine].[Dob] AS [Dob], 
+    [vwSalesMedicine].[Consultant name] AS [Consultant name], 
+    [vwSalesMedicine].[Medicine] AS [Medicine], 
+    [vwSalesMedicine].[PatientType] AS [PatientType], 
+    [vwSalesMedicine].[Quantity] AS [Quantity], 
+    [vwSalesMedicine].[SalingDate] AS [SalingDate], 
+    [vwSalesMedicine].[UnitPrice] AS [UnitPrice], 
+    [vwSalesMedicine].[GrandTotal] AS [GrandTotal], 
+    [vwSalesMedicine].[Discount] AS [Discount], 
+    [vwSalesMedicine].[Paid] AS [Paid], 
+    [vwSalesMedicine].[Total] AS [Total], 
+    [vwSalesMedicine].[TotalinWord] AS [TotalinWord], 
+    [vwSalesMedicine].[Name] AS [Name], 
+    [vwSalesMedicine].[Due] AS [Due], 
+    [vwSalesMedicine].[vat] AS [vat], 
+    [vwSalesMedicine].[RegistrationNo] AS [RegistrationNo]
+    FROM [dbo].[vwSalesMedicine] AS [vwSalesMedicine]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__GroupI__1ED998B2" Association="Self.FK__Medicine__GroupI__1ED998B2">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Medicine" EntitySet="Medicine" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__EmployeeI__30F848ED" Association="Self.FK__Sales__EmployeeI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__MedicineI__300424B4" Association="Self.FK__Sales__MedicineI__300424B4">
+            <End Role="Medicine" EntitySet="Medicine" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="a2zmanagementsystem.com_A2zHospitalDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccountPayable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AccountReceivable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UdpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Company" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Discount1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="220" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Specialist" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PermanetHospital" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="68" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Expens">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ExpenseDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpenseType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ExpenseTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="ExpenseType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExpenseDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Volume" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__GroupI__1ED998B2" FromRole="Groups" ToRole="Medicine" />
+        </EntityType>
+        <EntityType Name="Honorarium">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="Honorarium1" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Int32" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Income">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IncomeTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="IndoorIncomeTamp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="InvoiceType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="isProductDelivered" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InvoiceSub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InvoiceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Medicine" ToRole="Company" />
+          <NavigationProperty Name="Group" Relationship="Self.FK__Medicine__GroupI__1ED998B2" FromRole="Medicine" ToRole="Groups" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__MedicineI__300424B4" FromRole="Medicine" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="MedicinePurchaseTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fatherOhusbandName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="MotherName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PermenantAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="RefencedBy" Type="Int32" />
+          <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+          <Property Name="AgentsId" Type="Int32" />
+          <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PatientSub">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="DoctorId" Type="Int32" />
+          <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+          <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="GuadianName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="GuardianMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="productinfo">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="MedicineId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="PurchasingDate" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="MedicineId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="PatientType" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="SalingDate" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="Medicine" Relationship="Self.FK__Sales__MedicineI__300424B4" FromRole="Sales" ToRole="Medicine" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Sales__EmployeeI__30F848ED" FromRole="Sales" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="SalesTemp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MedicineName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="130" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="130" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorizedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsAuthorised" Type="Boolean" />
+          <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__EmployeeI__30F848ED" FromRole="Users" ToRole="Sales" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Particulars" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Diposit" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfDeal" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwInDoorService">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="PatientName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="RegNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+          <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="amount" Type="Decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <EntityType Name="VWMedicineStorage">
+          <Key>
+            <PropertyRef Name="MedicineId" />
+            <PropertyRef Name="MedicineCode" />
+            <PropertyRef Name="MedicineName" />
+            <PropertyRef Name="Group" />
+            <PropertyRef Name="Company" />
+          </Key>
+          <Property Name="MedicineId" Type="Int32" Nullable="false" />
+          <Property Name="MedicineCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedicineName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Group" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OpeningQuantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwOutDoorService">
+          <Key>
+            <PropertyRef Name="InvoiceNo" />
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+          <Property Name="PatientName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="amount" Type="Decimal" Precision="29" Scale="2" />
+        </EntityType>
+        <EntityType Name="vwPurchaseMedicine">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="Medicine" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="PurchasingDate" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwReportChecker">
+          <Key>
+            <PropertyRef Name="invoiceId" />
+            <PropertyRef Name="PatientName" />
+            <PropertyRef Name="DoctorName" />
+          </Key>
+          <Property Name="invoiceId" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="PatientName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="220" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="isProductDelivered" Type="Boolean" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="vwSalesMedicine">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="patienName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Dob" Type="DateTime" Precision="3" />
+          <Property Name="Consultant_name" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+          <Property Name="Medicine" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="PatientType" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="SalingDate" Type="DateTime" Precision="3" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RegistrationNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Medicine__Compan__1FCDBCEB">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Medicine__GroupI__1ED998B2">
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Medicine">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__MedicineI__300424B4">
+          <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+          <End Role="Sales" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicine">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="MedicineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__EmployeeI__30F848ED">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountPayables" EntityType="Self.AccountPayable" />
+          <EntitySet Name="AccountReceivables" EntityType="Self.AccountReceivable" />
+          <EntitySet Name="Agents" EntityType="Self.Agent" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Discounts" EntityType="Self.Discount" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Expenses" EntityType="Self.Expens" />
+          <EntitySet Name="ExpenseTamps" EntityType="Self.ExpenseTamp" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Honoraria" EntityType="Self.Honorarium" />
+          <EntitySet Name="Incomes" EntityType="Self.Income" />
+          <EntitySet Name="IncomeTamps" EntityType="Self.IncomeTamp" />
+          <EntitySet Name="IndoorIncomeTamps" EntityType="Self.IndoorIncomeTamp" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="InvoiceSubs" EntityType="Self.InvoiceSub" />
+          <EntitySet Name="InvoiceTypes" EntityType="Self.InvoiceType" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+          <EntitySet Name="MedicinePurchaseTemps" EntityType="Self.MedicinePurchaseTemp" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="PatientSubs" EntityType="Self.PatientSub" />
+          <EntitySet Name="productinfoes" EntityType="Self.productinfo" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+          <EntitySet Name="Sales" EntityType="Self.Sale" />
+          <EntitySet Name="SalesTemps" EntityType="Self.SalesTemp" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="Tests" EntityType="Self.Test" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
+          <EntitySet Name="vwInDoorServices" EntityType="Self.vwInDoorService" />
+          <EntitySet Name="VWMedicineStorages" EntityType="Self.VWMedicineStorage" />
+          <EntitySet Name="vwOutDoorServices" EntityType="Self.vwOutDoorService" />
+          <EntitySet Name="vwPurchaseMedicines" EntityType="Self.vwPurchaseMedicine" />
+          <EntitySet Name="vwReportCheckers" EntityType="Self.vwReportChecker" />
+          <EntitySet Name="vwSalesMedicines" EntityType="Self.vwSalesMedicine" />
+          <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Medicine__GroupI__1ED998B2" Association="Self.FK__Medicine__GroupI__1ED998B2">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Medicine" EntitySet="Medicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__MedicineI__300424B4" Association="Self.FK__Sales__MedicineI__300424B4">
+            <End Role="Medicine" EntitySet="Medicines" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__EmployeeI__30F848ED" Association="Self.FK__Sales__EmployeeI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <FunctionImport Name="CrudOperations" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.CrudOperations_Result)">
+            <Parameter Name="productid" Mode="In" Type="Int32" />
+            <Parameter Name="productname" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPExpenseTamp" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.SPExpenseTamp_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="ExpenseType" Mode="In" Type="String" />
+            <Parameter Name="ExpenseDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetGroups" ReturnType="Collection(String)">
+          <Parameter Name="groupName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetServices" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spGetServices_Result)">
+          <Parameter Name="keyword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spIncomeTamp" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spIncomeTamp_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Particular" Mode="In" Type="String" />
+            <Parameter Name="Code" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spIndoorIncomeTamp" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spIndoorIncomeTamp_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Particular" Mode="In" Type="String" />
+            <Parameter Name="Code" Mode="In" Type="String" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+            <Parameter Name="Amount" Mode="In" Type="Decimal" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spIndoorService" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spIndoorService_Result)">
+          <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spMedicineStorage" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spMedicineStorage_Result)" />
+          <FunctionImport Name="spOutdoorService" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spOutdoorService_Result)">
+          <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spPurchaseMedicine" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spPurchaseMedicine_Result)">
+          <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SPPurchaseMedicineTamp" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.SPPurchaseMedicineTamp_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineName" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Total" Mode="In" Type="Decimal" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SPSaleMedicineTamp" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.SPSaleMedicineTamp_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineName" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="Total" Mode="In" Type="Decimal" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSalseMedicine" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spSalseMedicine_Result)">
+          <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spTodayExpense" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spTodayExpense_Result)">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="type" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TestProc" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.TestProc_Result)">
+            <Parameter Name="firstNum" Mode="In" Type="Int32" />
+            <Parameter Name="secondNum" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vwAgentDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue" />
+          <EntitySet Name="vwDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue" />
+          <EntitySet Name="vwSaleMedicines" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine" />
+          <FunctionImport Name="spDueList" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spDueList_Result)">
+            <Parameter Name="toDate" Mode="In" Type="DateTime" />
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spTodaySale" ReturnType="Collection(Decimal)">
+            <Parameter Name="today" Mode="In" Type="DateTime" />
+            <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spTodaySaleService" ReturnType="Collection(Decimal)">
+            <Parameter Name="today" Mode="In" Type="DateTime" />
+            <Parameter Name="user" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="CrudOperations_Result">
+          <Property Type="Int32" Name="productid" Nullable="false" />
+          <Property Type="String" Name="productname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="price" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SPExpenseTamp_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="3" />
+          <Property Type="String" Name="ExpenseType" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="spGetServices_Result">
+          <Property Type="String" Name="name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spIncomeTamp_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spIndoorIncomeTamp_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spIndoorService_Result">
+          <Property Type="Int32" Name="InvoiceNo" Nullable="false" />
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="PatientName" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="RegNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TotalinWord" Nullable="true" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="120" />
+          <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="320" />
+          <Property Type="DateTime" Name="AddmissionDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ReleasedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="presentAddress" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ServiceType" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Particulars" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Nullable="true" Precision="29" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spMedicineStorage_Result">
+          <Property Type="Int32" Name="RowId" Nullable="false" />
+          <Property Type="Int32" Name="MedicineId" Nullable="true" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="130" />
+          <Property Type="String" Name="Company" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="OpeningQuantity" Nullable="true" />
+          <Property Type="Int32" Name="PurchasingQty" Nullable="true" />
+          <Property Type="Int32" Name="SalingQty" Nullable="true" />
+          <Property Type="Int32" Name="Balance" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spOutdoorService_Result">
+          <Property Type="Int32" Name="InvoiceNo" Nullable="false" />
+          <Property Type="String" Name="PatientName" Nullable="true" MaxLength="120" />
+          <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Sex" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TotalinWord" Nullable="true" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="120" />
+          <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="presentAddress" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Particulars" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Nullable="true" Precision="29" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spPurchaseMedicine_Result">
+          <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+          <Property Type="String" Name="Medicine" Nullable="true" MaxLength="120" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="PurchasingDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="3" />
+          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TotalinWord" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="120" />
+        </ComplexType>
+        <ComplexType Name="SPPurchaseMedicineTamp_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MedicineName" Nullable="true" MaxLength="120" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="3" />
+        </ComplexType>
+        <ComplexType Name="SPSaleMedicineTamp_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MedicineName" Nullable="true" MaxLength="150" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spSalseMedicine_Result">
+          <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+          <Property Type="String" Name="patienName" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Consultant_name" Nullable="true" MaxLength="220" />
+          <Property Type="String" Name="Medicine" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="PatientType" Nullable="true" MaxLength="120" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="DateTime" Name="SalingDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="10" Scale="3" />
+          <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="TotalinWord" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+          <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="vat" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="RegistrationNo" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="spTodayExpense_Result">
+          <Property Type="DateTime" Name="FromDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ToDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="InvoiceType" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="isProductDelivered" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="ExpenseDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ExpenseType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="TestProc_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="GroupId" Nullable="true" />
+          <Property Type="Int32" Name="CompanyId" Nullable="true" />
+          <Property Type="Int32" Name="Quantity" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="3" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+          <Property Type="Int32" Name="Id1" Nullable="false" />
+          <Property Type="String" Name="Name1" Nullable="false" MaxLength="120" />
+          <Property Type="String" Name="Volume" Nullable="true" MaxLength="120" />
+          <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="vwAgentDue">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Payable" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Paid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwDue">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="TransactedBy" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="vwSaleMedicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SoldBy" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" />
+        </EntityType>
+        <ComplexType Name="spDueList_Result">
+          <Property Type="Int32" Name="InvoiceId" Nullable="false" />
+          <Property Type="DateTime" Name="TransactionDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TransactedBy" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="a2zmanagementsystemcom_A2zHospitalDbModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AccountPayables">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.AccountPayable">
+              <MappingFragment StoreEntitySet="AccountPayable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountReceivables">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.AccountReceivable">
+              <MappingFragment StoreEntitySet="AccountReceivable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UdpdatedDate" ColumnName="UdpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agents">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Discount">
+              <MappingFragment StoreEntitySet="Discount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Discount1" ColumnName="Discount" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Specialist" ColumnName="Specialist" />
+                <ScalarProperty Name="PermanetHospital" ColumnName="PermanetHospital" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenses">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Expens">
+              <MappingFragment StoreEntitySet="Expenses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseTamps">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.ExpenseTamp">
+              <MappingFragment StoreEntitySet="ExpenseTamp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+                <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Honoraria">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Honorarium">
+              <MappingFragment StoreEntitySet="Honorarium">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="Honorarium1" ColumnName="Honorarium" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incomes">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Income">
+              <MappingFragment StoreEntitySet="Income">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomeTamps">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.IncomeTamp">
+              <MappingFragment StoreEntitySet="IncomeTamp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndoorIncomeTamps">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.IndoorIncomeTamp">
+              <MappingFragment StoreEntitySet="IndoorIncomeTamp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceSubs">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.InvoiceSub">
+              <MappingFragment StoreEntitySet="InvoiceSub">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceTypes">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.InvoiceType">
+              <MappingFragment StoreEntitySet="InvoiceType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Medicine">
+              <MappingFragment StoreEntitySet="Medicine">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicinePurchaseTemps">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.MedicinePurchaseTemp">
+              <MappingFragment StoreEntitySet="MedicinePurchaseTemp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="fatherOhusbandName" ColumnName="fatherOhusbandName" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+                <ScalarProperty Name="PermenantAddress" ColumnName="PermenantAddress" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="RefencedBy" ColumnName="RefencedBy" />
+                <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+                <ScalarProperty Name="AgentsId" ColumnName="AgentsId" />
+                <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientSubs">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.PatientSub">
+              <MappingFragment StoreEntitySet="PatientSub">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+                <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="GuadianName" ColumnName="GuadianName" />
+                <ScalarProperty Name="GuardianMobile" ColumnName="GuardianMobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productinfoes">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.productinfo">
+              <MappingFragment StoreEntitySet="productinfo">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Sale">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesTemps">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.SalesTemp">
+              <MappingFragment StoreEntitySet="SalesTemp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tests">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="AuthorizedBy" ColumnName="AuthorizedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsAuthorised" ColumnName="IsAuthorised" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vouchers">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Voucher">
+              <MappingFragment StoreEntitySet="Voucher">
+                <ScalarProperty Name="DateOfDeal" ColumnName="DateOfDeal" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="Diposit" ColumnName="Diposit" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwInDoorServices">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwInDoorService">
+              <MappingFragment StoreEntitySet="vwInDoorService">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+                <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VWMedicineStorages">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.VWMedicineStorage">
+              <MappingFragment StoreEntitySet="VWMedicineStorage">
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+                <ScalarProperty Name="MedicineCode" ColumnName="MedicineCode" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="OpeningQuantity" ColumnName="OpeningQuantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwOutDoorServices">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwOutDoorService">
+              <MappingFragment StoreEntitySet="vwOutDoorService">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwPurchaseMedicines">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwPurchaseMedicine">
+              <MappingFragment StoreEntitySet="vwPurchaseMedicine">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwReportCheckers">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwReportChecker">
+              <MappingFragment StoreEntitySet="vwReportChecker">
+                <ScalarProperty Name="invoiceId" ColumnName="invoiceId" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwSalesMedicines">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwSalesMedicine">
+              <MappingFragment StoreEntitySet="vwSalesMedicine">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="patienName" ColumnName="patienName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Consultant_name" ColumnName="Consultant name" />
+                <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+                <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CrudOperations" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.CrudOperations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.CrudOperations_Result">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPExpenseTamp" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.SPExpenseTamp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.SPExpenseTamp_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetGroups" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spGetGroups" />
+          <FunctionImportMapping FunctionImportName="spGetServices" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spGetServices">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spGetServices_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spIncomeTamp" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spIncomeTamp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spIncomeTamp_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spIndoorIncomeTamp" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spIndoorIncomeTamp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spIndoorIncomeTamp_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spIndoorService" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spIndoorService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spIndoorService_Result">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="AddmissionDate" ColumnName="AddmissionDate" />
+                <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spMedicineStorage" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spMedicineStorage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spMedicineStorage_Result">
+                <ScalarProperty Name="RowId" ColumnName="RowId" />
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="OpeningQuantity" ColumnName="OpeningQuantity" />
+                <ScalarProperty Name="PurchasingQty" ColumnName="PurchasingQty" />
+                <ScalarProperty Name="SalingQty" ColumnName="SalingQty" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spOutdoorService" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spOutdoorService">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spOutdoorService_Result">
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="presentAddress" ColumnName="presentAddress" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spPurchaseMedicine" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spPurchaseMedicine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spPurchaseMedicine_Result">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PurchasingDate" ColumnName="PurchasingDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPPurchaseMedicineTamp" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.SPPurchaseMedicineTamp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.SPPurchaseMedicineTamp_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPSaleMedicineTamp" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.SPSaleMedicineTamp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.SPSaleMedicineTamp_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSalseMedicine" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spSalseMedicine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spSalseMedicine_Result">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="patienName" ColumnName="patienName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Consultant_name" ColumnName="Consultant name" />
+                <ScalarProperty Name="Medicine" ColumnName="Medicine" />
+                <ScalarProperty Name="PatientType" ColumnName="PatientType" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SalingDate" ColumnName="SalingDate" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TotalinWord" ColumnName="TotalinWord" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTodayExpense" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodayExpense">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spTodayExpense_Result">
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="isProductDelivered" ColumnName="isProductDelivered" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ExpenseDate" ColumnName="ExpenseDate" />
+                <ScalarProperty Name="ExpenseType" ColumnName="ExpenseType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TestProc" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.TestProc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.TestProc_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="Name1" ColumnName="Name1" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="UpdatedDate1" ColumnName="UpdatedDate1" />
+                <ScalarProperty Name="UpdatedBy1" ColumnName="UpdatedBy1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="vwAgentDues">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue">
+              <MappingFragment StoreEntitySet="vwAgentDues">
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Payable" ColumnName="Payable" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDues">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue">
+              <MappingFragment StoreEntitySet="vwDue">
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TransactedBy" ColumnName="TransactedBy" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwSaleMedicines">
+            <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine">
+              <MappingFragment StoreEntitySet="vwSaleMedicines">
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="SoldBy" ColumnName="SoldBy" />
+                <ScalarProperty Name="vat" ColumnName="vat" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spDueList" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spDueList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spDueList_Result">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactedBy" ColumnName="TransactedBy" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Due" ColumnName="Due" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spTodaySale" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySale" />
+          <FunctionImportMapping FunctionImportName="spTodaySaleService" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySaleService" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

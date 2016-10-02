@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AccountPayable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="AccountReceivable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UdpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RegDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Company" ToRole="Medicine" />
+    <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchases__Custo__35BCFE0A" FromRole="Company" ToRole="Purchases" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="220" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Specialist" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PermanetHospital" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="68" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Expens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ExpenseType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="ExpenseDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Volume" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Medicines" Relationship="Self.FK__Medicine__GroupI__1ED998B2" FromRole="Groups" ToRole="Medicine" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="InvoiceType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="isProductDelivered" Type="Boolean" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="InvoiceSub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="InvoiceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Medicine__Compan__1FCDBCEB" FromRole="Medicine" ToRole="Company" />
+    <NavigationProperty Name="Group" Relationship="Self.FK__Medicine__GroupI__1ED998B2" FromRole="Medicine" ToRole="Groups" />
+    <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchases__Medic__34C8D9D1" FromRole="Medicine" ToRole="Purchases" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__MedicineI__300424B4" FromRole="Medicine" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="MedicinePurchaseTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="MedicineName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="fatherOhusbandName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PermenantAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MotherName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="RefencedBy" Type="Int32" />
+    <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+    <Property Name="AgentsId" Type="Int32" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="MedicineId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="PurchasingDate" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Purchases__Custo__35BCFE0A" FromRole="Purchases" ToRole="Company" />
+    <NavigationProperty Name="Medicine" Relationship="Self.FK__Purchases__Medic__34C8D9D1" FromRole="Purchases" ToRole="Medicine" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Purchases__Emplo__36B12243" FromRole="Purchases" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="MedicineId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="PatientType" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="SalingDate" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <NavigationProperty Name="Medicine" Relationship="Self.FK__Sales__MedicineI__300424B4" FromRole="Sales" ToRole="Medicine" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Sales__EmployeeI__30F848ED" FromRole="Sales" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="130" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="130" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Roles" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorizedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Purchases" Relationship="Self.FK__Purchases__Emplo__36B12243" FromRole="Users" ToRole="Purchases" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__EmployeeI__30F848ED" FromRole="Users" ToRole="Sales" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsAuthorised" Type="Boolean" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="Particulars" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Diposit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Debit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="credit" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK__Medicine__Compan__1FCDBCEB">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicine">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchases__Custo__35BCFE0A">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Purchases" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicine__GroupI__1ED998B2">
+    <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicine">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchases__Medic__34C8D9D1">
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+    <End Role="Purchases" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="MedicineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__MedicineI__300424B4">
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="MedicineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchases__Emplo__36B12243">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Purchases" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__EmployeeI__30F848ED">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Sales" Type="Self.Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountPayables" EntityType="Self.AccountPayable" />
+    <EntitySet Name="AccountReceivables" EntityType="Self.AccountReceivable" />
+    <EntitySet Name="Agents" EntityType="Self.Agent" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Expenses" EntityType="Self.Expens" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="InvoiceSubs" EntityType="Self.InvoiceSub" />
+    <EntitySet Name="InvoiceTypes" EntityType="Self.InvoiceType" />
+    <EntitySet Name="Medicines" EntityType="Self.Medicine" />
+    <EntitySet Name="MedicinePurchaseTemps" EntityType="Self.MedicinePurchaseTemp" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+    <EntitySet Name="Sales" EntityType="Self.Sale" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tests" EntityType="Self.Test" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
+    <AssociationSet Name="FK__Medicine__Compan__1FCDBCEB" Association="Self.FK__Medicine__Compan__1FCDBCEB">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Medicine" EntitySet="Medicines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchases__Custo__35BCFE0A" Association="Self.FK__Purchases__Custo__35BCFE0A">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicine__GroupI__1ED998B2" Association="Self.FK__Medicine__GroupI__1ED998B2">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Medicine" EntitySet="Medicines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchases__Medic__34C8D9D1" Association="Self.FK__Purchases__Medic__34C8D9D1">
+      <End Role="Medicine" EntitySet="Medicines" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__MedicineI__300424B4" Association="Self.FK__Sales__MedicineI__300424B4">
+      <End Role="Medicine" EntitySet="Medicines" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchases__Emplo__36B12243" Association="Self.FK__Purchases__Emplo__36B12243">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__EmployeeI__30F848ED" Association="Self.FK__Sales__EmployeeI__30F848ED">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HospitalDbModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HospitalDbModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spGetGroups" ReturnType="Collection(String)">
+      <Parameter Name="groupName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TestProc" ReturnType="Collection(HospitalDbModel.TestProc_Result)">
+      <Parameter Name="firstNum" Mode="In" Type="Int32" />
+      <Parameter Name="secondNum" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="SalesTemps" EntityType="HospitalDbModel.SalesTemp" />
+    <EntitySet Name="ExpenseTamps" EntityType="HospitalDbModel.ExpenseTamp" />
+    <EntitySet Name="productinfoes" EntityType="HospitalDbModel.productinfo" />
+    <FunctionImport Name="CrudOperations" ReturnType="Collection(HospitalDbModel.CrudOperations_Result)">
+      <Parameter Name="productid" Mode="In" Type="Int32" />
+      <Parameter Name="productname" Mode="In" Type="String" />
+      <Parameter Name="price" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPExpenseTamp" ReturnType="Collection(HospitalDbModel.SPExpenseTamp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="ExpenseType" Mode="In" Type="String" />
+      <Parameter Name="ExpenseDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Incomes" EntityType="HospitalDbModel.Income" />
+    <EntitySet Name="Discounts" EntityType="HospitalDbModel.Discount" />
+    <EntitySet Name="Honoraria" EntityType="HospitalDbModel.Honorarium" />
+    <EntitySet Name="IncomeTamps" EntityType="HospitalDbModel.IncomeTamp" />
+    <FunctionImport Name="spIncomeTamp" ReturnType="Collection(HospitalDbModel.spIncomeTamp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Particular" Mode="In" Type="String" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Rate" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="IndoorIncomeTamps" EntityType="HospitalDbModel.IndoorIncomeTamp" />
+    <FunctionImport Name="spIndoorIncomeTamp" ReturnType="Collection(HospitalDbModel.spIndoorIncomeTamp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Particular" Mode="In" Type="String" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Rate" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spGetServices" ReturnType="Collection(HospitalDbModel.spGetServices_Result)">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="PatientSubs" EntityType="HospitalDbModel.PatientSub" />
+    <EntitySet Name="vwSalesMedicines" EntityType="HospitalDbModel.vwSalesMedicine" />
+    <EntitySet Name="vwPurchaseMedicines" EntityType="HospitalDbModel.vwPurchaseMedicine" />
+    <FunctionImport Name="spPurchaseMedicine" ReturnType="Collection(HospitalDbModel.spPurchaseMedicine_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spSalseMedicine" ReturnType="Collection(HospitalDbModel.spSalseMedicine_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="vwInDoorServices" EntityType="HospitalDbModel.vwInDoorService" />
+    <EntitySet Name="vwOutDoorServices" EntityType="HospitalDbModel.vwOutDoorService" />
+    <FunctionImport Name="spIndoorService" ReturnType="Collection(HospitalDbModel.spIndoorService_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spOutdoorService" ReturnType="Collection(HospitalDbModel.spOutdoorService_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spTodayExpense" ReturnType="Collection(HospitalDbModel.spTodayExpense_Result)">
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="vwReportCheckers" EntityType="HospitalDbModel.vwReportChecker" />
+    <EntitySet Name="VWMedicineStorages" EntityType="HospitalDbModel.VWMedicineStorage" />
+    <FunctionImport Name="spMedicineStorage" ReturnType="Collection(HospitalDbModel.spMedicineStorage_Result)" />
+    <FunctionImport Name="SPPurchaseMedicineTamp" ReturnType="Collection(HospitalDbModel.SPPurchaseMedicineTamp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="MedicineName" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPSaleMedicineTamp" ReturnType="Collection(HospitalDbModel.SPSaleMedicineTamp_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="MedicineName" Mode="In" Type="String" />
+      <Parameter Name="Price" Mode="In" Type="Decimal" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TestProc1" ReturnType="Collection(HospitalDbModel.TestProc1_Result)">
+      <Parameter Name="firstNum" Mode="In" Type="Int32" />
+      <Parameter Name="secondNum" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="TestProc_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="GroupId" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="3" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="String" Name="Name1" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Volume" Nullable="true" MaxLength="120" />
+    <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="SalesTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MedicineName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExpenseTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="ExpenseType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ExpenseDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="productinfo">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="CrudOperations_Result">
+    <Property Type="Int32" Name="productid" Nullable="false" />
+    <Property Type="String" Name="productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="price" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPExpenseTamp_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="ExpenseType" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="Income">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+    <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="Discount1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Honorarium">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="AgentId" Type="Int32" />
+    <Property Name="Honorarium1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Paid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="IncomeTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="spIncomeTamp_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="IndoorIncomeTamp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="spIndoorIncomeTamp_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spGetServices_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="PatientSub">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientId" Type="Int32" />
+    <Property Name="AgentId" Type="Int32" />
+    <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="GuadianName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="GuardianMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="DoctorId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vwSalesMedicine">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="patienName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Precision="3" />
+    <Property Name="Consultant_name" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="RegistrationNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Medicine" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="PatientType" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="SalingDate" Type="DateTime" Precision="3" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwPurchaseMedicine">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="Medicine" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="PurchasingDate" Type="DateTime" Precision="3" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="spPurchaseMedicine_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="Medicine" Nullable="true" MaxLength="120" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="DateTime" Name="PurchasingDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TotalinWord" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="120" />
+  </ComplexType>
+  <ComplexType Name="spSalseMedicine_Result">
+    <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+    <Property Type="String" Name="patienName" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Consultant_name" Nullable="true" MaxLength="220" />
+    <Property Type="String" Name="Medicine" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="PatientType" Nullable="true" MaxLength="120" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="DateTime" Name="SalingDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="10" Scale="3" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TotalinWord" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="vat" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="RegistrationNo" Nullable="true" MaxLength="30" />
+  </ComplexType>
+  <EntityType Name="vwInDoorService">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="PatientName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="RegNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="amount" Type="Decimal" Precision="29" Scale="2" />
+  </EntityType>
+  <EntityType Name="vwOutDoorService">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+    <Property Name="PatientName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Dob" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalinWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DoctorName" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="presentAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Particulars" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="amount" Type="Decimal" Precision="29" Scale="2" />
+  </EntityType>
+  <ComplexType Name="spIndoorService_Result">
+    <Property Type="Int32" Name="InvoiceNo" Nullable="false" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="RegNo" Nullable="true" MaxLength="30" />
+    <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Sex" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TotalinWord" Nullable="true" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="120" />
+    <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="220" />
+    <Property Type="DateTime" Name="AddmissionDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="ReleasedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="presentAddress" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ServiceType" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Particulars" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="29" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="spOutdoorService_Result">
+    <Property Type="Int32" Name="InvoiceNo" Nullable="false" />
+    <Property Type="String" Name="PatientName" Nullable="true" MaxLength="120" />
+    <Property Type="DateTime" Name="Dob" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Sex" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="GrandTotal" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TotalinWord" Nullable="true" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="120" />
+    <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="220" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="presentAddress" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Particulars" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Rate" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="29" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="spTodayExpense_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UserId" Nullable="true" />
+    <Property Type="String" Name="InvoiceType" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CustomerId" Nullable="true" />
+    <Property Type="String" Name="DoctorName" Nullable="true" MaxLength="320" />
+    <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Boolean" Name="isProductDelivered" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="InvoiceId" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="DateTime" Name="ExpenseDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ExpenseType" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="vwReportChecker">
+    <Key>
+      <PropertyRef Name="invoiceId" />
+      <PropertyRef Name="PatientName" />
+      <PropertyRef Name="DoctorName" />
+    </Key>
+    <Property Name="invoiceId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="PatientName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorName" Type="String" Nullable="false" MaxLength="220" FixedLength="false" Unicode="false" />
+    <Property Name="isProductDelivered" Type="Boolean" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="VWMedicineStorage">
+    <Key>
+      <PropertyRef Name="MedicineId" />
+      <PropertyRef Name="MedicineCode" />
+      <PropertyRef Name="MedicineName" />
+      <PropertyRef Name="Group" />
+      <PropertyRef Name="Company" />
+    </Key>
+    <Property Name="MedicineId" Type="Int32" Nullable="false" />
+    <Property Name="MedicineCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MedicineName" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Group" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="OpeningQuantity" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="spMedicineStorage_Result">
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="Int32" Name="MedicineId" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="GroupName" Nullable="true" MaxLength="130" />
+    <Property Type="String" Name="Company" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="OpeningQuantity" Nullable="true" />
+    <Property Type="Int32" Name="PurchasingQty" Nullable="true" />
+    <Property Type="Int32" Name="SalingQty" Nullable="true" />
+    <Property Type="Int32" Name="Balance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SPPurchaseMedicineTamp_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MedicineName" Nullable="true" MaxLength="120" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="3" />
+  </ComplexType>
+  <ComplexType Name="SPSaleMedicineTamp_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MedicineName" Nullable="true" MaxLength="150" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="TestProc1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="GroupId" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="Quantity" Nullable="true" />
+    <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="3" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="String" Name="Name1" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Volume" Nullable="true" MaxLength="120" />
+    <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
+  </ComplexType>
+</Schema>

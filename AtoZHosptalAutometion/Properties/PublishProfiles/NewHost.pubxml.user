@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\ww</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>09/09/2016 00:55:46</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_cs.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_da.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_de.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_en.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_es.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_fi.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_fr.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_hu.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_it.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_ja.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_ko.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_nb.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_nl.cab">
+      <publishTime>09/21/2016 09:52:27</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_pl.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_pt.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_ru.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_sk.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_sv.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_th.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_tr.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_zh_CN.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/ActiveXControls/PrintControl_res_zh_TW.cab">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allInOne.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_cs.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_da.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_de.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_en.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_es.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_fi.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_fr.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_hu.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_it.js">
+      <publishTime>09/21/2016 09:52:28</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_ja.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_ko.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_nb.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_nl.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_pl.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_pt.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_ru.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_sk.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_sv.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_th.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_tr.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_zh_CN.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/allStrings_zh_TW.js">
+      <publishTime>09/21/2016 09:52:29</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/parameterUIController-compressed.js">
+      <publishTime>09/21/2016 09:52:37</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/processindicator.js">
+      <publishTime>09/21/2016 09:52:37</publishTime>
+    </File>
+    <File Include="aspnet_client/system_web/2_0_50727/crystalreportviewers13/promptengine-compressed.js">
+      <publishTime>09/21/2016 09:52:38</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>02/04/2015 11:29:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>09/09/2016 00:55:46</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>09/30/2016 03:52:28</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>09/30/2016 03:52:28</publishTime>
+    </File>
+    <File Include="bin/AtoZHosptalAutometion.dll">
+      <publishTime>09/30/2016 03:52:18</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>01/24/2016 06:25:40</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Web.dll">
+      <publishTime>01/24/2016 06:25:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>11/03/2015 17:43:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>11/03/2015 17:43:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>07/19/2016 15:55:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>06/06/2016 15:40:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>06/06/2016 15:40:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>06/06/2016 10:45:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>06/06/2016 15:40:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>06/06/2016 15:40:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>06/06/2016 10:42:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.DynamicData.EFProvider.dll">
+      <publishTime>02/25/2014 14:09:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.EntityDataSource.dll">
+      <publishTime>02/25/2014 14:09:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>03/18/2016 16:51:42</publishTime>
+    </File>
+    <File Include="bin/Report/rptDailyVoucher.rpt">
+      <publishTime>09/29/2016 22:07:25</publishTime>
+    </File>
+    <File Include="bin/Report/rptDueList.rpt">
+      <publishTime>09/28/2016 00:53:32</publishTime>
+    </File>
+    <File Include="bin/Report/rptPurchaseMedicine.cs">
+      <publishTime>09/09/2016 00:54:08</publishTime>
+    </File>
+    <File Include="bin/Report/rptPurchaseMedicine.rpt">
+      <publishTime>09/07/2016 12:11:07</publishTime>
+    </File>
+    <File Include="bin/Report/rptSaleIndoorService.cs">
+      <publishTime>09/19/2016 00:45:27</publishTime>
+    </File>
+    <File Include="bin/Report/rptSaleIndoorService.rpt">
+      <publishTime>09/19/2016 00:45:26</publishTime>
+    </File>
+    <File Include="bin/Report/rptSaleOutdoorService.cs">
+      <publishTime>09/09/2016 00:54:09</publishTime>
+    </File>
+    <File Include="bin/Report/rptSaleOutdoorService.rpt">
+      <publishTime>09/08/2016 02:45:55</publishTime>
+    </File>
+    <File Include="bin/Report/rptSalesMedicine.cs">
+      <publishTime>09/18/2016 01:21:54</publishTime>
+    </File>
+    <File Include="bin/Report/rptSalesMedicine.rpt">
+      <publishTime>09/22/2016 09:47:46</publishTime>
+    </File>
+    <File Include="bin/Report/rptShowDeposit.rpt">
+      <publishTime>09/30/2016 00:57:23</publishTime>
+    </File>
+    <File Include="bin/Report/rptShowExpense.cs">
+      <publishTime>09/18/2016 09:04:20</publishTime>
+    </File>
+    <File Include="bin/Report/rptShowExpense.rpt">
+      <publishTime>09/18/2016 09:04:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>07/07/2015 00:51:38</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="Content/cmxform.css">
+      <publishTime>09/20/2016 02:44:39</publishTime>
+    </File>
+    <File Include="Content/cmxformTemplate.css">
+      <publishTime>09/20/2016 02:44:39</publishTime>
+    </File>
+    <File Include="Content/core.css">
+      <publishTime>09/20/2016 02:44:39</publishTime>
+    </File>
+    <File Include="Content/images/animated-overlay.gif">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/login.jpg">
+      <publishTime>09/20/2016 02:31:02</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_444444_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_555555_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_777620_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_777777_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_cc0000_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_ffffff_256x240.png">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/jquery-ui-1.10.4.custom.min.css">
+      <publishTime>08/19/2016 00:54:21</publishTime>
+    </File>
+    <File Include="Content/reset.css">
+      <publishTime>09/20/2016 02:44:39</publishTime>
+    </File>
+    <File Include="Content/screen.css">
+      <publishTime>09/20/2016 02:44:39</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>09/29/2016 09:46:03</publishTime>
+    </File>
+    <File Include="default.aspx">
+      <publishTime>09/30/2016 00:14:44</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>08/18/2016 00:20:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>08/17/2016 22:41:38</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>09/20/2016 11:14:57</publishTime>
+    </File>
+    <File Include="masterPage.html">
+      <publishTime>08/18/2016 02:35:11</publishTime>
+    </File>
+    <File Include="Models/A2ZDataModel.edmx.diagram">
+      <publishTime>09/29/2016 21:20:46</publishTime>
+    </File>
+    <File Include="Models/Model.edmx.diagram">
+      <publishTime>09/20/2016 04:14:07</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/09/2016 00:55:54</publishTime>
+    </File>
+    <File Include="Paomedia-Small-N-Flat-Notepad.ico">
+      <publishTime>09/09/2016 00:50:58</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>09/30/2016 03:52:21</publishTime>
+    </File>
+    <File Include="Register.aspx">
+      <publishTime>09/20/2016 03:29:52</publishTime>
+    </File>
+    <File Include="Report/rptDailyVoucher.rpt">
+      <publishTime>09/29/2016 22:07:25</publishTime>
+    </File>
+    <File Include="Report/rptDueList.rpt">
+      <publishTime>09/28/2016 00:53:32</publishTime>
+    </File>
+    <File Include="Report/rptPurchaseMedicine.rpt">
+      <publishTime>09/07/2016 12:11:07</publishTime>
+    </File>
+    <File Include="Report/rptSaleIndoorService.rpt">
+      <publishTime>09/19/2016 00:45:26</publishTime>
+    </File>
+    <File Include="Report/rptSaleOutdoorService.rpt">
+      <publishTime>09/08/2016 02:45:55</publishTime>
+    </File>
+    <File Include="Report/rptSalesMedicine.rpt">
+      <publishTime>09/22/2016 09:47:46</publishTime>
+    </File>
+    <File Include="Report/rptShowDeposit.rpt">
+      <publishTime>09/30/2016 00:57:23</publishTime>
+    </File>
+    <File Include="Report/rptShowExpense.rpt">
+      <publishTime>09/18/2016 09:04:18</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.js">
+      <publishTime>08/17/2016 22:42:04</publishTime>
+    </File>
+    <File Include="scripts/ai.0.22.9-build00167.min.js">
+      <publishTime>08/17/2016 22:42:04</publishTime>
+    </File>
+    <File Include="scripts/bootstrap.js">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="scripts/bootstrap.min.js">
+      <publishTime>08/18/2016 00:20:25</publishTime>
+    </File>
+    <File Include="scripts/functions.js">
+      <publishTime>08/21/2016 00:39:52</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.10.2.js">
+      <publishTime>08/19/2016 00:53:23</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.js">
+      <publishTime>08/18/2016 00:20:56</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.min.js">
+      <publishTime>08/18/2016 00:20:56</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.min.map">
+      <publishTime>08/18/2016 00:20:56</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.slim.js">
+      <publishTime>08/18/2016 00:20:56</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.slim.min.js">
+      <publishTime>08/18/2016 00:20:56</publishTime>
+    </File>
+    <File Include="scripts/jquery-3.1.0.slim.min.map">
+      <publishTime>08/18/2016 00:20:55</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui-1.10.4.custom.min.js">
+      <publishTime>08/19/2016 00:53:23</publishTime>
+    </File>
+    <File Include="scripts/jquery.validate.js">
+      <publishTime>08/18/2016 00:21:30</publishTime>
+    </File>
+    <File Include="scripts/jquery.validate.min.js">
+      <publishTime>08/18/2016 00:21:30</publishTime>
+    </File>
+    <File Include="scripts/table_script.js">
+      <publishTime>08/22/2016 01:26:50</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>09/21/2016 02:49:30</publishTime>
+    </File>
+    <File Include="UI/AccessDeniedUI.aspx">
+      <publishTime>09/29/2016 23:09:04</publishTime>
+    </File>
+    <File Include="UI/AddExpense.aspx">
+      <publishTime>09/30/2016 02:12:29</publishTime>
+    </File>
+    <File Include="UI/AddExpenseUIold.aspx">
+      <publishTime>09/21/2016 02:54:33</publishTime>
+    </File>
+    <File Include="UI/AddServicesUI.aspx">
+      <publishTime>09/30/2016 01:53:45</publishTime>
+    </File>
+    <File Include="UI/AddTestUI.aspx">
+      <publishTime>09/30/2016 01:53:22</publishTime>
+    </File>
+    <File Include="UI/AgentPayment.aspx">
+      <publishTime>09/30/2016 02:18:03</publishTime>
+    </File>
+    <File Include="UI/AgentRegistrationSuccess.aspx">
+      <publishTime>09/21/2016 22:24:09</publishTime>
+    </File>
+    <File Include="UI/App_LocalResources/AdmissionPatientUI.aspx.resx">
+      <publishTime>08/19/2016 15:27:15</publishTime>
+    </File>
+    <File Include="UI/DailyCashDipositUI.aspx">
+      <publishTime>09/30/2016 01:20:31</publishTime>
+    </File>
+    <File Include="UI/delete.png">
+      <publishTime>08/29/2016 02:43:21</publishTime>
+    </File>
+    <File Include="UI/DipositListUI.aspx">
+      <publishTime>09/30/2016 01:16:49</publishTime>
+    </File>
+    <File Include="UI/DoctorRegistration.aspx">
+      <publishTime>09/30/2016 02:06:20</publishTime>
+    </File>
+    <File Include="UI/DueListUI.aspx">
+      <publishTime>09/30/2016 01:25:35</publishTime>
+    </File>
+    <File Include="UI/DuePaymentUI.aspx">
+      <publishTime>09/30/2016 01:46:27</publishTime>
+    </File>
+    <File Include="UI/IndoorSeriviceUI.aspx">
+      <publishTime>09/30/2016 01:54:54</publishTime>
+    </File>
+    <File Include="UI/Logout.aspx">
+      <publishTime>09/21/2016 00:57:01</publishTime>
+    </File>
+    <File Include="UI/MedicineSaleListUI.aspx">
+      <publishTime>09/30/2016 02:01:01</publishTime>
+    </File>
+    <File Include="UI/MedicineSearch.aspx">
+      <publishTime>09/30/2016 01:46:27</publishTime>
+    </File>
+    <File Include="UI/MedicineStorage.aspx">
+      <publishTime>09/30/2016 01:45:33</publishTime>
+    </File>
+    <File Include="UI/OutdoorServiceUI.aspx">
+      <publishTime>09/30/2016 01:54:26</publishTime>
+    </File>
+    <File Include="UI/PatienEntry.aspx">
+      <publishTime>09/30/2016 01:56:09</publishTime>
+    </File>
+    <File Include="UI/PatientAdmissionUI.aspx">
+      <publishTime>09/30/2016 01:52:12</publishTime>
+    </File>
+    <File Include="UI/PurchaseMedicine.aspx">
+      <publishTime>09/30/2016 01:43:57</publishTime>
+    </File>
+    <File Include="UI/RegisterAgent.aspx">
+      <publishTime>09/30/2016 01:52:50</publishTime>
+    </File>
+    <File Include="UI/ReportDeliveryCheckUI.aspx">
+      <publishTime>09/30/2016 01:51:05</publishTime>
+    </File>
+    <File Include="UI/ReportForm/DailyDipositReportViewer.aspx">
+      <publishTime>09/30/2016 01:19:12</publishTime>
+    </File>
+    <File Include="UI/ReportForm/DepositViewer.aspx">
+      <publishTime>09/30/2016 01:29:15</publishTime>
+    </File>
+    <File Include="UI/ReportForm/DueListViewer.aspx">
+      <publishTime>09/30/2016 01:28:40</publishTime>
+    </File>
+    <File Include="UI/ReportForm/IndoorServiceViewer.aspx">
+      <publishTime>09/08/2016 03:43:26</publishTime>
+    </File>
+    <File Include="UI/ReportForm/OutdoorServiceRpt.aspx">
+      <publishTime>09/08/2016 01:40:51</publishTime>
+    </File>
+    <File Include="UI/ReportForm/PurchaseReportViewer.aspx">
+      <publishTime>09/07/2016 11:33:19</publishTime>
+    </File>
+    <File Include="UI/ReportForm/ShowExpenseViewer.aspx">
+      <publishTime>09/30/2016 01:27:42</publishTime>
+    </File>
+    <File Include="UI/SaleMedicineReportView.aspx">
+      <publishTime>09/07/2016 03:55:25</publishTime>
+    </File>
+    <File Include="UI/SalesMedicine.aspx">
+      <publishTime>09/30/2016 01:43:17</publishTime>
+    </File>
+    <File Include="UI/SaveMedicine.aspx">
+      <publishTime>09/30/2016 01:44:24</publishTime>
+    </File>
+    <File Include="UI/ServiceSaleListUI.aspx">
+      <publishTime>09/30/2016 02:00:22</publishTime>
+    </File>
+    <File Include="UI/ShowExpensesByDate_new.aspx">
+      <publishTime>09/30/2016 03:45:22</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/22/2016 09:23:19</publishTime>
+    </File>
+    <File Include="WebService.asmx">
+      <publishTime>08/18/2016 23:14:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
