@@ -52,8 +52,8 @@ namespace AtoZHosptalAutometion.UI
                     {
                         //It will be collected from session
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("spTodaySale", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Income inc on i.Id = inc.InvoiceId left join Users u on i.UserId = u.Id where i.InvoiceType = 'Sales Medicine' and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and u.Name = 'Pharmacy'", con);
+                       
                         cmd.Parameters.AddWithValue("@today", date);
                         cmd.Parameters.AddWithValue("@user", user);
 
@@ -72,8 +72,7 @@ namespace AtoZHosptalAutometion.UI
                     {
                         //It will be collected from session
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("spTodaySaleService", con);
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount  from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Income inc on i.Id = inc.InvoiceId left join Users u on i.UserId = u.Id where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services') and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and u.Name = @user", con);
                         cmd.Parameters.AddWithValue("@today", date);
                         cmd.Parameters.AddWithValue("@user", user);
 

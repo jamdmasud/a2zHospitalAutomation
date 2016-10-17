@@ -27,6 +27,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 Response.Redirect("~/UI/AccessDeniedUI.aspx");
             }
+            UserId = oUser.Id;
         }
 
 

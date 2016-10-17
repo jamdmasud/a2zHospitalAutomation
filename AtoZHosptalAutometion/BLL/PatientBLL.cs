@@ -63,7 +63,7 @@ namespace AtoZHosptalAutometion.BLL
             Patient oPatient= new Patient();
 
 
-            oInvoice.InvoiceDate = DateTime.Now;
+            oInvoice.InvoiceDate = DateTime.Today;
             oInvoice.UserId = oPatientSub.UpdatedBy; // it will be collected from session
             oInvoice.UpdatedBy = oInvoice.UserId;
             oInvoice.InvoiceType = "Admission";

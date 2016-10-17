@@ -89,7 +89,7 @@ namespace AtoZHosptalAutometion.BLL
             oInvoiceSub.Total = total;
             oInvoiceSub.GrandTotal = total;
             oInvoiceSub.TotalinWord = word;
-            oInvoiceSub.UpdatedDate =  DateTime.Now;
+            oInvoiceSub.UpdatedDate =  DateTime.Today;
             oInvoiceSub.UpdatedBy = oInvoice.UpdatedBy;
             oInvoiceSub.Discount = 0;
             oInvoiceSub.Paid = 0;

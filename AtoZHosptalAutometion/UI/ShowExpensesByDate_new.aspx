@@ -133,6 +133,7 @@
                                     <br />
                                     <div class="GridviewDiv">
                                         <asp:GridView CssClass="table table-hover table-responsive" runat="server" ID="GridView" AutoGenerateColumns="False">
+                                            <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#A55129"></HeaderStyle>
                                             <Columns>
                                                 <asp:TemplateField HeaderText="SL">
                                                     <ItemTemplate><%# ((GridViewRow)Container).RowIndex + 1%></ItemTemplate>

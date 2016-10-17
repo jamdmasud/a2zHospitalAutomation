@@ -63,7 +63,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 //It will be collected from session
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select sum(ins.GrandTotal) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services') and (i.InvoiceDate between @fromDate and @toDate)", con);
+                SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) Discount  from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services') and (i.InvoiceDate between @fromDate and @toDate)", con);
 
                 cmd.Parameters.AddWithValue("@fromDate", fromsDate);
                 cmd.Parameters.AddWithValue("@toDate", tosDate);
@@ -77,6 +77,7 @@ namespace AtoZHosptalAutometion.UI
                         totalsLabel.Text = reader["Total"].ToString();
                         receivedsLabel.Text = reader["Paid"].ToString();
                         duesLabel.Text = reader["Due"].ToString();
+                        discountLabel.Text = reader["Discount"].ToString();
                     }
                     
                 }

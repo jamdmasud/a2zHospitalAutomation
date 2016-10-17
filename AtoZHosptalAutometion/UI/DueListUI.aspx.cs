@@ -23,11 +23,8 @@ namespace AtoZHosptalAutometion.UI
             if (login == false) Response.Redirect("~/Login.aspx");
             oUser = (User)Session["user"];
 
-            //Identify user type
-            if (oUser.Roles != "Admin" && oUser.Roles != "Manager")
-            {
-                Response.Redirect("~/UI/AccessDeniedUI.aspx");
-            }
+            
+         
 
         }
 
@@ -42,7 +39,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 //It will be collected from session
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select * from vwDue where TransactionDate between @fromDate and @toDate", con);
+                SqlCommand cmd = new SqlCommand("select i.Id InvoiceId, i.UpdatedDate as TransactionDate, u.Name TransactedBy, p.Name, p.Phone, ins.Due from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Patient p on i.CustomerId = p.Id left join Users u on i.UserId = u.Id where ins.Due > 0 and (i.UpdatedDate between @fromDate and @toDate)", con);
 
                 cmd.Parameters.AddWithValue("@fromDate", fromsDate);
                 cmd.Parameters.AddWithValue("@toDate", tosDate);

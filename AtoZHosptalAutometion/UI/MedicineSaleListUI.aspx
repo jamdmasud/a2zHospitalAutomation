@@ -15,8 +15,6 @@
     
 </head>
 <body>
-
-
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
@@ -147,9 +145,10 @@
                                 </Columns>
                             </asp:GridView>
                             <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6" style="background: #d3d3d3; font-weight: 800; border: 1px solid #d2b48c; border-radius: 5px;text-align: right">
-                                <strong>Total:</strong> <asp:Label ID="totalLabel" runat="server"></asp:Label>
-                                <strong>Received:</strong> <asp:Label ID="receivedsLabel" runat="server"></asp:Label>
-                                <strong>Due:</strong> <asp:Label ID="duesLabel" runat="server"></asp:Label>
+                                <strong>Total:</strong> <asp:Label ID="totalLabel" runat="server"></asp:Label><br/>
+                                <strong>Received:</strong> <asp:Label ID="receivedsLabel" runat="server"></asp:Label><br/>
+                                <strong>Due:</strong> <asp:Label ID="duesLabel" runat="server"></asp:Label><br/>
+                                <strong>Discount:</strong> <asp:Label ID="discountLabel" runat="server"></asp:Label>
                             </div>
                         </div>
 

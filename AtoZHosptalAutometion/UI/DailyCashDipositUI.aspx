@@ -136,6 +136,15 @@
                                     <asp:TemplateField HeaderText="Total">
                                         <ItemTemplate><%# Eval("Total") %></ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Received Cash">
+                                        <ItemTemplate><%# Eval("Paid") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Due">
+                                        <ItemTemplate><%# Eval("Due") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Discount">
+                                        <ItemTemplate><%# Eval("Discount") %></ItemTemplate>
+                                    </asp:TemplateField>
                                     
                                 </Columns>
                             </asp:GridView>
