@@ -153,3 +153,5 @@ F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutomet
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\obj\x86\Debug\AtoZHosptalAutometion.dll
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\obj\x86\Debug\AtoZHosptalAutometion.pdb
+F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDepositShow.rpt
+F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDepositShow.cs

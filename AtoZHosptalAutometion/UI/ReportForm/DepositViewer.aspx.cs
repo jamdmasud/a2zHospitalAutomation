@@ -15,7 +15,7 @@ namespace AtoZHosptalAutometion.UI.ReportForm
         {
             DataSet id = (DataSet)Session["rpt"];
             ReportDocument rptDocument = new ReportDocument();
-            rptDocument.Load(Server.MapPath("~/Report/rptDespositReport.rpt"));
+            rptDocument.Load(Server.MapPath("~/Report/rptDepositShow.rpt"));
             rptDocument.SetDataSource(id);
             CrystalReportViewer1.ReportSource = rptDocument;
         }

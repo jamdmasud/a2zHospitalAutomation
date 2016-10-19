@@ -54,7 +54,7 @@ namespace AtoZHosptalAutometion.UI
                 medicineGridView.DataBind();
                 Session["rpt"] = ds;
                 printButton.Visible = true;
-                //printButton.PostBackUrl = "~/UI/ReportForm/DueListViewer.aspx";
+                printButton.PostBackUrl = "~/UI/ReportForm/DepositViewer.aspx";
                 cmd.Dispose();
                 con.Close();
             }
