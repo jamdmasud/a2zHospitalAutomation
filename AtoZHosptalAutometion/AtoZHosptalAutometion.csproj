@@ -203,9 +203,12 @@
     <Content Include="UI\AddExpense.aspx" />
     <Content Include="UI\AddServicesUI.aspx" />
     <Content Include="UI\AddTestUI.aspx" />
+    <Content Include="UI\AgentListUI.aspx" />
     <Content Include="UI\AgentPayment.aspx" />
     <Content Include="UI\DailyCashDipositUI.aspx" />
+    <Content Include="UI\DepositListUI.aspx" />
     <Content Include="UI\DipositListUI.aspx" />
+    <Content Include="UI\DoctorListUI.aspx" />
     <Content Include="UI\DoctorRegistration.aspx" />
     <Content Include="UI\DueListUI.aspx" />
     <Content Include="UI\DuePaymentUI.aspx" />
@@ -502,6 +505,13 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Report\rptDespositReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDespositReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Report\rptDueList.cs">
       <DependentUpon>rptDueList.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -511,13 +521,6 @@
     </Compile>
     <Compile Include="Report\rptDailyVoucher.cs">
       <DependentUpon>rptDailyVoucher.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Report\rptShowDeposit.cs">
-      <DependentUpon>rptShowDeposit.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -579,6 +582,13 @@
     <Compile Include="UI\AddTestUI.aspx.designer.cs">
       <DependentUpon>AddTestUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\AgentListUI.aspx.cs">
+      <DependentUpon>AgentListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\AgentListUI.aspx.designer.cs">
+      <DependentUpon>AgentListUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\AgentPayment.aspx.cs">
       <DependentUpon>AgentPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -593,12 +603,26 @@
     <Compile Include="UI\DailyCashDipositUI.aspx.designer.cs">
       <DependentUpon>DailyCashDipositUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\DepositListUI.aspx.cs">
+      <DependentUpon>DepositListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\DepositListUI.aspx.designer.cs">
+      <DependentUpon>DepositListUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\DipositListUI.aspx.cs">
       <DependentUpon>DipositListUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\DipositListUI.aspx.designer.cs">
       <DependentUpon>DipositListUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DoctorListUI.aspx.cs">
+      <DependentUpon>DoctorListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\DoctorListUI.aspx.designer.cs">
+      <DependentUpon>DoctorListUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\DoctorRegistration.aspx.cs">
       <DependentUpon>DoctorRegistration.aspx</DependentUpon>
@@ -879,11 +903,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Report\rptShowDeposit.rpt">
+    <Compile Include="Report\rptDespositReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptShowDeposit.cs</LastGenOutput>
+      <LastGenOutput>rptDespositReport.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
