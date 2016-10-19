@@ -505,12 +505,11 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Report\rptDespositReport.cs">
+    <Compile Include="Report\rptDepositShow.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptDespositReport.rpt</DependentUpon>
+      <DependentUpon>rptDepositShow.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Report\rptDueList.cs">
       <DependentUpon>rptDueList.rpt</DependentUpon>
@@ -903,11 +902,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Report\rptDespositReport.rpt">
+    <EmbeddedResource Include="Report\rptDepositShow.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDespositReport.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+      <LastGenOutput>rptDepositShow.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
