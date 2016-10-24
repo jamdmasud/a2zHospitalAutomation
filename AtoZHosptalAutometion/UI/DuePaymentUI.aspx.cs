@@ -89,7 +89,7 @@ namespace AtoZHosptalAutometion.UI
             IEnumerable<ReportChecker> oChecker = SearchInvoice(id);
             decimal total = oChecker.Select(p => p.GrandTotal).FirstOrDefault();
             ServiceBLL oServiceBll = new ServiceBLL();
-            int invoiceId = oServiceBll.UpdatePayment(id, paid);
+            int invoiceId = oServiceBll.UpdatePayment(id, paid, oUser);
             if (invoiceId > 0)
             {
 

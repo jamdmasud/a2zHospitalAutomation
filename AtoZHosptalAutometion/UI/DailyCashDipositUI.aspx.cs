@@ -85,6 +85,26 @@ namespace AtoZHosptalAutometion.UI
                         con.Close();
                     }
                 }
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    //It will be collected from session
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select sum(amount) CollectedDue from [a2zmanagementsystem.com_jamdmasud].[Due] where UpdatedBy = @user and Date = @today", con);
+                    cmd.Parameters.AddWithValue("@today", date);
+                    cmd.Parameters.AddWithValue("@user", Convert.ToInt32(userIdTextBox.Text));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            lblcolDue.Text = reader["CollectedDue"].ToString();
+                        }
+                    }
+                    cmd.Dispose();
+                    con.Close();
+                }
+
             }
             catch (Exception exception)
             {

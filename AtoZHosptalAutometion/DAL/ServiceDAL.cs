@@ -304,5 +304,10 @@ namespace AtoZHosptalAutometion.DAL
                 throw new Exception(exception.InnerException.Message);
             }
         }
+
+        public void InsertDue(int id, decimal paid, User oUser)
+        {
+            
+        }
     }
 }

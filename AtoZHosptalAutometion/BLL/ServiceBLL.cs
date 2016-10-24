@@ -184,9 +184,10 @@ namespace AtoZHosptalAutometion.BLL
             return oServiceDal.ChangeDeliveryStatus(invoiceId, status);
         }
 
-        public int UpdatePayment(int id, decimal paid)
+        public int UpdatePayment(int id, decimal paid, User oUser)
         {
             ServiceDAL oServiceDal = new ServiceDAL();
+            oServiceDal.InsertDue(id, paid, oUser);
             return oServiceDal.UpdatePayment(id, paid);
         }
 
