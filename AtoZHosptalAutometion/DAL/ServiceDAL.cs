@@ -307,7 +307,24 @@ namespace AtoZHosptalAutometion.DAL
 
         public void InsertDue(int id, decimal paid, User oUser)
         {
-            
+            try
+            {
+                Due oDue = new Due();
+                oDue.InvoiceId = id;
+                oDue.Amount = paid;
+                oDue.Date = DateTime.Today;
+                oDue.UpdatedBy = oUser.Id;
+                oDue.UpdatedDate = oDue.Date;
+                using (var db = new Entities())
+                {
+                    db.Dues.Add(oDue);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
     }
 }

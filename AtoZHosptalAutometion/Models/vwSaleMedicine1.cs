@@ -12,7 +12,7 @@ namespace AtoZHosptalAutometion.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class vwSaleMedicine
+    public partial class vwSaleMedicine1
     {
         public int Id { get; set; }
         public Nullable<decimal> Total { get; set; }

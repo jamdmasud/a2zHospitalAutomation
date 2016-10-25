@@ -362,6 +362,9 @@
     <Compile Include="Models\Doctor.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Due.cs">
+      <DependentUpon>A2ZDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Expens.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
@@ -420,6 +423,9 @@
     <Compile Include="Models\Service.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\spDailDeposit_Result.cs">
+      <DependentUpon>A2ZDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spDueList_Result.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
@@ -471,10 +477,7 @@
     <Compile Include="Models\Voucher.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vwAgentDue.cs">
-      <DependentUpon>A2ZDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwDue.cs">
+    <Compile Include="Models\vwDue1.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vwInDoorService.cs">
@@ -492,7 +495,7 @@
     <Compile Include="Models\vwReportChecker.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vwSaleMedicine.cs">
+    <Compile Include="Models\vwSaleMedicine1.cs">
       <DependentUpon>A2ZDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vwSalesMedicine.cs">

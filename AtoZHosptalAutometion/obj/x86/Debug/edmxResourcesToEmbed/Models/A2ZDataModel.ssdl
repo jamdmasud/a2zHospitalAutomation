@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="a2zmanagementsystem.com_A2zHospitalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Due">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
   <EntityType Name="AccountPayable">
     <Key>
       <PropertyRef Name="Id" />
@@ -352,27 +363,14 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Particulars" Type="varchar" MaxLength="100" />
-    <Property Name="DateOfDeal" Type="datetime" />
     <Property Name="Diposit" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
     <Property Name="UpdatedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="int" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="150" />
+    <Property Name="DateOfDeal" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwAgentDues' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwAgentDues">
-    <Key>
-      <PropertyRef Name="Name" />
-    </Key>
-    <Property Name="Code" Type="varchar" MaxLength="30" />
-    <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="Phone" Type="varchar" MaxLength="20" />
-    <Property Name="Address" Type="varchar" MaxLength="500" />
-    <Property Name="Payable" Type="decimal" Precision="38" Scale="2" />
-    <Property Name="Paid" Type="int" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwDue' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.a2zmanagementsystem.com_jamdmasud.vwDue' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwDue">
     <Key>
       <PropertyRef Name="InvoiceId" />
@@ -383,6 +381,25 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwDue' d
     <Property Name="Name" Type="varchar" MaxLength="120" />
     <Property Name="Phone" Type="varchar" MaxLength="20" />
     <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.a2zmanagementsystem.com_jamdmasud.vwSaleMedicines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwSaleMedicines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SoldBy" Type="varchar" MaxLength="120" />
+    <Property Name="InvoiceType" Type="varchar" MaxLength="150" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="Name" Type="varchar" MaxLength="120" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwInDoorService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -496,25 +513,6 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwReport
     <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSaleMedicines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwSaleMedicines">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Total" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="Due" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="vat" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="SoldBy" Type="varchar" MaxLength="120" />
-    <Property Name="InvoiceType" Type="varchar" MaxLength="150" />
-    <Property Name="InvoiceDate" Type="datetime" />
-    <Property Name="Name" Type="varchar" MaxLength="120" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="3" />
-  </EntityType>
-  <!--Errors Found During Generation:
 warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesMedicine' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwSalesMedicine">
     <Key>
@@ -589,15 +587,23 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="spTodaySale" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="a2zmanagementsystem.com_jamdmasud">
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="user" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spTodaySaleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="a2zmanagementsystem.com_jamdmasud">
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="user" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="CrudOperations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="productid" Type="int" Mode="In" />
     <Parameter Name="productname" Type="varchar" Mode="In" />
     <Parameter Name="price" Type="int" Mode="In" />
     <Parameter Name="status" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="spDueList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="toDate" Type="datetime" Mode="In" />
-    <Parameter Name="fromDate" Type="datetime" Mode="In" />
+  <Function Name="spDailDeposit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="user" Type="varchar" Mode="In" />
   </Function>
   <Function Name="SPExpenseTamp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
@@ -670,20 +676,13 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
     <Parameter Name="EndDate" Type="datetime" Mode="In" />
     <Parameter Name="type" Type="varchar" Mode="In" />
   </Function>
-  <Function Name="spTodaySale" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="today" Type="datetime" Mode="In" />
-    <Parameter Name="user" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="spTodaySaleService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="today" Type="datetime" Mode="In" />
-    <Parameter Name="user" Type="varchar" Mode="In" />
-  </Function>
   <Function Name="TestProc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="firstNum" Type="int" Mode="In" />
     <Parameter Name="secondNum" Type="int" Mode="In" />
     <Parameter Name="name" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="a2zmanagementsystemcom_A2zHospitalDbModelStoreContainer">
+    <EntitySet Name="Due" EntityType="Self.Due" Schema="a2zmanagementsystem.com_jamdmasud" store:Type="Tables" />
     <EntitySet Name="AccountPayable" EntityType="Self.AccountPayable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AccountReceivable" EntityType="Self.AccountReceivable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
@@ -712,17 +711,7 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
     <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="vwAgentDues" EntityType="Self.vwAgentDues" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [vwAgentDues].[Code] AS [Code], 
-    [vwAgentDues].[Name] AS [Name], 
-    [vwAgentDues].[Phone] AS [Phone], 
-    [vwAgentDues].[Address] AS [Address], 
-    [vwAgentDues].[Payable] AS [Payable], 
-    [vwAgentDues].[Paid] AS [Paid]
-    FROM [dbo].[vwAgentDues] AS [vwAgentDues]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwDue" EntityType="Self.vwDue" store:Type="Views" store:Schema="dbo">
+    <EntitySet Name="vwDue" EntityType="Self.vwDue" store:Type="Views" store:Schema="a2zmanagementsystem.com_jamdmasud">
       <DefiningQuery>SELECT 
     [vwDue].[InvoiceId] AS [InvoiceId], 
     [vwDue].[TransactionDate] AS [TransactionDate], 
@@ -730,7 +719,23 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
     [vwDue].[Name] AS [Name], 
     [vwDue].[Phone] AS [Phone], 
     [vwDue].[Due] AS [Due]
-    FROM [dbo].[vwDue] AS [vwDue]</DefiningQuery>
+    FROM [a2zmanagementsystem.com_jamdmasud].[vwDue] AS [vwDue]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwSaleMedicines" EntityType="Self.vwSaleMedicines" store:Type="Views" store:Schema="a2zmanagementsystem.com_jamdmasud">
+      <DefiningQuery>SELECT 
+    [vwSaleMedicines].[Id] AS [Id], 
+    [vwSaleMedicines].[Total] AS [Total], 
+    [vwSaleMedicines].[Paid] AS [Paid], 
+    [vwSaleMedicines].[Due] AS [Due], 
+    [vwSaleMedicines].[Discount] AS [Discount], 
+    [vwSaleMedicines].[vat] AS [vat], 
+    [vwSaleMedicines].[SoldBy] AS [SoldBy], 
+    [vwSaleMedicines].[InvoiceType] AS [InvoiceType], 
+    [vwSaleMedicines].[InvoiceDate] AS [InvoiceDate], 
+    [vwSaleMedicines].[Name] AS [Name], 
+    [vwSaleMedicines].[Quantity] AS [Quantity], 
+    [vwSaleMedicines].[UnitPrice] AS [UnitPrice]
+    FROM [a2zmanagementsystem.com_jamdmasud].[vwSaleMedicines] AS [vwSaleMedicines]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vwInDoorService" EntityType="Self.vwInDoorService" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -818,22 +823,6 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
     [vwReportChecker].[Due] AS [Due], 
     [vwReportChecker].[Paid] AS [Paid]
     FROM [dbo].[vwReportChecker] AS [vwReportChecker]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwSaleMedicines" EntityType="Self.vwSaleMedicines" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [vwSaleMedicines].[Id] AS [Id], 
-    [vwSaleMedicines].[Total] AS [Total], 
-    [vwSaleMedicines].[Paid] AS [Paid], 
-    [vwSaleMedicines].[Due] AS [Due], 
-    [vwSaleMedicines].[Discount] AS [Discount], 
-    [vwSaleMedicines].[vat] AS [vat], 
-    [vwSaleMedicines].[SoldBy] AS [SoldBy], 
-    [vwSaleMedicines].[InvoiceType] AS [InvoiceType], 
-    [vwSaleMedicines].[InvoiceDate] AS [InvoiceDate], 
-    [vwSaleMedicines].[Name] AS [Name], 
-    [vwSaleMedicines].[Quantity] AS [Quantity], 
-    [vwSaleMedicines].[UnitPrice] AS [UnitPrice]
-    FROM [dbo].[vwSaleMedicines] AS [vwSaleMedicines]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="vwSalesMedicine" EntityType="Self.vwSalesMedicine" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

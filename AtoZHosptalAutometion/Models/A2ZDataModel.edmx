@@ -1546,9 +1546,6 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
             <Parameter Name="secondNum" Mode="In" Type="Int32" />
             <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="vwAgentDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue" />
-          <EntitySet Name="vwDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue" />
-          <EntitySet Name="vwSaleMedicines" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine" />
           <FunctionImport Name="spDueList" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spDueList_Result)">
             <Parameter Name="toDate" Mode="In" Type="DateTime" />
             <Parameter Name="fromDate" Mode="In" Type="DateTime" />
@@ -1744,45 +1741,6 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
           <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
         </ComplexType>
-        <EntityType Name="vwAgentDue">
-          <Key>
-            <PropertyRef Name="Name" />
-          </Key>
-          <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Payable" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Paid" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vwDue">
-          <Key>
-            <PropertyRef Name="InvoiceId" />
-          </Key>
-          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
-          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
-          <Property Name="TransactedBy" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
-        <EntityType Name="vwSaleMedicine">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="vat" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="SoldBy" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="InvoiceType" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
-          <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" />
-        </EntityType>
         <ComplexType Name="spDueList_Result">
           <Property Type="Int32" Name="InvoiceId" Nullable="false" />
           <Property Type="DateTime" Name="TransactionDate" Nullable="true" Precision="23" />

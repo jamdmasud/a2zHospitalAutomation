@@ -61,9 +61,9 @@ namespace AtoZHosptalAutometion.Models
         public virtual DbSet<vwPurchaseMedicine> vwPurchaseMedicines { get; set; }
         public virtual DbSet<vwReportChecker> vwReportCheckers { get; set; }
         public virtual DbSet<vwSalesMedicine> vwSalesMedicines { get; set; }
-        public virtual DbSet<vwAgentDue> vwAgentDues { get; set; }
-        public virtual DbSet<vwDue> vwDues { get; set; }
-        public virtual DbSet<vwSaleMedicine> vwSaleMedicines { get; set; }
+        public virtual DbSet<Due> Dues { get; set; }
+        public virtual DbSet<vwDue1> vwDue1 { get; set; }
+        public virtual DbSet<vwSaleMedicine1> vwSaleMedicine1 { get; set; }
     
         public virtual ObjectResult<CrudOperations_Result> CrudOperations(Nullable<int> productid, string productname, Nullable<int> price, string status)
         {
@@ -389,6 +389,45 @@ namespace AtoZHosptalAutometion.Models
                 new ObjectParameter("user", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spTodaySaleService", todayParameter, userParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> spTodaySale1(Nullable<System.DateTime> today, string user)
+        {
+            var todayParameter = today.HasValue ?
+                new ObjectParameter("today", today) :
+                new ObjectParameter("today", typeof(System.DateTime));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spTodaySale1", todayParameter, userParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> spTodaySaleService1(Nullable<System.DateTime> today, string user)
+        {
+            var todayParameter = today.HasValue ?
+                new ObjectParameter("today", today) :
+                new ObjectParameter("today", typeof(System.DateTime));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("spTodaySaleService1", todayParameter, userParameter);
+        }
+    
+        public virtual ObjectResult<spDailDeposit_Result> spDailDeposit(Nullable<System.DateTime> today, string user)
+        {
+            var todayParameter = today.HasValue ?
+                new ObjectParameter("today", today) :
+                new ObjectParameter("today", typeof(System.DateTime));
+    
+            var userParameter = user != null ?
+                new ObjectParameter("user", user) :
+                new ObjectParameter("user", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spDailDeposit_Result>("spDailDeposit", todayParameter, userParameter);
         }
     }
 }

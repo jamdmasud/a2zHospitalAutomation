@@ -12,13 +12,13 @@ namespace AtoZHosptalAutometion.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class vwDue
+    public partial class Due
     {
-        public int InvoiceId { get; set; }
-        public Nullable<System.DateTime> TransactionDate { get; set; }
-        public string TransactedBy { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public Nullable<decimal> Due { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> InvoiceId { get; set; }
+        public Nullable<decimal> Amount { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
     }
 }

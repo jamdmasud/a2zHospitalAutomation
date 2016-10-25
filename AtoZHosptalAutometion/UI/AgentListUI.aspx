@@ -44,6 +44,7 @@
         }
 
         function deleterecords(id) {
+           // if($.conf)
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",

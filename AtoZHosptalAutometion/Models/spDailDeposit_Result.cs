@@ -10,15 +10,15 @@
 namespace AtoZHosptalAutometion.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class vwAgentDue
+    public partial class spDailDeposit_Result
     {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        public Nullable<decimal> Payable { get; set; }
-        public Nullable<int> Paid { get; set; }
+        public int RowId { get; set; }
+        public Nullable<decimal> TotalSale { get; set; }
+        public Nullable<decimal> Paid { get; set; }
+        public Nullable<decimal> Due { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public Nullable<decimal> CollectedDue { get; set; }
+        public Nullable<decimal> Total { get; set; }
     }
 }
