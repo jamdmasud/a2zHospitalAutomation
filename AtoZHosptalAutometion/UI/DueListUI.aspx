@@ -114,6 +114,7 @@
                                         <input type="text" class="form-control" ID="toDate" runat="server" placeholder="To Date" />
                                     </div>
                                     <asp:Button ID="submitButton" CssClass="btn btn-info" runat="server" Text="Submit" OnClick="submitButton_Click" />
+                                    <asp:Button ID="printButton" CssClass="btn btn-info" runat="server" Text="Submit" Visible="False" />
                                 </div>
                             </div>
                             <asp:GridView ID="medicineGridView" CssClass="table table-responsive table-hover" runat="server" AutoGenerateColumns="False">

@@ -52,9 +52,9 @@ namespace AtoZHosptalAutometion.UI
 
                 medicineGridView.DataSource = ds;
                 medicineGridView.DataBind();
-                //Session["rpt"] = ds;
-                //printButton.Visible = true;
-                //printButton.PostBackUrl = "~/UI/ReportForm/DueListViewer.aspx";
+                Session["rpt"] = ds;
+                printButton.Visible = true;
+                printButton.PostBackUrl = "~/UI/ReportForm/DueListViewer.aspx";
                 cmd.Dispose();
                 con.Close();
             }

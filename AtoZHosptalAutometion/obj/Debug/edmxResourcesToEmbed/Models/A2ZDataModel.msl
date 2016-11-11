@@ -733,20 +733,20 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="vwAgentDues">
-      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue">
-        <MappingFragment StoreEntitySet="vwAgentDues">
-          <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="Payable" ColumnName="Payable" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Code" ColumnName="Code" />
+    <EntitySetMapping Name="Dues">
+      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Due">
+        <MappingFragment StoreEntitySet="Due">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vwDues">
-      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue">
+    <EntitySetMapping Name="vwDue1">
+      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue1">
         <MappingFragment StoreEntitySet="vwDue">
           <ScalarProperty Name="Due" ColumnName="Due" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -757,8 +757,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vwSaleMedicines">
-      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine">
+    <EntitySetMapping Name="vwSaleMedicine1">
+      <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine1">
         <MappingFragment StoreEntitySet="vwSaleMedicines">
           <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -775,19 +775,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="spDueList" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spDueList">
+    <FunctionImportMapping FunctionImportName="spTodaySale1" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySale" />
+    <FunctionImportMapping FunctionImportName="spTodaySaleService1" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySaleService" />
+    <FunctionImportMapping FunctionImportName="spDailDeposit" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spDailDeposit">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spDueList_Result">
-          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
-          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="TransactedBy" ColumnName="TransactedBy" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        <ComplexTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.spDailDeposit_Result">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="TotalSale" ColumnName="TotalSale" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
           <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="CollectedDue" ColumnName="CollectedDue" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="spTodaySale" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySale" />
-    <FunctionImportMapping FunctionImportName="spTodaySaleService" FunctionName="a2zmanagementsystem.com_A2zHospitalDbModel.Store.spTodaySaleService" />
   </EntityContainerMapping>
 </Mapping>

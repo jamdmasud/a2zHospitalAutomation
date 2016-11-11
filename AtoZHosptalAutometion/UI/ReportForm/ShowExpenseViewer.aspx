@@ -13,38 +13,42 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="col-md-10 col-md-offset-1" style="border: 1px solid gray">
-          <!--test Navbar start-->
-                        <nav class="navbar navbar-inverse" style="padding-right: 10px">
-                            <div class="container-fluid">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="/default.aspx">Home</a></li>
-                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sold <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/UI/ServiceSaleListUI.aspx">Sold Service</a></li>
-                                            <li><a href="/UI/MedicineSaleListUI.aspx">Sold Medicine</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">View <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/UI/ShowExpensesByDate_new.aspx">View Expense</a></li>
-                                            <li><a href="/UI/DipositListUI.aspx">Deposite Book</a></li>
-                                            <li class="active"><a href="../../UI/DueListUI.aspx">Due Collection</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/UI/AddExpense.aspx">Save Expense</a></li>
-                                    <li><a href="/UI/AgentPayment.aspx">Agent Payment</a></li>
-                                    <li><a href="/UI/DoctorRegistration.aspx">Register Doctor</a></li>
-                                </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/UI/Logout.aspx"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-                                </ul>
-                            </div>
-                        </nav>
+        <div class="col-md-10 col-md-offset-1" style="border: 1px solid gray">
+            <!--test Navbar start-->
+            <nav class="navbar navbar-inverse" style="padding-right: 10px">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/default.aspx">Home</a></li>
+                        <li><a href="#"  onclick="Print()" >Print</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/UI/Logout.aspx"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
 
-                        <!--test Navbar end-->
-        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
-    </div>
+            <!--test Navbar end-->
+            <div id="dvReport">
+                <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+            </div>
+            <br />
+            <input type="button" id="btnPrint" class="btn btn-info" value="Print" onclick="Print()" />
+        </div>
     </form>
+    <script type="text/javascript">
+        function Print() {
+            var dvReport = document.getElementById("dvReport");
+            var frame1 = dvReport.getElementsByTagName("iframe")[0];
+            if (navigator.appName.indexOf("Internet Explorer") != -1) {
+                frame1.name = frame1.id;
+                window.frames[frame1.id].focus();
+                window.frames[frame1.id].print();
+            }
+            else {
+                var frameDoc = frame1.contentWindow ? frame1.contentWindow : frame1.contentDocument.document ? frame1.contentDocument.document : frame1.contentDocument;
+                frameDoc.print();
+            }
+        }
+    </script>
 </body>
 </html>

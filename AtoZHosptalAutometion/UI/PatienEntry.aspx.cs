@@ -94,30 +94,38 @@ namespace AtoZHosptalAutometion.UI
             PatientBLL oPatientBll = new PatientBLL();
             try
             {
-                oPatient.UpdatedBy = 30001;
+                oPatient.UpdatedBy = oUser.Id;//This code should be assigned from Session
                 oPatient.Name = NameTextBox.Text;
                 oPatient.fatherOhusbandName = fatherTextBox.Text;
                 oPatient.MotherName = motherTextBox.Text;
                 oPatient.PermenantAddress = permanentAddressTextBox.Text;
                 oPatient.Sex = sexDropdownList.Value;
-                oPatient.Dob = Convert.ToDateTime(datepicker.Value);
-                oPatient.AddmissionDate = Convert.ToDateTime(admissionDateTextBox.Value);
+                oPatient.Dob = datepicker.Value == "" ? DateTime.Today : Convert.ToDateTime(datepicker.Value);
+                oPatient.AddmissionDate = admissionDateTextBox.Value == "" ? DateTime.Today : Convert.ToDateTime(admissionDateTextBox.Value);
                 oPatient.Phone = phoneTextBox.Text;
                 oPatient.Email = emailTextBox.Text;
                 oPatient.presentAddress = addressTextBox.Text;
-                oPatient.UpdatedBy = 30001; //This code should be assigned from Session
                 string doctorName = doctorNameTextBox.Text;//
                 oPatient.RefencedBy = doctorName == "" ? 0 : oPatientBll.GetDoctorIdFromCode(doctorName.Substring(doctorName.Length - 11));  //if doctor does not exist reference value will be null
                 string agentName = agentTextBox2.Text;
                 oPatient.AgentsId = agentName == "" ? null : oPatientBll.GetAgentIdFromCode(agentName.Substring(agentName.Length - 7)); //Same condition applicable for this  like ReferencedBy
-                if (oPatientBll.Register(oPatient))
+                if (oPatient.Name != "")
                 {
-                    successPanel.Visible = true;
-                    faildPanel.Visible = false;
-                    faildLabel.Text = String.Format("Registration faild");
+                    if (oPatientBll.Register(oPatient))
+                    {
+                        successPanel.Visible = true;
+                        faildPanel.Visible = false;
+                        ClearField();
+                    }
+                }
+                else
+                {
+                    successPanel.Visible = false;
+                    faildPanel.Visible = true;
+                    faildLabel.Text = "Name field should " +
+                                      "not be empty!";
                 }
 
-                ClearField();
             }
             catch (Exception exception)
             {
