@@ -118,6 +118,12 @@
                                             <label class="col-md-4 col-xs-4 control-label">Medicine Name: </label>
                                             <div class="col-md-8 col-xs-8 form-group">
                                                 <asp:TextBox ID="medicineNameTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                                                <cc1:AutoCompleteExtender ServiceMethod="SearchMedicine"
+                                                    MinimumPrefixLength="1"
+                                                    CompletionInterval="100" EnableCaching="false" CompletionSetCount="10"
+                                                    TargetControlID="medicineNameTextBox"
+                                                    ID="AutoCompleteExtender6" runat="server" FirstRowSelected="false">
+                                                </cc1:AutoCompleteExtender>
                                             </div>
                                             <label class="col-md-4 col-xs-4 control-label">Group Name: </label>
                                             <div class="col-md-8 col-xs-8 form-group">

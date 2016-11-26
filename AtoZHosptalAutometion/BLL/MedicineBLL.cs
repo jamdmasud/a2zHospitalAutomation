@@ -15,6 +15,10 @@ namespace AtoZHosptalAutometion.BLL
              medicine.UpdatedDate = DateTime.Now;
             string code = oMedicineDal.GetLastCode();
             medicine.Code = GeneratedCode(code);
+            if (oMedicineDal.isMedicineExist(medicine.Name))
+            {
+                throw new Exception("This medicine already exist in database!");
+            }
             if (!oMedicineDal.IsGroupExist(pMedicineDetails.GroupName))
             {
                 Group group = new Group();

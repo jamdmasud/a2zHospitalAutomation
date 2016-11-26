@@ -77,8 +77,8 @@
                     </div>
 
                     <div class="col-md-9 col-sm-9 col-xs-9" style="padding: 0">
-                        
-                           <!--test Navbar start-->
+
+                        <!--test Navbar start-->
                         <nav class="navbar navbar-inverse" style="padding-right: 10px">
                             <div class="container-fluid">
                                 <ul class="nav navbar-nav">
@@ -133,6 +133,7 @@
                                     <br />
                                     <div class="GridviewDiv">
                                         <asp:GridView CssClass="table table-hover table-responsive" runat="server" ID="GridView" AutoGenerateColumns="False">
+                                            <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#A55129"></HeaderStyle>
                                             <Columns>
                                                 <asp:TemplateField HeaderText="SL">
                                                     <ItemTemplate><%# ((GridViewRow)Container).RowIndex + 1%></ItemTemplate>
@@ -151,6 +152,10 @@
                                                 </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6" style="background: #d3d3d3; font-weight: 800; border: 1px solid #d2b48c; border-radius: 5px; text-align: right">
+                                            <strong>Total:</strong>
+                                            <asp:Label ID="totalsLabel" runat="server"></asp:Label>
+                                        </div>
                                     </div>
 
                                 </div>

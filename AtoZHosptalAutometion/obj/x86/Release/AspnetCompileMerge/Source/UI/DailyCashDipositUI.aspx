@@ -136,9 +136,20 @@
                                     <asp:TemplateField HeaderText="Total">
                                         <ItemTemplate><%# Eval("Total") %></ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Received Cash">
+                                        <ItemTemplate><%# Eval("Paid") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Due">
+                                        <ItemTemplate><%# Eval("Due") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Discount">
+                                        <ItemTemplate><%# Eval("Discount") %></ItemTemplate>
+                                    </asp:TemplateField>
                                     
                                 </Columns>
                             </asp:GridView>
+                                <asp:Label ID="Label781" runat="server" Text="Collected Due: "></asp:Label>
+                                <asp:Label ID="lblcolDue" runat="server" BorderColor="gray"></asp:Label>
                             </div>
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-inline" style="margin-bottom: 30px">

@@ -81,7 +81,7 @@ F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutomet
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\obj\x86\Release\AtoZHosptalAutometion.pdb
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDueList.rpt
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDailyVoucher.rpt
-F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptShowDeposit.rpt
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDueList.cs
 F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDailyVoucher.cs
-F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptShowDeposit.cs
+F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDepositShow.rpt
+F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\bin\Report\rptDepositShow.cs

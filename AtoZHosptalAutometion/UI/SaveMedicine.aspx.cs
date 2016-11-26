@@ -39,7 +39,7 @@ namespace AtoZHosptalAutometion.UI
 
                 if (medicineNameTextBox.Text != "" && GroupNameTextBox.Text != "" && companyTextBox2.Text != "" && quantityTextBox.Text != "" && priceTextBox3.Text != "")
                 {
-                    medicine.UpdatedBy = 30001; // user id must from session
+                    medicine.UpdatedBy = oUser.Id; // user id must from session
                     oMedicineDetails.UpdatedBy = medicine.UpdatedBy;
 
                     medicine.Name = medicineNameTextBox.Text;
@@ -84,6 +84,35 @@ namespace AtoZHosptalAutometion.UI
             GroupNameTextBox.Text = String.Empty;
             companyTextBox2.Text = String.Empty;
             priceTextBox3.Text = String.Empty;
+            quantityTextBox.Text = String.Empty;
+        }
+
+        [ScriptMethod()]
+        [WebMethod]
+        public static List<string> SearchMedicine(string prefixText, int count)
+        {
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "select Name from Medicine where " +
+                    "Name like @SearchText + '%'";
+                    cmd.Parameters.AddWithValue("@SearchText", prefixText);
+                    cmd.Connection = conn;
+                    conn.Open();
+                    List<string> names = new List<string>();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            names.Add(sdr["Name"].ToString());
+                        }
+                    }
+                    conn.Close();
+                    return names;
+                }
+            }
         }
 
         [ScriptMethod()]

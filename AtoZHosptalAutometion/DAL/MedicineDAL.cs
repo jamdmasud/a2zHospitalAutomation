@@ -502,5 +502,22 @@ namespace AtoZHosptalAutometion.DAL
             }
             return ds;
         }
+
+        public bool isMedicineExist(string name)
+        {
+            string medicineName = "";
+            try
+            {
+                using (var db = new Entities())
+                {
+                    medicineName = db.Medicines.Where(p => p.Name == name).Select(p => p.Name).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.InnerException.Message);
+            }
+            return medicineName == name;
+        }
     }
 }

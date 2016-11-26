@@ -363,7 +363,7 @@
     <Property Name="Diposit" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="Int32" />
-    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="DateOfDeal" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="vwInDoorService">
@@ -673,9 +673,6 @@
       <Parameter Name="secondNum" Mode="In" Type="Int32" />
       <Parameter Name="name" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="vwAgentDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue" />
-    <EntitySet Name="vwDues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue" />
-    <EntitySet Name="vwSaleMedicines" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine" />
     <FunctionImport Name="spDueList" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spDueList_Result)">
       <Parameter Name="toDate" Mode="In" Type="DateTime" />
       <Parameter Name="fromDate" Mode="In" Type="DateTime" />
@@ -685,6 +682,21 @@
       <Parameter Name="user" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="spTodaySaleService" ReturnType="Collection(Decimal)">
+      <Parameter Name="today" Mode="In" Type="DateTime" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Dues" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Due" />
+    <EntitySet Name="vwDue1" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue1" />
+    <EntitySet Name="vwSaleMedicine1" EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine1" />
+    <FunctionImport Name="spTodaySale1" ReturnType="Collection(Decimal)">
+      <Parameter Name="today" Mode="In" Type="DateTime" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spTodaySaleService1" ReturnType="Collection(Decimal)">
+      <Parameter Name="today" Mode="In" Type="DateTime" />
+      <Parameter Name="user" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spDailDeposit" ReturnType="Collection(a2zmanagementsystem.com_A2zHospitalDbModel.spDailDeposit_Result)">
       <Parameter Name="today" Mode="In" Type="DateTime" />
       <Parameter Name="user" Mode="In" Type="String" />
     </FunctionImport>
@@ -856,18 +868,26 @@
     <Property Type="DateTime" Name="UpdatedDate1" Nullable="true" Precision="23" />
     <Property Type="Int32" Name="UpdatedBy1" Nullable="true" />
   </ComplexType>
-  <EntityType Name="vwAgentDue">
+  <ComplexType Name="spDueList_Result">
+    <Property Type="Int32" Name="InvoiceId" Nullable="false" />
+    <Property Type="DateTime" Name="TransactionDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TransactedBy" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="Due">
     <Key>
-      <PropertyRef Name="Name" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Payable" Type="Decimal" Precision="38" Scale="2" />
-    <Property Name="Paid" Type="Int32" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="vwDue">
+  <EntityType Name="vwDue1">
     <Key>
       <PropertyRef Name="InvoiceId" />
     </Key>
@@ -878,7 +898,7 @@
     <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Due" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
-  <EntityType Name="vwSaleMedicine">
+  <EntityType Name="vwSaleMedicine1">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -895,12 +915,13 @@
     <Property Name="Quantity" Type="Int32" />
     <Property Name="UnitPrice" Type="Decimal" Precision="10" Scale="3" />
   </EntityType>
-  <ComplexType Name="spDueList_Result">
-    <Property Type="Int32" Name="InvoiceId" Nullable="false" />
-    <Property Type="DateTime" Name="TransactionDate" Nullable="true" Precision="23" />
-    <Property Type="String" Name="TransactedBy" Nullable="true" MaxLength="120" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="120" />
-    <Property Type="String" Name="Phone" Nullable="true" MaxLength="20" />
-    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="2" />
+  <ComplexType Name="spDailDeposit_Result">
+    <Property Type="Int32" Name="RowId" Nullable="false" />
+    <Property Type="Decimal" Name="TotalSale" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Paid" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Due" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Discount" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CollectedDue" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Total" Nullable="true" Precision="18" Scale="0" />
   </ComplexType>
 </Schema>

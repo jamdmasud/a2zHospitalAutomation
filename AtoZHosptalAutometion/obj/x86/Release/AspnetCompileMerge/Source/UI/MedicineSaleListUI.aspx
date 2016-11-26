@@ -15,8 +15,6 @@
     
 </head>
 <body>
-
-
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
@@ -134,28 +132,23 @@
                                     <asp:TemplateField HeaderText="UnitPrice">
                                         <ItemTemplate><%# Eval("UnitPrice") %></ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Total">
+                                        <ItemTemplate><%# Eval("Total") %></ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Transaction Date">
                                         <ItemTemplate><%# Convert.ToDateTime(Eval("InvoiceDate")).ToShortDateString() %></ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Sold By">
                                         <ItemTemplate><%# Eval("SoldBy") %></ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Total">
-                                        <ItemTemplate><%# Eval("Total") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Due">
-                                        <ItemTemplate><%# Eval("Due") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Paid">
-                                        <ItemTemplate><%# Eval("Paid") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Discount">
-                                        <ItemTemplate><%# Eval("Discount") %></ItemTemplate>
-                                    </asp:TemplateField>
+                                    
                                 </Columns>
                             </asp:GridView>
-                            <div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-8 col-sm-offset-8 col-xs-offset-8" style="background: #d3d3d3; font-weight: 800; border: 1px solid #d2b48c; border-radius: 5px;text-align: right">
-                                <strong>Total:</strong> <asp:Label ID="totalLabel" runat="server"></asp:Label>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6" style="background: #d3d3d3; font-weight: 800; border: 1px solid #d2b48c; border-radius: 5px;text-align: right">
+                                <strong>Total:</strong> <asp:Label ID="totalLabel" runat="server"></asp:Label><br/>
+                                <strong>Received:</strong> <asp:Label ID="receivedsLabel" runat="server"></asp:Label><br/>
+                                <strong>Due:</strong> <asp:Label ID="duesLabel" runat="server"></asp:Label><br/>
+                                <strong>Discount:</strong> <asp:Label ID="discountLabel" runat="server"></asp:Label>
                             </div>
                         </div>
 

@@ -23,7 +23,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A2Z Hospital Automation</p>
+                <p>A To Z Digital Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -113,7 +113,7 @@
                         <div class="col-md-8 col-xs-8 col-md-offset-2 col-xs-offset-2">
                             <div class="panel panel-success">
                                 <div class="panel panel-heading">
-                                    <p>Add Expense</p>
+                                    <h3>Diposit Book</h3>
                                 </div>
                                 <div class="panel panel-body">
                                     <div class="form-inline">

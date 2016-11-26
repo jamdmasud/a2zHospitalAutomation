@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Medicine Store
+    <title>Deposit Book
     </title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A2Z Hospital Automation</p>
+                <p>A To Z Digital Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -114,6 +114,7 @@
                                         <input type="text" class="form-control" ID="toDate" runat="server" placeholder="To Date" />
                                     </div>
                                     <asp:Button ID="submitButton" CssClass="btn btn-info" runat="server" Text="Submit" OnClick="submitButton_Click" />
+                                    <asp:Button ID="printButton" CssClass="btn btn-info" runat="server" Text="Submit" Visible="False" />
                                 </div>
                             </div>
                             <asp:GridView ID="medicineGridView" CssClass="table table-responsive table-hover" runat="server" AutoGenerateColumns="False">

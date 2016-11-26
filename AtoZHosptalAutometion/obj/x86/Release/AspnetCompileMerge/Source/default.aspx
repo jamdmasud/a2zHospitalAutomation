@@ -112,6 +112,11 @@
                                             <span class="glyphicon glyphicon-refresh ico"></span>Agent Payment
                                         </div>
                                     </a>
+                                    <a href="/UI/DoctorListUI.aspx">
+                                        <div class="col-md-3 col-sm-3 col-xs-3 btn btn-default" style="margin: 12px; height: 100px; padding-top: 35px">
+                                            <span class="glyphicon glyphicon-star ico"></span>Doctors
+                                        </div>
+                                    </a>
                                     <a href="/UI/DoctorRegistration.aspx">
                                         <div class="col-md-3 col-sm-3 col-xs-3 btn btn-default" style="margin: 12px; height: 100px; padding-top: 35px">
                                             <span class="glyphicon glyphicon-star ico"></span>Doctor Registration
@@ -199,6 +204,11 @@
                                     <a href="/UI/RegisterAgent.aspx">
                                         <div class="col-md-3 col-sm-3 col-xs-3 btn btn-default" style="margin: 12px; height: 100px; padding-top: 35px">
                                             <span class="glyphicon glyphicon-user ico"></span>Agent Registration
+                                        </div>
+                                    </a>
+                                    <a href="/UI/AgentListUI.aspx">
+                                        <div class="col-md-3 col-sm-3 col-xs-3 btn btn-default" style="margin: 12px; height: 100px; padding-top: 35px">
+                                            <span class="glyphicon glyphicon-user ico"></span>Agents
                                         </div>
                                     </a>
                                     <a href="/UI/PatienEntry.aspx">

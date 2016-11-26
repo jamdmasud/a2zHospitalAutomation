@@ -16,14 +16,14 @@ namespace AtoZHosptalAutometion.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptShowDeposit : ReportClass {
+    public class rptDepositShow : ReportClass {
         
-        public rptShowDeposit() {
+        public rptDepositShow() {
         }
         
         public override string ResourceName {
             get {
-                return "rptShowDeposit.rpt";
+                return "rptDepositShow.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace AtoZHosptalAutometion.Report {
         
         public override string FullResourceName {
             get {
-                return "AtoZHosptalAutometion.Report.rptShowDeposit.rpt";
+                return "AtoZHosptalAutometion.Report.rptDepositShow.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace AtoZHosptalAutometion.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptShowDeposit : Component, ICachedReport {
+    public class CachedrptDepositShow : Component, ICachedReport {
         
-        public CachedrptShowDeposit() {
+        public CachedrptDepositShow() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace AtoZHosptalAutometion.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptShowDeposit rpt = new rptShowDeposit();
+            rptDepositShow rpt = new rptDepositShow();
             rpt.Site = this.Site;
             return rpt;
         }

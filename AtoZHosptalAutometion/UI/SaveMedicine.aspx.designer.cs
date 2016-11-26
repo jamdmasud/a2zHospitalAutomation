@@ -67,6 +67,15 @@ namespace AtoZHosptalAutometion.UI {
         protected global::System.Web.UI.WebControls.TextBox medicineNameTextBox;
         
         /// <summary>
+        /// AutoCompleteExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender6;
+        
+        /// <summary>
         /// GroupNameTextBox control.
         /// </summary>
         /// <remarks>

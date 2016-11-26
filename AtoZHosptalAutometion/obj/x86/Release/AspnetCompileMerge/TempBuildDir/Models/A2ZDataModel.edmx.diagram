@@ -43,9 +43,9 @@
         <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Medicine__GroupI__1ED998B2" ManuallyRouted="false" />
         <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Sales__MedicineI__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="a2zmanagementsystem.com_A2zHospitalDbModel.FK__Sales__EmployeeI__30F848ED" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwAgentDue" Width="1.5" PointX="0.75" PointY="17.75" />
-        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue" Width="1.5" PointX="13.375" PointY="17.75" />
-        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.Due" Width="1.5" PointX="3.375" PointY="18.75" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwDue1" Width="1.5" PointX="18.375" PointY="5.75" />
+        <EntityTypeShape EntityType="a2zmanagementsystem.com_A2zHospitalDbModel.vwSaleMedicine1" Width="1.5" PointX="9.375" PointY="18.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
