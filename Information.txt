@@ -1,5 +1,0 @@
-username: a2zmanagementsystem.com
-password: Ibbl14162
-URL: ccp.my-hosting-panel.com
-Database password: Hello123
-Database Username: a2zmanagementsystem.com_jamdmasud
