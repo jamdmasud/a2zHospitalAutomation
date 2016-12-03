@@ -302,7 +302,7 @@
 
                                             <div class="form-inline">
                                                 <div class="form-group padding-bottom-10">
-                                                    <label class="control-label" for="#patientBox">Patien Code</label>
+                                                    <label class="control-label" for="#patientBox">Patient</label>
                                                     <asp:TextBox ID="patientBox" CssClass="form-control" runat="server"></asp:TextBox>
                                                     <cc1:AutoCompleteExtender ServiceMethod="SearchPatient"
                                                         MinimumPrefixLength="1"

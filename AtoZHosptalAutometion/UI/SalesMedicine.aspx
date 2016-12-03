@@ -306,7 +306,7 @@
                                                 <table width="100%">
                                                     <tr>
                                                         <th>Sales Date</th>
-                                                        <th>Customer Id</th>
+                                                        <th>Customer</th>
                                                         <th>Customer Type</th>
                                                     </tr>
                                                     <tr>

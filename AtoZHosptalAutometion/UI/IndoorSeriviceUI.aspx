@@ -301,7 +301,7 @@
 
                                             <div class="form-inline">
                                                 <div class="form-group padding-bottom-10">
-                                                    <label class="control-label" for="<%= patientTextBox.ClientID %>">Patien Code</label>
+                                                    <label class="control-label" for="<%= patientTextBox.ClientID %>">Patient</label>
                                                     <asp:TextBox ID="patientTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                                                     <cc1:AutoCompleteExtender ServiceMethod="SearchPatient"
                                                         MinimumPrefixLength="1"
@@ -432,7 +432,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <%-- content close here --%>
                     </div>
                 </div>

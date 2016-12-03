@@ -98,9 +98,9 @@ namespace AtoZHosptalAutometion.UI
                 conn.ConnectionString = ConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "select Name, Code from Patient where " +
-                    "Code like @SearchText + '%'";
-                    cmd.Parameters.AddWithValue("@SearchText", prefixText);
+                    cmd.CommandText = "select Code, Name from Patient where " +
+                    "Code like @SearchText or Name like @SearchText";
+                    cmd.Parameters.AddWithValue("@SearchText", prefixText+"%");
                     cmd.Connection = conn;
                     conn.Open();
                     List<string> names = new List<string>();
