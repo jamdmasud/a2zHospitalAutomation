@@ -109,9 +109,7 @@
                         <script>
                             $(function () {
                                 //$("#datepicker").datepicker();
-                                $('#<%= datepicker.ClientID %>').datepicker({
-                                    dateFormat: 'yy-mm-dd'
-                                });
+                               
                                 $('#<%= admissionDateTextBox.ClientID %>').datepicker({
                                     dateFormat: 'yy-mm-dd'
                                 });
@@ -155,7 +153,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-md-4 col-xs-4 control-label">Date of Birth: </label>
+                                                    <label class="col-md-4 col-xs-4 control-label">Age: </label>
                                                     <div class="col-md-8 col-xs-8">
                                                         <input type="text" id="datepicker" runat="server" class="form-control" />
                                                     </div>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\Client's Project\Working\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\Models\A2ZDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\Client's Project\Done\A2ZHospital\AtoZHosptalAutometion\AtoZHosptalAutometion\Models\A2ZDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

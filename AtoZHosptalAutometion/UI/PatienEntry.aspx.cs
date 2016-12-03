@@ -100,7 +100,7 @@ namespace AtoZHosptalAutometion.UI
                 oPatient.MotherName = motherTextBox.Text;
                 oPatient.PermenantAddress = permanentAddressTextBox.Text;
                 oPatient.Sex = sexDropdownList.Value;
-                oPatient.Dob = datepicker.Value == "" ? DateTime.Today : Convert.ToDateTime(datepicker.Value);
+                oPatient.Age = datepicker.Value.ToString();
                 oPatient.AddmissionDate = admissionDateTextBox.Value == "" ? DateTime.Today : Convert.ToDateTime(admissionDateTextBox.Value);
                 oPatient.Phone = phoneTextBox.Text;
                 oPatient.Email = emailTextBox.Text;

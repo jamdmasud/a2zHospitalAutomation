@@ -240,7 +240,6 @@
           <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
           <Property Name="Sex" Type="varchar" MaxLength="50" />
           <Property Name="Code" Type="varchar" MaxLength="30" />
-          <Property Name="Dob" Type="datetime" Nullable="false" />
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="fatherOhusbandName" Type="varchar" MaxLength="120" />
           <Property Name="MotherName" Type="varchar" MaxLength="120" />
@@ -254,6 +253,7 @@
           <Property Name="AddmissionDate" Type="datetime" />
           <Property Name="AgentsId" Type="int" />
           <Property Name="ReleasedDate" Type="datetime" />
+          <Property Name="Age" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="PatientSub">
           <Key>
@@ -1102,7 +1102,6 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
           <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="fatherOhusbandName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
           <Property Name="MotherName" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
@@ -1116,6 +1115,7 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
           <Property Name="AddmissionDate" Type="DateTime" Precision="3" />
           <Property Name="AgentsId" Type="Int32" />
           <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+          <Property Name="Age" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PatientSub">
           <Key>
@@ -2040,11 +2040,11 @@ warning 6002: The table/view 'a2zmanagementsystem.com_A2zHospitalDb.dbo.vwSalesM
           <EntitySetMapping Name="Patients">
             <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Dob" ColumnName="Dob" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="fatherOhusbandName" ColumnName="fatherOhusbandName" />
                 <ScalarProperty Name="MotherName" ColumnName="MotherName" />

@@ -4,8 +4,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using System.Web.Services;
+using AtoZHosptalAutometion.Models;
 
 namespace AtoZHosptalAutometion
 {
@@ -47,6 +49,37 @@ namespace AtoZHosptalAutometion
             con.Close();
 
             return groups;
+        }
+        [WebMethod]
+        public void GetPatientList()
+        {
+            String cnString = System.Configuration.ConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
+
+            SqlConnection con = new SqlConnection(cnString);
+            SqlCommand cmd = new SqlCommand("Select Code, Name, Sex, Phone,fatherOhusbandName, presentAddress from Patient", con);
+            
+            List<Patient> patients = new List<Patient>();
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Patient oPatient = new Patient();
+                    oPatient.Code = reader["Code"].ToString();
+                    oPatient.Name = reader["Name"].ToString();
+                    oPatient.Sex = reader["Sex"].ToString();
+                    oPatient.Phone = reader["Phone"].ToString();
+                    oPatient.fatherOhusbandName = reader["fatherOhusbandName"].ToString();
+                    oPatient.presentAddress = reader["presentAddress"].ToString();
+                    patients.Add(oPatient);
+                }
+                reader.Close();
+            }
+            con.Close();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Context.Response.Write(js.Serialize(patients));
         }
     }
 }

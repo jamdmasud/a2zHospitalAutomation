@@ -235,7 +235,6 @@
     <Property Name="Name" Type="varchar" MaxLength="120" Nullable="false" />
     <Property Name="Sex" Type="varchar" MaxLength="50" />
     <Property Name="Code" Type="varchar" MaxLength="30" />
-    <Property Name="Dob" Type="datetime" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="20" />
     <Property Name="fatherOhusbandName" Type="varchar" MaxLength="120" />
     <Property Name="MotherName" Type="varchar" MaxLength="120" />
@@ -249,6 +248,7 @@
     <Property Name="AddmissionDate" Type="datetime" />
     <Property Name="AgentsId" Type="int" />
     <Property Name="ReleasedDate" Type="datetime" />
+    <Property Name="Age" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="PatientSub">
     <Key>

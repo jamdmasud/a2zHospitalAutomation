@@ -12,7 +12,7 @@ using AtoZHosptalAutometion.Models;
 
 namespace AtoZHosptalAutometion.UI
 {
-    public partial class DoctorListUI : System.Web.UI.Page
+    public partial class PatientListUI : System.Web.UI.Page
     {
         public static int UserId { set; get; }
         private User oUser = null;
@@ -24,11 +24,7 @@ namespace AtoZHosptalAutometion.UI
             if (login == false) Response.Redirect("~/Login.aspx");
             oUser = (User)Session["user"];
 
-            if (oUser.Roles == "Pharmacy")
-            {
-                Response.Redirect("~/UI/AccessDeniedUI.aspx");
-            }
-
+           
             UserId = oUser.Id;
             if (!IsPostBack)
             {
@@ -48,17 +44,17 @@ namespace AtoZHosptalAutometion.UI
             dt.Columns.Add("Email");
             dt.Columns.Add("Operation");
             dt.Rows.Add();
-            gvDetails.DataSource = dt;
-            gvDetails.DataBind();
-            gvDetails.Rows[0].Visible = false;
+            //gvDetails.DataSource = dt;
+            //gvDetails.DataBind();
+            //gvDetails.Rows[0].Visible = false;
         }
         [WebMethod]
-        public static Doctor[] BindGridview()
+        public static List<Doctor> BindGridview()
         {
             using (var db = new Entities())
             {
                 List<Doctor> doctors = db.Doctors.ToList();
-                return doctors.ToArray();
+                return doctors;
             }
         }
 

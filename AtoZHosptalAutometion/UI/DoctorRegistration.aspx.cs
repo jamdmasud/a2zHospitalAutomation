@@ -22,7 +22,7 @@ namespace AtoZHosptalAutometion.UI
             oUser = (User)Session["user"];
             userId = oUser.Id;
             //Identify user type
-            if (oUser.Roles != "Admin" && oUser.Roles != "Manager")
+            if (oUser.Roles == "Pharmacy")
             {
                 Response.Redirect("~/UI/AccessDeniedUI.aspx");
             }

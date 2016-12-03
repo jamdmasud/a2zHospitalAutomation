@@ -18,7 +18,6 @@ namespace AtoZHosptalAutometion.Models
         public string Name { get; set; }
         public string Sex { get; set; }
         public string Code { get; set; }
-        public System.DateTime Dob { get; set; }
         public string Phone { get; set; }
         public string fatherOhusbandName { get; set; }
         public string MotherName { get; set; }
@@ -32,5 +31,6 @@ namespace AtoZHosptalAutometion.Models
         public Nullable<System.DateTime> AddmissionDate { get; set; }
         public Nullable<int> AgentsId { get; set; }
         public Nullable<System.DateTime> ReleasedDate { get; set; }
+        public string Age { get; set; }
     }
 }
