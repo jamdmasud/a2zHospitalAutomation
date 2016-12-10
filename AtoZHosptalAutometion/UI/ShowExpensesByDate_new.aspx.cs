@@ -47,7 +47,7 @@ namespace AtoZHosptalAutometion.UI
 
 
                 string cs = WebConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
-                string query = "SELECT	sum(e.Amount) as Total	 FROM Invoice i left join Expenses e on i.Id = e.InvoiceId 	  WHERE  (InvoiceDate BETWEEN @fromDate AND @toDate) and InvoiceType = 'Expense'";
+                string query = "select sum(Amount) Amount from Expenses  where  ExpenseDate between @startDate and @endDate";
 
                 using (SqlConnection con = new SqlConnection(cs))
                 {
@@ -55,8 +55,8 @@ namespace AtoZHosptalAutometion.UI
                     con.Open();
                     SqlCommand cmd = new SqlCommand(query, con);
 
-                    cmd.Parameters.AddWithValue("@fromDate", fromDate);
-                    cmd.Parameters.AddWithValue("@toDate", tomDate);
+                    cmd.Parameters.AddWithValue("@startDate", fromDate);
+                    cmd.Parameters.AddWithValue("@endDate", tomDate);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -64,7 +64,7 @@ namespace AtoZHosptalAutometion.UI
                     {
                         while (reader.Read())
                         {
-                            totalsLabel.Text = reader["Total"].ToString();
+                            totalsLabel.Text = reader["Amount"].ToString();
                         }
 
                     }

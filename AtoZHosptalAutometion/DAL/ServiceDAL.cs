@@ -24,7 +24,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
         }
 
@@ -45,7 +45,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
         }
 
@@ -71,7 +71,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception mgs)
             {
-                throw new Exception(mgs.InnerException.Message);
+                throw new Exception(mgs.Message);
             }
         }
 
@@ -97,7 +97,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception mgs)
             {
-                throw new Exception(mgs.InnerException.Message);
+                throw new Exception(mgs.Message);
             }
         }
 
@@ -112,7 +112,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
         }
 
@@ -133,7 +133,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
         }
 
@@ -150,7 +150,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
         }
 
@@ -181,7 +181,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
             return ds;
         }
@@ -210,7 +210,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.Message);
             }
             return ds;
         }

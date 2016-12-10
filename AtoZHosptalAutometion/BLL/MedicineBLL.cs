@@ -88,7 +88,7 @@ namespace AtoZHosptalAutometion.BLL
             oInvoice.Status = "pending";
             int invoiceId = oCoreDal.SaveInvoice(oInvoice);
 
-            //Save into invoiceSub description
+            //Save into invoiceSub for description
             oInvoiceSub.InvoiceId = invoiceId;
             oInvoiceSub.Total = total;
             oInvoiceSub.GrandTotal = total;
@@ -100,7 +100,7 @@ namespace AtoZHosptalAutometion.BLL
             oInvoiceSub.Due = 0;
             oInvoiceSub.vat = 0;
             oMedicineDal.SavePurchaseMedicineToInvoiceSub(oInvoiceSub);
-
+            decimal totalPurchase = 0;
             foreach (var item in purchasesTemp)
             {
                 Purchase oPurchase = new Purchase();
@@ -108,7 +108,8 @@ namespace AtoZHosptalAutometion.BLL
                 oPurchase.Price = item.Price;
                 oPurchase.Quantity = Convert.ToInt32(item.Quantity);
                 oPurchase.Total = item.Total;
-                oPurchase.CustomerId = userId; // it will be collected from session
+                totalPurchase += item.Total ?? 0;
+                oPurchase.CustomerId = userId; // it has been collected from session
                 oPurchase.UpdatedDate = DateTime.Today;
                 oPurchase.UpdatedBy = oPurchase.CustomerId;
                 oPurchase.PurchasingDate = Convert.ToDateTime(purchasingDate);
@@ -116,6 +117,9 @@ namespace AtoZHosptalAutometion.BLL
                 oPurchase.EmployeeId = oPurchase.UpdatedBy;
                 purchases.Add(oPurchase);
             }
+
+            SaveExpenseForMedicine(purchasingDate, userId, totalPurchase, invoiceId);
+
 
             int affected = oMedicineDal.SavePurchaseMedicine(purchases);
 
@@ -125,6 +129,23 @@ namespace AtoZHosptalAutometion.BLL
             purchases = null;
             purchasesTemp = null;
             return affected > 0 ? invoiceId : 0 ;
+        }
+
+        private static void SaveExpenseForMedicine(string purchasingDate, int userId, decimal totalPurchase, int invoiceId)
+        {
+            Expens oExpens = new Expens();
+            List<Expens> listExpenses = new List<Expens>();
+            ExpenseDAL oExpenseBll = new ExpenseDAL();
+
+            oExpens.Amount = totalPurchase;
+            oExpens.Description = "Purchase Medicine";
+            oExpens.ExpenseType = "Pharmacy";
+            oExpens.InvoiceId = invoiceId;
+            oExpens.UpdatedBy = userId;
+            oExpens.UpdatedDate = DateTime.Today;
+            oExpens.ExpenseDate = Convert.ToDateTime(purchasingDate);
+            listExpenses.Add(oExpens);
+            oExpenseBll.SaveExapense(listExpenses);
         }
 
         public bool SaveToTempSale(SalesTemp temp)

@@ -80,14 +80,13 @@ namespace AtoZHosptalAutometion.DAL
             {
                 string cs = WebConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
                 SqlConnection connection = new SqlConnection(cs);
-                string query = "spTodayExpense";
+
+                string query = " select e.Description [Description], u.Name, CONVERT(date, CONVERT(varchar, e.ExpenseDate) , 20) ExpenseDate, e.Amount from Expenses e left join Users u on e.UpdatedBy = u.Id where  ExpenseDate between @startDate and @endDate";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@StartDate", fromDate);
-                    command.Parameters.AddWithValue("@EndDate", tomDate);
-                    command.Parameters.AddWithValue("@type", "Expense");
+                    command.Parameters.AddWithValue("@startDate", fromDate);
+                    command.Parameters.AddWithValue("@endDate", tomDate);
                     connection.Open();
                     SqlDataAdapter da = new SqlDataAdapter(command);
                     da.Fill(dt);
@@ -99,7 +98,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.InnerException.Message);
+                throw new Exception(ex.Message);
             }
             return ds;
         }
