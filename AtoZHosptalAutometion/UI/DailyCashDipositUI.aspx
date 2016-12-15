@@ -18,7 +18,19 @@
     </style>
 </head>
 <body>
-
+     <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Do you want to save data?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
     <form id="form1" runat="server">
         <div class="container-fluid">
@@ -114,7 +126,6 @@
                                             <asp:ListItem>Reception</asp:ListItem>
                                             <asp:ListItem>Pharmacy</asp:ListItem>
                                         </asp:DropDownList>
-                                        
                                     </div>
                                     <div class="form-group">
                                         User Id:
@@ -160,7 +171,7 @@
                                     <div class="form-group">
                                         <asp:TextBox ID="amountTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
-                                    <asp:Button ID="postButton" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="postButton_Click" />
+                                    <asp:Button ID="postButton" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="postButton_Click" OnClientClick = "Confirm()" />
                                     <asp:Button ID="voucheButton" CssClass="btn btn-default" runat="server" Text="Print Voucher" Visible="False" />
                                 </div>
                             </div>

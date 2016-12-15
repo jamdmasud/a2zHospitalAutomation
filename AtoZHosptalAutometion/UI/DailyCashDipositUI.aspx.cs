@@ -26,13 +26,22 @@ namespace AtoZHosptalAutometion.UI
             oUser = (User)Session["user"];
             userId = oUser.Id;
 
-            //Identify user type
-            if (oUser.Roles != "Admin" && oUser.Roles != "Manager")
-            {
-                Response.Redirect("~/UI/AccessDeniedUI.aspx");
-            }
 
             // dateTextBox.Value = DateTime.Today.ToShortDateString();
+            if (oUser.Id == 30003)
+            {
+                postButton.Visible = false;
+                amountTextBox.Visible = false;
+                dealingDateTextBox.Visible = false;
+            }
+            else
+            {
+                //Identify user type
+                if (oUser.Roles != "Admin" && oUser.Roles != "Manager")
+                {
+                    Response.Redirect("~/UI/AccessDeniedUI.aspx");
+                }
+            }
         }
 
         protected void getButton_Click(object sender, EventArgs e)
@@ -40,19 +49,19 @@ namespace AtoZHosptalAutometion.UI
             AccountBll oAccountBll = new AccountBll();
             try
             {
-                string user = oAccountBll.GetUserNameByUserId(Convert.ToInt32(userIdTextBox.Text));
-                string type = serviceDropDownList.Text;
+                int user = Convert.ToInt32(userIdTextBox.Text);
+                //string type = serviceDropDownList.Text;
                 DateTime date = Convert.ToDateTime(dateTextBox.Value);
 
                 string cs = ConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
-                if (type == "Pharmacy")
-                {
+                //if (type == "Pharmacy")
+                //{
 
                     using (SqlConnection con = new SqlConnection(cs))
                     {
                         //It will be collected from session
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Income inc on i.Id = inc.InvoiceId left join Users u on i.UserId = u.Id where i.InvoiceType = 'Sales Medicine' and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and u.Name = 'Pharmacy'", con);
+                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount from InvoiceSub ins  left join Income inc on ins.InvoiceId = inc.InvoiceId left join Users u on ins.UpdatedBy = u.Id where CONVERT(date, CONVERT(varchar, ins.UpdatedDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and ins.UpdatedBy = @user", con);
                        
                         cmd.Parameters.AddWithValue("@today", date);
                         cmd.Parameters.AddWithValue("@user", user);
@@ -65,31 +74,35 @@ namespace AtoZHosptalAutometion.UI
                         cmd.Dispose();
                         con.Close();
                     }
-                }
-                else
-                {
-                    using (SqlConnection con = new SqlConnection(cs))
-                    {
-                        //It will be collected from session
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount  from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Income inc on i.Id = inc.InvoiceId left join Users u on i.UserId = u.Id where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services') and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and u.Name = @user", con);
-                        cmd.Parameters.AddWithValue("@today", date);
-                        cmd.Parameters.AddWithValue("@user", user);
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        medicineGridView.DataSource = dt;
-                        medicineGridView.DataBind();
-                        cmd.Dispose();
-                        con.Close();
-                    }
-                }
+                #region CONDITION_NOT_NEEDED
+                //}
+                //else
+                //{
+                //    using (SqlConnection con = new SqlConnection(cs))
+                //    {
+                //        //It will be collected from session
+                //        con.Open();
+                //        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount  from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Income inc on i.Id = inc.InvoiceId left join Users u on i.UserId = u.Id where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services') and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and u.Name = @user", con);
+                //        cmd.Parameters.AddWithValue("@today", date);
+                //        cmd.Parameters.AddWithValue("@user", user);
+
+                //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                //        DataTable dt = new DataTable();
+                //        da.Fill(dt);
+                //        medicineGridView.DataSource = dt;
+                //        medicineGridView.DataBind();
+                //        cmd.Dispose();
+                //        con.Close();
+                //    }
+                //}
+                #endregion
+
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     //It will be collected from session
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select sum(amount) CollectedDue from [a2zmanagementsystem.com_jamdmasud].[Due] where UpdatedBy = @user and Date = @today", con);
+                    SqlCommand cmd = new SqlCommand("select ISNULL(sum(amount), 0) CollectedDue from [a2zmanagementsystem.com_jamdmasud].[Due] where UpdatedBy = @user and Date = @today", con);
                     cmd.Parameters.AddWithValue("@today", date);
                     cmd.Parameters.AddWithValue("@user", Convert.ToInt32(userIdTextBox.Text));
 
@@ -125,22 +138,36 @@ namespace AtoZHosptalAutometion.UI
                 oVoucher.UpdatedBy = userId;
                 oVoucher.DateOfDeal = Convert.ToDateTime(dealingDateTextBox.Text);
                 oVoucher.UpdatedDate = DateTime.Today;
+                if (serviceDropDownList.SelectedValue == "0")
+                {
+                    Response.Write("<script>alert('Please select transaction type!');</script>");
+                    return;
+                }
                 oVoucher.Particulars = serviceDropDownList.Text;
-                int Id = oFunctions.SaveDiposit(oVoucher);
-                if(Id > 0)
+                string confirmValue = Request.Form["confirm_value"];
+                if (confirmValue == "Yes")
                 {
-                    //show result and print confirmation receipt 
-                    ds = oFunctions.GetDipositData(Id);
-                    Session["rpt"] = ds;
-                    Response.Write("<script>alert('Diposit submited successfully!');</script>");
-                    voucheButton.Visible = true;
-                    voucheButton.PostBackUrl = "~/UI/ReportForm/DailyDipositReportViewer.aspx";
+                    int Id = oFunctions.SaveDiposit(oVoucher);
+                    if (Id > 0)
+                    {
+                        //show result and print confirmation receipt 
+                        ds = oFunctions.GetDipositData(Id);
+                        Session["rpt"] = ds;
+                        Response.Write("<script>alert('Diposit submited successfully!');</script>");
+                        voucheButton.Visible = true;
+                        voucheButton.PostBackUrl = "~/UI/ReportForm/DailyDipositReportViewer.aspx";
+                    }
+                    else
+                    {
+                        //show cause of failurity
+                        Response.Write("<script>alert('Diposit submition faild!');</script>");
+                    }
                 }
-                else
-                {
-                    //show cause of failurity
-                    Response.Write("<script>alert('Diposit submition faild!');</script>");
-                }
+                //else
+                //{
+                //    this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You clicked NO!')", true);
+                //}
+               
             }
             catch (Exception exception)
             {
