@@ -171,6 +171,7 @@
                 success: function (data) {
                     if (data.d == 'true')
                         window.location.reload();
+                        //BindGridview();
                 },
                 error: function (data) {
                     alert("faield");

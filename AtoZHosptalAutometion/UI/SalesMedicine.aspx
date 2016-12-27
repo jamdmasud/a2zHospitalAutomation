@@ -182,7 +182,6 @@
                     success: function (data) {
                         if (data.d == 'true')
                             window.location.reload();
-
                     },
                     error: function (data) {
                         var r = data.responseText;

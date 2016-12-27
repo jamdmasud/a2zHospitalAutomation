@@ -61,7 +61,12 @@ namespace AtoZHosptalAutometion.UI
                     {
                         //It will be collected from session
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount from InvoiceSub ins  left join Income inc on ins.InvoiceId = inc.InvoiceId left join Users u on ins.UpdatedBy = u.Id where CONVERT(date, CONVERT(varchar, ins.UpdatedDate), 20) = CONVERT(date, CONVERT(varchar, @today), 20) and ins.UpdatedBy = @user", con);
+                        SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) " +
+                                                        "as Due, sum(ins.Discount) as Discount from Invoice i left join InvoiceSub" +
+                                                        " ins on i.Id = ins.InvoiceId  left join Users u on i.UserId = u.Id" +
+                                                        " where (i.InvoiceType = 'Indoor Services' or i.InvoiceType = 'Outdoor Services' " +
+                                                        "or i.InvoiceType = 'Sales Medicine') and CONVERT(date, CONVERT(varchar, i.InvoiceDate), 20)" +
+                                                        " = CONVERT(date, CONVERT(varchar, @today), 20) and ins.UpdatedBy = @user", con);
                        
                         cmd.Parameters.AddWithValue("@today", date);
                         cmd.Parameters.AddWithValue("@user", user);
