@@ -32,7 +32,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 postButton.Visible = false;
                 amountTextBox.Visible = false;
-                dealingDateTextBox.Visible = false;
+                //dealingDateTextBox.Visible = false;
             }
             else
             {
@@ -141,7 +141,7 @@ namespace AtoZHosptalAutometion.UI
                 oVoucher.Diposit = Convert.ToDecimal(amountTextBox.Text);
                 oVoucher.EmployeeName = oAccountBll.GetUserNameByUserId(Convert.ToInt32(userIdTextBox.Text));
                 oVoucher.UpdatedBy = userId;
-                oVoucher.DateOfDeal = Convert.ToDateTime(dealingDateTextBox.Text);
+                oVoucher.DateOfDeal = Convert.ToDateTime(dateTextBox.Value);
                 oVoucher.UpdatedDate = DateTime.Today;
                 if (serviceDropDownList.SelectedValue == "0")
                 {

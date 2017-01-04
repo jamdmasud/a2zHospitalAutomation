@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using AtoZHosptalAutometion.BLL;
 using AtoZHosptalAutometion.Models;
 
 namespace AtoZHosptalAutometion.UI
 {
-    public partial class AgentPayment : System.Web.UI.Page
+    public partial class AgentPayment : Page
     {
         private int userId { get; set; }
         private User oUser = null;
