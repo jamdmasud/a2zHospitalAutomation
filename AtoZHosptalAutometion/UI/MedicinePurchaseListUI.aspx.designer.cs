@@ -10,7 +10,7 @@
 namespace AtoZHosptalAutometion.UI {
     
     
-    public partial class DipositListUI {
+    public partial class MedicinePurchaseListUI {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,57 @@ namespace AtoZHosptalAutometion.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtFromDate control.
+        /// fromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFromDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText fromDate;
         
         /// <summary>
-        /// txtTodate control.
+        /// toDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTodate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText toDate;
         
         /// <summary>
-        /// showExpenseButton control.
+        /// submitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button showExpenseButton;
+        protected global::System.Web.UI.WebControls.Button submitButton;
         
         /// <summary>
-        /// printExpenseButton control.
+        /// medicineGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button printExpenseButton;
+        protected global::System.Web.UI.WebControls.GridView medicineGridView;
         
         /// <summary>
-        /// GridView control.
+        /// totalLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView;
+        protected global::System.Web.UI.WebControls.Label totalLabel;
         
         /// <summary>
-        /// lblTotal control.
+        /// discountLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.Label discountLabel;
     }
 }

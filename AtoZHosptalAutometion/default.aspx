@@ -132,6 +132,11 @@
                                             <span class="glyphicon glyphicon-user ico"></span>Patients
                                         </div>
                                     </a>
+                                    <a href="/UI/MedicinePurchaseListUI.aspx">
+                                        <div class="col-md-3 col-sm-3 col-xs-3 btn btn-default" style="margin: 12px; height: 100px; padding-top: 35px">
+                                            <span class="glyphicon glyphicon-user ico"></span>Purchased Medicine
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </fieldset>

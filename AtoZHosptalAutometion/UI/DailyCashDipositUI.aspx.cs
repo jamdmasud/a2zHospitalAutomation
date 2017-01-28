@@ -74,6 +74,11 @@ namespace AtoZHosptalAutometion.UI
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
+
+                        Entities db = new Entities();
+                        decimal due = db.Dues.Where(i => i.Date == date).Sum(o => o.Amount) ?? 0;
+                        db.Dispose();
+                        dt.Rows[0][1] = Convert.ToDecimal(dt.Rows[0][1]) - due;
                         medicineGridView.DataSource = dt;
                         medicineGridView.DataBind();
                         cmd.Dispose();

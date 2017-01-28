@@ -159,7 +159,7 @@
                                             </Columns>
                                         </asp:GridView>
                                     </div>
-
+                                    <div class="col-md-3 col-md-offset-6 alert alert-success text-success"><strong>Total: <asp:Label ID="lblTotal" Visible="False" runat="server"></asp:Label> </strong></div>
                                 </div>
                             </div>
                         </div>

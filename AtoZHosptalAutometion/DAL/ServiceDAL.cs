@@ -245,8 +245,7 @@ namespace AtoZHosptalAutometion.DAL
                     if (oInvoiceSub != null)
                     {
                         oInvoiceSub.Paid = oInvoiceSub.Paid + paid;
-                         oInvoiceSub.Discount = oInvoiceSub.Total - oInvoiceSub.Paid;
-
+                        oInvoiceSub.Discount = oInvoiceSub.Total - oInvoiceSub.Paid;
                         oInvoiceSub.Due = 0;
                     }
                     affected = db.SaveChanges();
@@ -309,14 +308,18 @@ namespace AtoZHosptalAutometion.DAL
         {
             try
             {
-                Due oDue = new Due();
-                oDue.InvoiceId = id;
-                oDue.Amount = paid;
-                oDue.Date = DateTime.Today;
-                oDue.UpdatedBy = oUser.Id;
-                oDue.UpdatedDate = oDue.Date;
+
+               
                 using (var db = new Entities())
                 {
+                    DateTime dd = db.InvoiceSubs.Where(i => i.InvoiceId == id).Select(d => d.UpdatedDate).First() ??
+                                  DateTime.Today;
+                    Due oDue = new Due();
+                    oDue.InvoiceId = id;
+                    oDue.Amount = paid;
+                    oDue.Date = dd;
+                    oDue.UpdatedBy = oUser.Id;
+                    oDue.UpdatedDate = DateTime.Today;
                     db.Dues.Add(oDue);
                     db.SaveChanges();
                 }

@@ -210,6 +210,7 @@
     <Content Include="UI\DailyCashDipositUI.aspx" />
     <Content Include="UI\DepositListUI.aspx" />
     <Content Include="UI\DipositListUI.aspx" />
+    <Content Include="UI\MedicinePurchaseListUI.aspx" />
     <Content Include="UI\PatientListUI.aspx" />
     <Content Include="UI\DoctorListUI.aspx" />
     <Content Include="UI\DoctorRegistration.aspx" />
@@ -624,6 +625,13 @@
     </Compile>
     <Compile Include="UI\DipositListUI.aspx.designer.cs">
       <DependentUpon>DipositListUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedicinePurchaseListUI.aspx.cs">
+      <DependentUpon>MedicinePurchaseListUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\MedicinePurchaseListUI.aspx.designer.cs">
+      <DependentUpon>MedicinePurchaseListUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\PatientListUI.aspx.cs">
       <DependentUpon>PatientListUI.aspx</DependentUpon>

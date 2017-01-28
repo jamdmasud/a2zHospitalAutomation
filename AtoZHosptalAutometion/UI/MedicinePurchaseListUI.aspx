@@ -1,12 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DailyCashDipositUI.aspx.cs" Inherits="AtoZHosptalAutometion.UI.DailyCashDipositUI" %>
-<%@ Import Namespace="AtoZHosptalAutometion.Models" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MedicinePurchaseListUI.aspx.cs" Inherits="AtoZHosptalAutometion.UI.MedicinePurchaseListUI" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Diposit Cash
+    <title>Medicine Store
     </title>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
@@ -14,29 +12,13 @@
     <script src="../scripts/jquery-3.1.0.js"></script>
     <script src="../scripts/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="../scripts/bootstrap.js"></script>
-    <style>
-        #getButton{margin-top:20px}
-    </style>
+    
 </head>
 <body>
-     <script type = "text/javascript">
-        function Confirm() {
-            var confirm_value = document.createElement("INPUT");
-            confirm_value.type = "hidden";
-            confirm_value.name = "confirm_value";
-            if (confirm("Do you want to save data?")) {
-                confirm_value.value = "Yes";
-            } else {
-                confirm_value.value = "No";
-            }
-            document.forms[0].appendChild(confirm_value);
-        }
-    </script>
-
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A To Z Digital Hospital Automation</p>
+                <p>A2Z Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -97,13 +79,13 @@
                                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sold <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="../UI/ServiceSaleListUI.aspx">Sold Service</a></li>
-                                            <li><a href="../UI/MedicineSaleListUI.aspx">Sold Medicine</a></li>
+                                            <li class="active"><a href="../UI/MedicineSaleListUI.aspx">Sold Medicine</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">View <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="../UI/ShowExpensesByDate_new.aspx">View Expense</a></li>
-                                            <li class="active"><a href="../UI/DipositListUI.aspx">Deposite Book</a></li>
+                                            <li><a href="../UI/DipositListUI.aspx">Deposite Book</a></li>
                                             <li><a href="../UI/DueListUI.aspx">Due Collection</a></li>
                                         </ul>
                                     </li>
@@ -122,59 +104,48 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-inline" style="margin-bottom: 30px">
                                     <div class="form-group">
-                                        <asp:DropDownList ID="serviceDropDownList" CssClass="form-control" runat="server">
-                                            <asp:ListItem Selected="True" Value="0">Select Type</asp:ListItem>
-                                            <asp:ListItem>Reception</asp:ListItem>
-                                            <asp:ListItem>Pharmacy</asp:ListItem>
-                                        </asp:DropDownList>
+                                        <label for="fromDate">From Date</label>
+                                        <input type="text" class="form-control" ID="fromDate" runat="server" placeholder="From Date" />
                                     </div>
                                     <div class="form-group">
-                                        User Id:
-                                        <asp:TextBox ID="userIdTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <label for="toDate">To Date</label>
+                                        <input type="text" class="form-control" ID="toDate" runat="server" placeholder="To Date" />
                                     </div>
-                                    <div class="form-group">
-                                        Date of Deal:
-                                        <input id="dateTextBox" class="form-control" runat="server"/>
-                                    </div>
-                                    <asp:Button ID="getButton" CssClass="btn btn-info margin-top-15" runat="server" Text="Get Total" OnClick="getButton_Click" />
+                                    <asp:Button ID="submitButton" CssClass="btn btn-info" runat="server" Text="Submit" OnClick="submitButton_Click" />
                                 </div>
                             </div>
-                            
-                            <div class="col-md-4 col-sm-4 col-xs-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="font-weight: 800;  text-align: center; margin:15px">
-                               <asp:GridView ID="medicineGridView" CssClass="table table-responsive table-hover" runat="server" AutoGenerateColumns="False">
-                                <HeaderStyle ForeColor="White" Font-Bold="True" HorizontalAlign="Center" VerticalAlign="Middle" BackColor="#A55129"></HeaderStyle>
+                            <asp:GridView ID="medicineGridView" CssClass="table table-responsive table-hover" runat="server" AutoGenerateColumns="False">
+                                <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#A55129"></HeaderStyle>
                                 <Columns>
-                                    
+                                    <asp:TemplateField HeaderText="SL">
+                                        <ItemTemplate><%# ((GridViewRow)Container).RowIndex + 1%></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Invoice ID">
+                                        <ItemTemplate><%# Eval("Id") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Medicine Name">
+                                        <ItemTemplate><%# Eval("Name") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Quantity">
+                                        <ItemTemplate><%# Eval("Quantity") %></ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="UnitPrice">
+                                        <ItemTemplate><%# Eval("Price") %></ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Total">
                                         <ItemTemplate><%# Eval("Total") %></ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Received Cash">
-                                        <ItemTemplate><%# Eval("Paid") %></ItemTemplate>
+                                    <asp:TemplateField HeaderText="Transaction Date">
+                                        <ItemTemplate><%# Convert.ToDateTime(Eval("InvoiceDate")).ToShortDateString() %></ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Due">
-                                        <ItemTemplate><%# Eval("Due") %></ItemTemplate>
+                                    <asp:TemplateField HeaderText="Sold By">
+                                        <ItemTemplate><%# Eval("SoldBy") %></ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Discount">
-                                        <ItemTemplate><%# Eval("Discount") %></ItemTemplate>
-                                    </asp:TemplateField>
-                                    
                                 </Columns>
                             </asp:GridView>
-                                <asp:Label ID="Label781" runat="server" Text="Collected Due: "></asp:Label>
-                                <asp:Label ID="lblcolDue" runat="server" BorderColor="gray"></asp:Label>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="form-inline" style="margin-bottom: 30px">
-                                    
-                                    <div class="form-group">
-                                        <asp:TextBox ID="dealingDateTextBox" Visible="False" CssClass="form-control" runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="form-group">
-                                        <asp:TextBox ID="amountTextBox" CssClass="form-control" runat="server"></asp:TextBox>
-                                    </div>
-                                    <asp:Button ID="postButton" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="postButton_Click" OnClientClick = "Confirm()" />
-                                    <asp:Button ID="voucheButton" CssClass="btn btn-default" runat="server" Text="Print Voucher" Visible="False" />
-                                </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6" style="background: #d3d3d3; font-weight: 800; border: 1px solid #d2b48c; border-radius: 5px;text-align: right">
+                                <strong>Total:</strong> <asp:Label ID="totalLabel" runat="server"></asp:Label><br/>
+                                <strong>Discount:</strong> <asp:Label ID="discountLabel" runat="server"></asp:Label>
                             </div>
                         </div>
 
@@ -183,14 +154,16 @@
             </div>
         </div>
     </form>
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="../scripts/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script>
         $(function () {
             //$("#datepicker").datepicker();
-            $('#dateTextBox').datepicker();
-            $('#dealingDateTextBox').datepicker();
+            $('#fromDate').datepicker();
+            $('#toDate').datepicker();
+
 
             var h = $('body').height();
             $('.side-bar').css("height", h);
@@ -198,5 +171,3 @@
     </script>
 </body>
 </html>
-
-

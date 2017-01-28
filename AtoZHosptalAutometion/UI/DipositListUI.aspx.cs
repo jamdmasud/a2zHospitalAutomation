@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,6 +38,10 @@ namespace AtoZHosptalAutometion.UI
             try
             {
                 DataSet ds = oExpenseBll.ShowDeposit(fromDate, tomDate);
+                decimal total = ds.Tables[0].Rows.Cast<DataRow>().Sum(item => Convert.ToDecimal(item[4]));
+                lblTotal.Text = total.ToString();
+                lblTotal.ForeColor = Color.DarkRed;
+                lblTotal.Visible = true;
                 Session["rpt"] = ds;
                 GridView.DataSource = ds;
                 GridView.DataBind();

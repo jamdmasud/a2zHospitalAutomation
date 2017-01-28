@@ -167,6 +167,8 @@ namespace AtoZHosptalAutometion.UI
 
             string purchasingDate = purchasingDateTextBox.Text;
             string totals = sumTotalLabel.Value;
+            decimal gTotal = Convert.ToDecimal(txtGrandTotal.Value);
+            decimal discount = Convert.ToDecimal(txtDiscount.Value);
             int total = Convert.ToInt32(Convert.ToDecimal(totals));
             string word = oFunctions.NumberToWord((int)total);
             if (purchasingDate == "")
@@ -175,7 +177,7 @@ namespace AtoZHosptalAutometion.UI
             }
             else
             {
-                int inoviceId = oMedicineBll.SavePurchaseMedicine(purchasingDate, total, word, UserId);
+                int inoviceId = oMedicineBll.SavePurchaseMedicine(purchasingDate, total, gTotal, discount, word, UserId);
                 if (inoviceId > 60000)
                 {
                     DataSet ds = oMedicineBll.PurchaseMedicineDataSet(inoviceId);

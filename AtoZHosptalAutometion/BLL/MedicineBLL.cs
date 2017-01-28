@@ -70,7 +70,7 @@ namespace AtoZHosptalAutometion.BLL
             oMedicineDal.SaveToTemp(temp);
         }
 
-        public int SavePurchaseMedicine(string purchasingDate, int total, string word, int userId)
+        public int SavePurchaseMedicine(string purchasingDate, int total, decimal gTotal, decimal discount, string word, int userId)
         {
             MedicineDAL oMedicineDal = new MedicineDAL();
             CoreDAL oCoreDal = new CoreDAL();
@@ -91,11 +91,12 @@ namespace AtoZHosptalAutometion.BLL
             //Save into invoiceSub for description
             oInvoiceSub.InvoiceId = invoiceId;
             oInvoiceSub.Total = total;
-            oInvoiceSub.GrandTotal = total;
+            oInvoiceSub.GrandTotal = gTotal;
+
             oInvoiceSub.TotalinWord = word;
             oInvoiceSub.UpdatedDate =  DateTime.Today;
             oInvoiceSub.UpdatedBy = oInvoice.UpdatedBy;
-            oInvoiceSub.Discount = 0;
+            oInvoiceSub.Discount = discount;
             oInvoiceSub.Paid = 0;
             oInvoiceSub.Due = 0;
             oInvoiceSub.vat = 0;
@@ -118,8 +119,7 @@ namespace AtoZHosptalAutometion.BLL
                 purchases.Add(oPurchase);
             }
 
-            SaveExpenseForMedicine(purchasingDate, userId, totalPurchase, invoiceId);
-
+            //SaveExpenseForMedicine(purchasingDate, userId, totalPurchase, invoiceId);
 
             int affected = oMedicineDal.SavePurchaseMedicine(purchases);
 

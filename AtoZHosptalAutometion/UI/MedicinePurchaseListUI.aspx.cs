@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using AtoZHosptalAutometion.Models;
 
 namespace AtoZHosptalAutometion.UI
 {
-    public partial class MedicineSaleListUI : Page
+    public partial class MedicinePurchaseListUI : System.Web.UI.Page
     {
         private User oUser = null;
         private bool login = false;
@@ -35,12 +39,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 //It will be collected from session
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select i.Id, ins.Total Total," +
-                                                "  u.Name SoldBy, i.InvoiceType, i.InvoiceDate, m.Name, s.Quantity," +
-                                                " s.UnitPrice from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left " +
-                                                "join Users u on i.UserId = u.Id left  join Sales s on i.Id = s.InvoiceId left join Medicine m" +
-                                                " on s.MedicineId = m.Id where i.InvoiceType = 'Sales Medicine' and (InvoiceDate between @fromDate and @toDate)", con);
-
+                SqlCommand cmd = new SqlCommand("select i.Id, ins.Total, u.Name SoldBy, i.InvoiceType, i.InvoiceDate, m.Name, s.Quantity, s.Price from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Users u on i.UserId = u.Id left join Purchases s on i.Id = s.InvoiceId left join Medicine m on s.MedicineId = m.Id where i.InvoiceType = 'Purchase Medicine' and(InvoiceDate between @fromDate and @toDate)", con);
                 cmd.Parameters.AddWithValue("@fromDate", fromsDate);
                 cmd.Parameters.AddWithValue("@toDate", tosDate);
 
@@ -64,7 +63,8 @@ namespace AtoZHosptalAutometion.UI
             {
                 //It will be collected from session
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Paid) as Paid, sum(ins.Due) as Due, sum(ins.Discount) as Discount from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Users u on i.UserId = u.Id left  join Sales s on i.Id = s.InvoiceId left join Medicine m on s.MedicineId = m.Id where i.InvoiceType = 'Sales Medicine' and (InvoiceDate between @fromDate and @toDate)", con);
+                SqlCommand cmd = new SqlCommand("select sum(ins.Total) Total, sum(ins.Discount) as Discount from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Users u on i.UserId = u.Id left  join Sales s on i.Id = s.InvoiceId left join Medicine m on s.MedicineId = m.Id where i.InvoiceType = 'Purchase Medicine' and (InvoiceDate between @fromDate and @toDate)", con);
+                 
 
                 cmd.Parameters.AddWithValue("@fromDate", fromsDate);
                 cmd.Parameters.AddWithValue("@toDate", tosDate);
@@ -76,8 +76,6 @@ namespace AtoZHosptalAutometion.UI
                     while (reader.Read())
                     {
                         totalLabel.Text = reader["Total"].ToString();
-                        receivedsLabel.Text = reader["Paid"].ToString();
-                        duesLabel.Text = reader["Due"].ToString();
                         discountLabel.Text = reader["Discount"].ToString();
                     }
 

@@ -349,26 +349,15 @@
                                                             <input runat="server" type="text" id="sumTotalLabel" readonly="readonly" />
                                                         </td>
                                                     </tr>
-                                                    <%-- <tr>
-                                                        <td>Vat:<input type="number" step="any" id="vat" style="width: 50px"/></td>
-                                                        <td><input type="text" id="txtVat" readonly="readonly"/></td>
-                                                    </tr>
                                                     <tr>
                                                         <td>Discount: </td>
-                                                        <td><input type="text" id="txtDiscount"/></td>
+                                                        <td><input type="text" runat="server" id="txtDiscount"/></td>
                                                     </tr>
-                                                     <tr>
+                                                    <tr>
                                                         <td>Grand Total: </td>
-                                                        <td><input type="text" id="txtGrandTotal" readonly="readonly"/></td>
+                                                        <td><input type="text" runat="server" id="txtGrandTotal" readonly="readonly"/></td>
                                                     </tr>
-                                                     <tr>
-                                                        <td>Advance: </td>
-                                                        <td><input type="text" id="txtAdvance"/></td>
-                                                    </tr>
-                                                     <tr>
-                                                        <td>Due: </td>
-                                                        <td><input type="text" id="txtDue" readonly="readonly"/></td>
-                                                    </tr>--%>
+                                                     
                                                 </table>
                                             </div>
                                             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -398,6 +387,12 @@
                 source: ["Indoor", "Outdoor", "Pharmacy", "Others"]
             });
 
+            $('#txtDiscount').focusout(function() {
+                var total = $('#sumTotalLabel').val();
+                var discount = $('#txtDiscount').val();
+                var gTotal = total - discount;
+                $('#txtGrandTotal').val(gTotal);
+            });
         });
     </script>
 </body>
