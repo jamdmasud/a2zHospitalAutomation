@@ -24,7 +24,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A2Z Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -123,6 +123,9 @@
                                             <div class="form-group padding-bottom-10">
                                                 <input type="text" runat="server" class="form-control" id="txtTodate" placeholder="To Date" />
                                             </div>
+                                            <div class="form-group padding-bottom-10">
+                                                <input type="text" runat="server" class="form-control" id="expenseType" placeholder="Expense type" />
+                                            </div>
                                         </div>
                                         <div class="col-md-10 col-xs-10 col-xs-offset-1 padding-bottom-10">
                                             <asp:Button ID="showExpenseButton" CssClass="btn btn-success" runat="server" Text="Show Expense" OnClick="showExpenseButton_Click" />
@@ -167,9 +170,14 @@
                         <script>
                             $(function () {
                                 //$("#datepicker").datepicker();
-                                $('#txtFromDate').datepicker();
-                                $('#txtTodate').datepicker();
-
+                                $('#txtFromDate').datepicker().datepicker("setDate", new Date());
+                                $('#txtTodate').datepicker().datepicker("setDate", new Date());
+                                $('#expenseType').autocomplete({
+                                    source: ["Dr. Food", "Salary", "Duty Doctor", "Honorarium", "Surgical Equipment", "X-ray Report",
+                                    "Marketing", "shop", "Miking", "Surgion+Enestray", "Oxygen", "Altransno", "Electric Bill", "Printing Bill",
+                                    "Mobile Bill", "Medicine", "Office", "Diesel", "Mosque/Donation", "Kistri", "Pathology", "Bank deposit",
+                                        "Pharmacy", "Others"]
+                                });
                             });
                         </script>
                     </div>

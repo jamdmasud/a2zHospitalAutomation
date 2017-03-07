@@ -42,7 +42,6 @@ namespace AtoZHosptalAutometion.UI
             DataTable dt = new DataTable();
             dt.Columns.Add("Description");
             dt.Columns.Add("Amount");
-            dt.Columns.Add("ExpenseType");
             dt.Columns.Add("Edit");
             dt.Rows.Add();
             gvDetails.DataSource = dt;
@@ -65,7 +64,6 @@ namespace AtoZHosptalAutometion.UI
                 cmd.Parameters.AddWithValue("@Id", 0);
                 cmd.Parameters.AddWithValue("@Description", "");
                 cmd.Parameters.AddWithValue("@Amount", 0);
-                cmd.Parameters.AddWithValue("@ExpenseType", "");
                 cmd.Parameters.AddWithValue("@ExpenseDate", "");
                 cmd.Parameters.AddWithValue("@CreatedBy", UserId);
                 cmd.Parameters.AddWithValue("@status", "SELECT");

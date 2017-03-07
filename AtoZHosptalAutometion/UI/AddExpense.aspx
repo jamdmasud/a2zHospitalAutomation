@@ -30,7 +30,7 @@
                     //alert(result[0].Id+ ' '+ result[0].Amount + ' ' + result[0].Description + ' ' + result[0].ExpenseType);
                     //alert(result.length);
                     for (var i = 0; i < result.length; i++) {
-                        $("#gvDetails").append('<tr><td>' + result[i].Description + '</td><td>' + result[i].Amount + '</td><td>' + result[i].ExpenseType + '</td><td> <img src=delete.png onclick=deleterecords(' + result[i].Id + ')> </td></tr>');
+                        $("#gvDetails").append('<tr><td>' + result[i].Description + '</td><td>' + result[i].Amount + '</td><td> <img src=delete.png onclick=deleterecords(' + result[i].Id + ')> </td></tr>');
                         tot += result[i].Amount;
                     }
                     document.getElementById("sumTotal").innerHTML = "Total: " + tot;
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="panel panel-body">
                                     <div class="form-inline">
-                                        <div class="col-md-10 col-xs-10 col-xs-offset-1 padding-bottom-10">
+                                        <div class="col-md-10 padding-bottom-10">
                                             <div class="form-group padding-bottom-10">
                                                 <input type="text" class="form-control" id="txtDescription" placeholder="Description" />
                                             </div>
@@ -186,14 +186,11 @@
                                                 <input type="text" class="form-control" id="txtAmount" placeholder="Amount" />
                                             </div>
                                             <div class="form-group padding-bottom-10">
-                                                <input type="text" class="form-control" id="txtExpenseType" placeholder="ExpenseType" />
-                                            </div>
-                                            <div class="form-group padding-bottom-10">
                                                 <input type="text" class="form-control" id="txtExpenseDate" placeholder="ExpenseDate" />
                                             </div>
-                                        </div>
-                                        <div class="col-md-10 col-xs-10 col-xs-offset-1 padding-bottom-10">
-                                            <input type="button" id="btnInsert" class="btn btn-info" value="Add Expense" onclick="insertupdatedata('0', $('#txtDescription').val(), $('#txtAmount').val(), $('#txtExpenseType').val(), $('#txtExpenseDate').val(), 'INSERT')" />
+                                            <div class="form-group padding-bottom-10">
+                                                <input type="button" id="btnInsert" class="btn btn-info btn-block" value="Add Expense" onclick="insertupdatedata('0', $('#txtDescription').val(), $('#txtAmount').val(), $('#txtExpenseType').val(), $('#txtExpenseDate').val(), 'INSERT')" />
+                                            </div>
                                         </div>
                                     </div>
 
@@ -224,9 +221,12 @@
     <script>
         $(function () {
             //$("#datepicker").datepicker();
-            $('#txtExpenseDate').datepicker();
-            $('#txtExpenseType').autocomplete({
-                source: ["Indoor", "Outdoor", "Pharmacy", "Others"]
+            $('#txtExpenseDate').datepicker().datepicker("setDate", new Date());
+            $('#txtDescription').autocomplete({
+                source: ["Dr. Food", "Salary", "Duty Doctor", "Honorarium", "Surgical Equipment", "X-ray Report",
+                "Marketing", "shop", "Miking", "Surgion+Enestray", "Oxygen", "Altransno", "Electric Bill", "Printing Bill",
+                "Mobile Bill", "Medicine", "Office", "Diesel", "Mosque/Donation", "Kistri", "Pathology", "Bank deposit",
+                    "Pharmacy", "Others"]
             });
         });
     </script>

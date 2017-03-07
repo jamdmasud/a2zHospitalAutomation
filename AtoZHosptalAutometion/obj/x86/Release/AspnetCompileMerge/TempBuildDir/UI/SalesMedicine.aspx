@@ -182,7 +182,6 @@
                     success: function (data) {
                         if (data.d == 'true')
                             window.location.reload();
-
                     },
                     error: function (data) {
                         var r = data.responseText;
@@ -204,7 +203,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A2Z Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -306,7 +305,7 @@
                                                 <table width="100%">
                                                     <tr>
                                                         <th>Sales Date</th>
-                                                        <th>Customer Id</th>
+                                                        <th>Customer</th>
                                                         <th>Customer Type</th>
                                                     </tr>
                                                     <tr>

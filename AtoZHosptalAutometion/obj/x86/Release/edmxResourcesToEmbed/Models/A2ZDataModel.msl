@@ -238,11 +238,11 @@
     <EntitySetMapping Name="Patients">
       <EntityTypeMapping TypeName="a2zmanagementsystem.com_A2zHospitalDbModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="Code" ColumnName="Code" />
-          <ScalarProperty Name="Dob" ColumnName="Dob" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="fatherOhusbandName" ColumnName="fatherOhusbandName" />
           <ScalarProperty Name="MotherName" ColumnName="MotherName" />

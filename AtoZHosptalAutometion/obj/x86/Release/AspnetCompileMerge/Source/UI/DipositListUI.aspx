@@ -23,7 +23,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A To Z Digital Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -159,7 +159,10 @@
                                             </Columns>
                                         </asp:GridView>
                                     </div>
-
+                                    <div class="col-md-3 col-md-offset-6 alert alert-success text-success">
+                                        <strong>Total: <asp:Label ID="lblTotal" Visible="False" runat="server"></asp:Label> 
+                                        </strong>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -36,7 +36,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A To Z Digital Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">

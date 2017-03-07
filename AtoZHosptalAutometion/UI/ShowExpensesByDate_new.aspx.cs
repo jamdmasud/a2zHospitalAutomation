@@ -35,19 +35,19 @@ namespace AtoZHosptalAutometion.UI
             ExpenseBLL oExpenseBll = new ExpenseBLL();
             DataTable dt2 = new DataTable();
             DataSet dSet = new DataSet();
+            string type = expenseType.Value;
 
             try
             {
-                DataSet ds = oExpenseBll.ShowExpense(fromDate, tomDate);
+                DataSet ds = oExpenseBll.ShowExpense(fromDate, tomDate, type);
                 Session["rpt"] = ds;
                 GridView.DataSource = ds;
                 GridView.DataBind();
                 printExpenseButton.Visible = true;
                 printExpenseButton.PostBackUrl = "~/UI/ReportForm/ShowExpenseViewer.aspx";
-
-
+                
                 string cs = WebConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
-                string query = "select sum(Amount) Amount from Expenses  where  ExpenseDate between @startDate and @endDate";
+                string query = "select sum(Amount) Amount from Expenses  where [Description] like @type and  ExpenseDate between @startDate and @endDate";
 
                 using (SqlConnection con = new SqlConnection(cs))
                 {
@@ -57,6 +57,7 @@ namespace AtoZHosptalAutometion.UI
 
                     cmd.Parameters.AddWithValue("@startDate", fromDate);
                     cmd.Parameters.AddWithValue("@endDate", tomDate);
+                    cmd.Parameters.AddWithValue("@type", "%" + type + "%");
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

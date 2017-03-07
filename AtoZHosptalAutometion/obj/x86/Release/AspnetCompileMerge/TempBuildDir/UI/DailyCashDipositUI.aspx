@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DailyCashDipositUI.aspx.cs" Inherits="AtoZHosptalAutometion.UI.DailyCashDipositUI" %>
+<%@ Import Namespace="AtoZHosptalAutometion.Models" %>
 
- 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,12 +19,24 @@
     </style>
 </head>
 <body>
-
+     <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Do you want to save data?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
 
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A To Z Digital Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -114,14 +127,13 @@
                                             <asp:ListItem>Reception</asp:ListItem>
                                             <asp:ListItem>Pharmacy</asp:ListItem>
                                         </asp:DropDownList>
-                                        
                                     </div>
                                     <div class="form-group">
                                         User Id:
                                         <asp:TextBox ID="userIdTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        Date:
+                                        Date of Deal:
                                         <input id="dateTextBox" class="form-control" runat="server"/>
                                     </div>
                                     <asp:Button ID="getButton" CssClass="btn btn-info margin-top-15" runat="server" Text="Get Total" OnClick="getButton_Click" />
@@ -155,12 +167,12 @@
                                 <div class="form-inline" style="margin-bottom: 30px">
                                     
                                     <div class="form-group">
-                                        <asp:TextBox ID="dealingDateTextBox" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="dealingDateTextBox" Visible="False" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
                                     <div class="form-group">
                                         <asp:TextBox ID="amountTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                                     </div>
-                                    <asp:Button ID="postButton" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="postButton_Click" />
+                                    <asp:Button ID="postButton" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="postButton_Click" OnClientClick = "Confirm()" />
                                     <asp:Button ID="voucheButton" CssClass="btn btn-default" runat="server" Text="Print Voucher" Visible="False" />
                                 </div>
                             </div>

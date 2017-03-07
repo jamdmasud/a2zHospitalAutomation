@@ -112,7 +112,7 @@ namespace AtoZHosptalAutometion.UI
                 {
                     //It will be collected from session
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("select ISNULL(sum(amount), 0) CollectedDue from [a2zmanagementsystem.com_jamdmasud].[Due] where UpdatedBy = @user and Date = @today", con);
+                    SqlCommand cmd = new SqlCommand("select ISNULL(sum(amount), 0) CollectedDue from [a2zmanagementsystem.com_jamdmasud].[Due] where UpdatedBy = @user and UpdatedDate = @today", con);
                     cmd.Parameters.AddWithValue("@today", date);
                     cmd.Parameters.AddWithValue("@user", Convert.ToInt32(userIdTextBox.Text));
 

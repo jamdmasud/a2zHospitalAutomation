@@ -23,7 +23,7 @@ namespace AtoZHosptalAutometion.UI
             oUser = (User)Session["user"];
 
             //Identify user type
-            if (oUser.Roles != "Admin" && oUser.Roles != "Manager")
+            if (oUser.Roles != "Admin" && oUser.Roles != "Manager" && oUser.Roles !="Pharmacy")
             {
                 Response.Redirect("~/UI/AccessDeniedUI.aspx");
             }
@@ -39,7 +39,7 @@ namespace AtoZHosptalAutometion.UI
             {
                 //It will be collected from session
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select i.Id, ins.Total, u.Name SoldBy, i.InvoiceType, i.InvoiceDate, m.Name, s.Quantity, s.Price from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Users u on i.UserId = u.Id left join Purchases s on i.Id = s.InvoiceId left join Medicine m on s.MedicineId = m.Id where i.InvoiceType = 'Purchase Medicine' and(InvoiceDate between @fromDate and @toDate)", con);
+                SqlCommand cmd = new SqlCommand("select i.Id,  u.Name SoldBy, i.InvoiceType, i.InvoiceDate, m.Name, s.Quantity, s.Price, (s.Quantity*s.Price) as Total from Invoice i left join InvoiceSub ins on i.Id = ins.InvoiceId left join Users u on i.UserId = u.Id left join Purchases s on i.Id = s.InvoiceId left join Medicine m on s.MedicineId = m.Id where i.InvoiceType = 'Purchase Medicine' and(InvoiceDate between @fromDate and @toDate)", con);
                 cmd.Parameters.AddWithValue("@fromDate", fromsDate);
                 cmd.Parameters.AddWithValue("@toDate", tosDate);
 

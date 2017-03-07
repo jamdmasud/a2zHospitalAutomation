@@ -166,13 +166,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2016 00:55:46</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/27/2016 00:30:13</publishTime>
+      <publishTime>02/14/2017 04:21:56</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/27/2016 00:30:13</publishTime>
+      <publishTime>02/14/2017 04:21:56</publishTime>
     </File>
     <File Include="bin/AtoZHosptalAutometion.dll">
-      <publishTime>11/27/2016 00:30:02</publishTime>
+      <publishTime>02/14/2017 04:21:49</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
       <publishTime>01/24/2016 06:25:40</publishTime>
@@ -259,10 +259,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/18/2016 16:51:42</publishTime>
     </File>
     <File Include="bin/Report/rptDailyVoucher.rpt">
-      <publishTime>10/19/2016 07:50:18</publishTime>
+      <publishTime>02/14/2017 04:15:46</publishTime>
     </File>
     <File Include="bin/Report/rptDepositShow.rpt">
-      <publishTime>11/11/2016 14:39:51</publishTime>
+      <publishTime>02/14/2017 04:17:21</publishTime>
     </File>
     <File Include="bin/Report/rptDueList.rpt">
       <publishTime>11/11/2016 14:38:42</publishTime>
@@ -271,25 +271,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2016 00:54:08</publishTime>
     </File>
     <File Include="bin/Report/rptPurchaseMedicine.rpt">
-      <publishTime>11/11/2016 14:39:29</publishTime>
+      <publishTime>02/14/2017 04:17:02</publishTime>
     </File>
     <File Include="bin/Report/rptSaleIndoorService.cs">
       <publishTime>09/19/2016 00:45:27</publishTime>
     </File>
     <File Include="bin/Report/rptSaleIndoorService.rpt">
-      <publishTime>09/19/2016 00:45:26</publishTime>
+      <publishTime>02/14/2017 04:18:18</publishTime>
     </File>
     <File Include="bin/Report/rptSaleOutdoorService.cs">
       <publishTime>09/09/2016 00:54:09</publishTime>
     </File>
     <File Include="bin/Report/rptSaleOutdoorService.rpt">
-      <publishTime>09/08/2016 02:45:55</publishTime>
+      <publishTime>02/14/2017 04:20:00</publishTime>
     </File>
     <File Include="bin/Report/rptSalesMedicine.cs">
       <publishTime>09/18/2016 01:21:54</publishTime>
     </File>
     <File Include="bin/Report/rptSalesMedicine.rpt">
-      <publishTime>09/22/2016 09:47:46</publishTime>
+      <publishTime>02/14/2017 04:19:17</publishTime>
     </File>
     <File Include="bin/Report/rptShowDeposit.rpt">
       <publishTime>09/30/2016 00:57:23</publishTime>
@@ -298,7 +298,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/18/2016 09:04:20</publishTime>
     </File>
     <File Include="bin/Report/rptShowExpense.rpt">
-      <publishTime>11/11/2016 14:31:14</publishTime>
+      <publishTime>02/14/2017 04:18:38</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/27/2016 14:50:24</publishTime>
@@ -451,7 +451,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/29/2016 09:46:03</publishTime>
     </File>
     <File Include="default.aspx">
-      <publishTime>10/19/2016 08:50:58</publishTime>
+      <publishTime>01/28/2017 15:32:16</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>08/18/2016 00:20:26</publishTime>
@@ -490,43 +490,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2016 00:50:58</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/27/2016 00:30:04</publishTime>
+      <publishTime>02/14/2017 04:21:52</publishTime>
     </File>
     <File Include="Register.aspx">
       <publishTime>09/20/2016 03:29:52</publishTime>
     </File>
     <File Include="Report/rptDailyVoucher.rpt">
-      <publishTime>10/19/2016 07:50:18</publishTime>
+      <publishTime>02/14/2017 04:15:46</publishTime>
     </File>
     <File Include="Report/rptDepositShow.rpt">
-      <publishTime>11/11/2016 14:39:51</publishTime>
+      <publishTime>02/14/2017 04:17:21</publishTime>
     </File>
     <File Include="Report/rptDueList.rpt">
       <publishTime>11/11/2016 14:38:42</publishTime>
     </File>
     <File Include="Report/rptPurchaseMedicine.rpt">
-      <publishTime>11/11/2016 14:39:29</publishTime>
+      <publishTime>02/14/2017 04:17:02</publishTime>
     </File>
     <File Include="Report/rptSaleIndoorService.rpt">
-      <publishTime>09/19/2016 00:45:26</publishTime>
+      <publishTime>02/14/2017 04:18:18</publishTime>
     </File>
     <File Include="Report/rptSaleOutdoorService.rpt">
-      <publishTime>09/08/2016 02:45:55</publishTime>
+      <publishTime>02/14/2017 04:20:00</publishTime>
     </File>
     <File Include="Report/rptSalesMedicine.rpt">
-      <publishTime>09/22/2016 09:47:46</publishTime>
+      <publishTime>02/14/2017 04:19:17</publishTime>
     </File>
     <File Include="Report/rptShowDeposit.rpt">
       <publishTime>09/30/2016 00:57:23</publishTime>
     </File>
     <File Include="Report/rptShowExpense.rpt">
-      <publishTime>11/11/2016 14:31:14</publishTime>
+      <publishTime>02/14/2017 04:18:38</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
       <publishTime>08/17/2016 22:42:04</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.min.js">
       <publishTime>08/17/2016 22:42:04</publishTime>
+    </File>
+    <File Include="scripts/angular.min.js">
+      <publishTime>11/30/2016 21:57:05</publishTime>
     </File>
     <File Include="scripts/bootstrap.js">
       <publishTime>08/18/2016 00:20:25</publishTime>
@@ -567,6 +570,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="scripts/jquery.validate.min.js">
       <publishTime>08/18/2016 00:21:30</publishTime>
     </File>
+    <File Include="scripts/patient.js">
+      <publishTime>11/30/2016 23:37:12</publishTime>
+    </File>
     <File Include="scripts/table_script.js">
       <publishTime>08/22/2016 01:26:50</publishTime>
     </File>
@@ -574,127 +580,133 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2016 02:49:30</publishTime>
     </File>
     <File Include="UI/AccessDeniedUI.aspx">
-      <publishTime>09/29/2016 23:09:04</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AddExpense.aspx">
-      <publishTime>09/30/2016 02:12:29</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AddExpenseUIold.aspx">
       <publishTime>09/21/2016 02:54:33</publishTime>
     </File>
     <File Include="UI/AddServicesUI.aspx">
-      <publishTime>09/30/2016 01:53:45</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AddTestUI.aspx">
-      <publishTime>09/30/2016 01:53:22</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AgentListUI.aspx">
-      <publishTime>10/25/2016 09:00:13</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AgentPayment.aspx">
-      <publishTime>09/30/2016 02:18:03</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/AgentRegistrationSuccess.aspx">
-      <publishTime>09/21/2016 22:24:09</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/App_LocalResources/AdmissionPatientUI.aspx.resx">
-      <publishTime>08/19/2016 15:27:15</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DailyCashDipositUI.aspx">
-      <publishTime>10/25/2016 00:28:53</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/delete.png">
-      <publishTime>08/29/2016 02:43:21</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DepositListUI.aspx">
-      <publishTime>10/19/2016 07:28:07</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DipositListUI.aspx">
-      <publishTime>10/02/2016 08:47:43</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DoctorListUI.aspx">
-      <publishTime>10/18/2016 08:17:10</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DoctorRegistration.aspx">
-      <publishTime>09/30/2016 02:06:20</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DueListUI.aspx">
-      <publishTime>11/11/2016 14:50:19</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/DuePaymentUI.aspx">
-      <publishTime>09/30/2016 01:46:27</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/IndoorSeriviceUI.aspx">
-      <publishTime>11/27/2016 00:28:14</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/Logout.aspx">
-      <publishTime>09/21/2016 00:57:01</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
+    </File>
+    <File Include="UI/MedicinePurchaseListUI.aspx">
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/MedicineSaleListUI.aspx">
-      <publishTime>10/04/2016 23:17:22</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/MedicineSearch.aspx">
-      <publishTime>09/30/2016 01:46:27</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/MedicineStorage.aspx">
-      <publishTime>09/30/2016 01:45:33</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/OutdoorServiceUI.aspx">
-      <publishTime>09/30/2016 01:54:26</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/PatienEntry.aspx">
-      <publishTime>09/30/2016 01:56:09</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/PatientAdmissionUI.aspx">
-      <publishTime>09/30/2016 01:52:12</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
+    </File>
+    <File Include="UI/PatientListUI.aspx">
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/PurchaseMedicine.aspx">
-      <publishTime>09/30/2016 01:43:57</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/RegisterAgent.aspx">
-      <publishTime>09/30/2016 01:52:50</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/ReportDeliveryCheckUI.aspx">
-      <publishTime>09/30/2016 01:51:05</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/ReportForm/DailyDipositReportViewer.aspx">
-      <publishTime>11/11/2016 14:44:19</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/DepositViewer.aspx">
-      <publishTime>11/11/2016 14:44:41</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/DueListViewer.aspx">
-      <publishTime>11/11/2016 14:44:57</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/IndoorServiceViewer.aspx">
-      <publishTime>11/11/2016 14:45:14</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/OutdoorServiceRpt.aspx">
-      <publishTime>11/11/2016 14:45:42</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/PurchaseReportViewer.aspx">
-      <publishTime>11/11/2016 14:46:05</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/ReportForm/ShowExpenseViewer.aspx">
-      <publishTime>11/11/2016 14:36:29</publishTime>
+      <publishTime>02/14/2017 04:10:37</publishTime>
     </File>
     <File Include="UI/SaleMedicineReportView.aspx">
-      <publishTime>11/11/2016 15:14:10</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/SalesMedicine.aspx">
-      <publishTime>09/30/2016 01:43:17</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/SaveMedicine.aspx">
-      <publishTime>09/30/2016 01:44:24</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/ServiceSaleListUI.aspx">
-      <publishTime>10/03/2016 09:09:44</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="UI/ShowExpensesByDate_new.aspx">
-      <publishTime>10/04/2016 00:19:58</publishTime>
+      <publishTime>02/14/2017 04:10:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/22/2016 09:23:19</publishTime>
+      <publishTime>02/14/2017 03:25:52</publishTime>
     </File>
     <File Include="WebService.asmx">
       <publishTime>08/18/2016 23:14:32</publishTime>

@@ -50,10 +50,10 @@ namespace AtoZHosptalAutometion.BLL
             oExpenseDal.RemoveExpensesTamp(userId);
         }
 
-        public DataSet ShowExpense(DateTime fromDate, DateTime tomDate)
+        public DataSet ShowExpense(DateTime fromDate, DateTime tomDate, string type)
         {
             ExpenseDAL oExpenseDal = new ExpenseDAL();
-            return oExpenseDal.ShowExpense(fromDate, tomDate);
+            return oExpenseDal.ShowExpense(fromDate, tomDate, type);
         }
         public DataSet ShowDeposit(DateTime fromDate, DateTime tomDate)
         {

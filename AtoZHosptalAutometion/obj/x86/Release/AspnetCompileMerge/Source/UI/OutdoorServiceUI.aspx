@@ -171,6 +171,7 @@
                 success: function (data) {
                     if (data.d == 'true')
                         window.location.reload();
+                        //BindGridview();
                 },
                 error: function (data) {
                     alert("faield");
@@ -193,7 +194,7 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="titl-bar">
-                <p>A2Z Hospital Automation</p>
+                <p>Hospital Automation</p>
             </div>
             <div class="container">
                 <div class="row">
@@ -302,7 +303,7 @@
 
                                             <div class="form-inline">
                                                 <div class="form-group padding-bottom-10">
-                                                    <label class="control-label" for="#patientBox">Patien Code</label>
+                                                    <label class="control-label" for="#patientBox">Patient</label>
                                                     <asp:TextBox ID="patientBox" CssClass="form-control" runat="server"></asp:TextBox>
                                                     <cc1:AutoCompleteExtender ServiceMethod="SearchPatient"
                                                         MinimumPrefixLength="1"

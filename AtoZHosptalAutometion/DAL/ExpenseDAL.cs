@@ -71,7 +71,7 @@ namespace AtoZHosptalAutometion.DAL
             }
         }
 
-        public DataSet ShowExpense(DateTime fromDate, DateTime tomDate)
+        public DataSet ShowExpense(DateTime fromDate, DateTime tomDate, string type)
         {
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
@@ -81,13 +81,15 @@ namespace AtoZHosptalAutometion.DAL
                 string cs = WebConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
                 SqlConnection connection = new SqlConnection(cs);
 
-                string query = " select e.Description [Description], u.Name, CONVERT(date, CONVERT(varchar, e.ExpenseDate) , 20) ExpenseDate, e.Amount from Expenses e left join Users u on e.UpdatedBy = u.Id where  ExpenseDate between @startDate and @endDate";
+                string query = "select e.Description [Description], u.Name, CONVERT(date, CONVERT(varchar, e.ExpenseDate) , 20) ExpenseDate, e.Amount from Expenses e left join Users u on e.UpdatedBy = u.Id where [Description] like @type and  ExpenseDate between @startDate and @endDate";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@startDate", fromDate);
                     command.Parameters.AddWithValue("@endDate", tomDate);
+                    command.Parameters.AddWithValue("@type", "%"+type+"%");
                     connection.Open();
+
                     SqlDataAdapter da = new SqlDataAdapter(command);
                     da.Fill(dt);
                     dt.TableName = "Command";
