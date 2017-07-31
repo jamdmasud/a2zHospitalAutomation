@@ -49,6 +49,7 @@ namespace AtoZHosptalAutometion.UI
                     while (reader.Read())
                     {
                         MedicineStore store = new MedicineStore();
+                        store.MedicineId = Convert.ToInt32(reader["MedicineId"]);
                         store.Name = reader["Name"].ToString();
                         store.Code = reader["code"].ToString();
                         store.GroupName = reader["GroupName"].ToString();

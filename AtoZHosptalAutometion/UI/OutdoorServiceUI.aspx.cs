@@ -275,6 +275,7 @@ namespace AtoZHosptalAutometion.UI
         {
             try
             {
+                
                 ServiceBLL oServiceBll = new ServiceBLL();
                 ServiceDetails oDetails = new ServiceDetails();
 
@@ -291,6 +292,7 @@ namespace AtoZHosptalAutometion.UI
                     oDetails.Discount = txtDiscount.Value == "" ? 0 : Convert.ToDecimal(txtDiscount.Value);
                     oDetails.Amount = sumTotalLabel.Value == "" ? 0 : Convert.ToDecimal(sumTotalLabel.Value);
                     oDetails.UpdatedBy = UserId;
+                    
                     int invoiceId = oServiceBll.SaveOutDoorService(oDetails);
                     if (invoiceId > 0)
                     {
@@ -300,6 +302,9 @@ namespace AtoZHosptalAutometion.UI
                         printButton.PostBackUrl = "~/UI/ReportForm/OutdoorServiceRpt.aspx";
                         // show success massage
                         Response.Write("<script>alert('Bill submited successfully!');</script>");
+                        invoiceId = 0;
+                        oDetails = null;
+                        ClearField();
                     }
                     else
                     {
@@ -318,6 +323,16 @@ namespace AtoZHosptalAutometion.UI
                 successPanel.Visible = false;
                 faildLabel.Text = ex.Message;
             }
+        }
+
+        private void ClearField()
+        {
+            sumTotalLabel.Value = "";
+            txtGrandTotal.Value = "";
+            txtDiscount.Value = "";
+            txtAget.Text = "";
+            txtAdvance.Value = "";
+            txtDue.Value = "";
         }
 
 

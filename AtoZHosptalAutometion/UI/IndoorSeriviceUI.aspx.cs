@@ -324,6 +324,9 @@ namespace AtoZHosptalAutometion.UI
                         printButton.PostBackUrl = "~/UI/ReportForm/IndoorServiceViewer.aspx";
                         // show success massage
                         Response.Write("<script>alert('Bill submited successfully!');</script>");
+                        ClearField();
+                        invoiceId = 0;
+                        oDetails = null;
                     }
                     else
                     {
@@ -340,10 +343,17 @@ namespace AtoZHosptalAutometion.UI
             {
                 faildPanel.Visible = true;
                 successPanel.Visible = false;
-                faildLabel.Text = ex.InnerException.Message;
+                faildLabel.Text = ex.InnerException?.Message;
             }
-
-
+        }
+        private void ClearField()
+        {
+            sumTotalLabel.Value = "";
+            txtGrandTotal.Value = "";
+            txtDiscount.Value = "";
+            txtAget.Text = "";
+            txtAdvance.Value = "";
+            txtDue.Value = "";
         }
     }
 }

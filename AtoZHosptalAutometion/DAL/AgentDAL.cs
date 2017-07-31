@@ -55,7 +55,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.InnerException?.Message);
             }
         }
 
@@ -71,7 +71,7 @@ namespace AtoZHosptalAutometion.DAL
             }
             catch (Exception exception)
             {
-                throw new Exception(exception.InnerException.Message);
+                throw new Exception(exception.InnerException?.Message);
             }
         }
 

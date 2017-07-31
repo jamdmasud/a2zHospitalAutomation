@@ -38,6 +38,7 @@ namespace AtoZHosptalAutometion.UI
                 BindColumnToGridview();
             }
             ClearField();
+            this.Header.DataBind();
 
         }
 

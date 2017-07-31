@@ -90,7 +90,7 @@
 
         $(document).ready(function () {
 
-            $("#<%= particularTextbox.ClientID%>").focusout(function () {
+            $("#<%# particularTextbox.ClientID%>").focusout(function () {
                 rate = $('#particularTextbox').val();
                 //alert(rate);
                 GetRate(rate);
@@ -302,7 +302,7 @@
 
                                             <div class="form-inline">
                                                 <div class="form-group padding-bottom-10">
-                                                    <label class="control-label" for="<%= patientTextBox.ClientID %>">Patient</label>
+                                                    <label class="control-label" for="<%# patientTextBox.ClientID %>">Patient</label>
                                                     <asp:TextBox ID="patientTextBox" CssClass="form-control" runat="server"></asp:TextBox>
                                                     <cc1:AutoCompleteExtender ServiceMethod="SearchPatient"
                                                         MinimumPrefixLength="1"
@@ -312,7 +312,7 @@
                                                     </cc1:AutoCompleteExtender>
                                                 </div>
                                                 <div class="form-group padding-bottom-10">
-                                                    <label class="control-label" for="<%= doctorTextBox.ClientID %>">Doctor</label>
+                                                    <label class="control-label" for="<%# doctorTextBox.ClientID %>">Doctor</label>
                                                     <asp:TextBox ID="doctorTextBox" placeholder="Doctor Name" CssClass="form-control" runat="server"></asp:TextBox>
                                                     <cc1:AutoCompleteExtender ServiceMethod="SearchDoctor"
                                                         MinimumPrefixLength="1"

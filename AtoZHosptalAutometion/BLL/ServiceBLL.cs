@@ -51,7 +51,6 @@ namespace AtoZHosptalAutometion.BLL
             oHonorarium.InvoiceId = invoiceId;
             oHonorarium.UpdatedBy = oInvoice.UserId;
             oHonorarium.UpdatedDate = DateTime.Today;
-            oAgentDal.SaveOnorariam(oHonorarium);
             //Save vat in invoiceSub
             oInvoiceSub.Discount = serviceDetails.Discount;
             oInvoiceSub.Due = serviceDetails.Due;
@@ -63,7 +62,6 @@ namespace AtoZHosptalAutometion.BLL
             oInvoiceSub.TotalinWord = oFunctions.NumberToWord((int)oInvoiceSub.GrandTotal);
             oInvoiceSub.UpdatedDate = DateTime.Today;
             oInvoiceSub.UpdatedBy = oInvoice.UserId;
-            oServiceDal.SaveOutDoorInvoiceSub(oInvoiceSub);
             //Save income
             List<IncomeTamp> oIncomeTamps = oServiceDal.GetIncomeFromTamp(oInvoice.UserId);
             foreach (IncomeTamp income in oIncomeTamps)
@@ -79,12 +77,18 @@ namespace AtoZHosptalAutometion.BLL
                 oIncome.UpdatedDate = oInvoice.UpdatedDate;
                 oIncomes.Add(oIncome);
             }
-            saveAffect = oServiceDal.SaveOutDoorService(oIncomes);
+            if (oIncomes.Any() && Convert.ToInt32(oIncomes.Sum(a => a.Total)) == Convert.ToInt32(oInvoiceSub.Total))
+            {
+                oAgentDal.SaveOnorariam(oHonorarium);
+                oServiceDal.SaveOutDoorInvoiceSub(oInvoiceSub);
+                saveAffect = oServiceDal.SaveOutDoorService(oIncomes);
             //remove incomeTamp
-            removeAffect = oServiceDal.RemoveIncomTamp(oInvoice.UserId);
+                removeAffect = oServiceDal.RemoveIncomTamp(oInvoice.UserId);
+            }
+            
             bool result  = (saveAffect > 0 && removeAffect != 0);
-
-            return invoiceId;
+            
+            return result == true ? invoiceId : 0;
         }
 
         public int SaveIndoorServices(ServiceDetails serviceDetails)
@@ -127,8 +131,7 @@ namespace AtoZHosptalAutometion.BLL
             oHonorarium.Honorarium1 = serviceDetails.Honouriam;
             oHonorarium.InvoiceId = invoiceId;
             oHonorarium.UpdatedBy = oInvoice.UserId;
-            oHonorarium.UpdatedDate = DateTime.Today;
-            oAgentDal.SaveOnorariam(oHonorarium);
+            oHonorarium.UpdatedDate = DateTime.Today; 
 
            
 
@@ -142,8 +145,7 @@ namespace AtoZHosptalAutometion.BLL
             oInvoiceSub.Paid = serviceDetails.Paid;
             oInvoiceSub.TotalinWord = oFunctions.NumberToWord((int)oInvoiceSub.GrandTotal);
             oInvoiceSub.UpdatedDate = DateTime.Today;
-            oInvoiceSub.UpdatedBy = oInvoice.UserId;
-            oServiceDal.SaveOutDoorInvoiceSub(oInvoiceSub);
+            oInvoiceSub.UpdatedBy = oInvoice.UserId; 
             //Save income
             List<IndoorIncomeTamp> oIncomeTamps = oServiceDal.GetIncomeFromIndoorTamp(oInvoice.UserId);
             foreach (IndoorIncomeTamp income in oIncomeTamps)
@@ -159,12 +161,18 @@ namespace AtoZHosptalAutometion.BLL
                 oIncome.UpdatedDate = oInvoice.UpdatedDate;
                 oIncomes.Add(oIncome);
             }
-            saveAffect = oServiceDal.SaveInDoorService(oIncomes);
-            //remove incomeTamp
-            removeAffect = oServiceDal.RemoveIndoorIncomTamp(oInvoice.UserId);
+            if (oIncomes.Any() && Convert.ToInt32(oIncomes.Sum(a => a.Total)) == Convert.ToInt32(oInvoiceSub.Total))
+            {
+                oAgentDal.SaveOnorariam(oHonorarium);
+                oServiceDal.SaveOutDoorInvoiceSub(oInvoiceSub);
+                saveAffect = oServiceDal.SaveOutDoorService(oIncomes);
+                //remove incomeTamp
+                removeAffect = oServiceDal.RemoveIncomTamp(oInvoice.UserId);
+            }
             bool result = (saveAffect > 0 && removeAffect != 0);
-
+            if(result)
             return invoiceId;
+           return 0;
         }
 
         public DataSet GetOutdoorServiceData(int invoiceId)

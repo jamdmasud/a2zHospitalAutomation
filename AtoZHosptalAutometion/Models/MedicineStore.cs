@@ -7,6 +7,7 @@ namespace AtoZHosptalAutometion.Models
 {
     public class MedicineStore
     {
+        public int MedicineId { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string GroupName { get; set; }

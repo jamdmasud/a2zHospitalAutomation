@@ -193,7 +193,7 @@ namespace AtoZHosptalAutometion.DAL
             {
                 string cs = WebConfigurationManager.ConnectionStrings["HospitalDb"].ConnectionString;
                 SqlConnection connection = new SqlConnection(cs);
-                string query = "spIndoorService";
+                string query = "spOutdoorService";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;

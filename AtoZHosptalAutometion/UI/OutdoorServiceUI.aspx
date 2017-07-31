@@ -17,8 +17,7 @@
         var count = 1, rate = 0;
         
         $(function () {
-            BindGridview();
-            
+            BindGridview(); 
             var height = $('body').height();
             $('.side-bar').css("height", height);
         });
@@ -93,10 +92,10 @@
 
 
         $(document).ready(function () {
-            $("#<%= particularTextbox.ClientID%>").focusin(function () {
+            $("#<%# particularTextbox.ClientID%>").focusin(function () {
                 $(this).css("background-color", "#FFFFCC");
             });
-            $("#<%= particularTextbox.ClientID%>").focusout(function () {
+            $("#<%# particularTextbox.ClientID%>").focusout(function () {
                 rate = $('#particularTextbox').val();
                 //alert(v);
                 GetRate(rate);
@@ -160,8 +159,7 @@
         }
         function insertupdatedata(id, particular, quantity, rate, total, status) {
             if (prodid != 0 && opstatus == 'UPDATE')
-                id = prodid;
-
+                id = prodid; 
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",

@@ -221,7 +221,26 @@
     <script>
         $(function () {
             //$("#datepicker").datepicker();
-            $('#txtExpenseDate').datepicker().datepicker("setDate", new Date());
+            $('#txtExpenseDate').datepicker({
+                dateFormat: 'yy/mm/dd',
+                onSelect: function (datetext) {
+
+                    var d = new Date(); // for now
+
+                    var h = d.getHours();
+                    h = (h < 10) ? ("0" + h) : h;
+
+                    var m = d.getMinutes();
+                    m = (m < 10) ? ("0" + m) : m;
+
+                    var s = d.getSeconds();
+                    s = (s < 10) ? ("0" + s) : s;
+
+                    datetext = datetext + " " + h + ":" + m + ":" + s;
+
+                    $('#txtExpenseDate').val(datetext);
+                }
+            }).datepicker("setDate", new Date());
             $('#txtDescription').autocomplete({
                 source: ["Dr. Food", "Salary", "Duty Doctor", "Honorarium", "Surgical Equipment", "X-ray Report",
                 "Marketing", "shop", "Miking", "Surgion+Enestray", "Oxygen", "Altransno", "Electric Bill", "Printing Bill",

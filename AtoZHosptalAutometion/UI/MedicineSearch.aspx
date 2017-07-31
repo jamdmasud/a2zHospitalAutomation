@@ -133,6 +133,9 @@
                                     <asp:TemplateField HeaderText="Balance">
                                         <ItemTemplate><%# Eval("Balance") %></ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Action">
+                                        <ItemTemplate><a href="<%# "/UI/MedicineHistory.aspx?id="+Eval("MedicineId") %>">Show</a></ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>
